@@ -1,27 +1,34 @@
 <template>
+<div>
+<h1> Add an Exercise</h1>
+
   <form>
     <div class="add-workout-form">
     <label for="name">Name:</label>
-    <input id="name" type="text" />
+    <input id="name" type="text" v-model="exercise.name" />
     </div>
     <div class="add-workout-form">
-    <label for="description">Description</label>
-    <textarea id="description" rows="10" cols="50" />
+    <label for="description">Description:</label>
+    <textarea id="description" rows="10" cols="50" v-model="exercise.description" />
     </div>
     <div class="add-workout-form">
-    <label for="weight">Suggested Weight:</label>
-    <input id="weight" type="text" />
+    <label for="weight">Suggested Weight (lbs):</label>
+    <input id="weight" type="text" v-model="exercise.suggestedWeight"/>
     </div>
     <div class="add-workout-form">
     <label for="sets">Sets:</label>
-    <input id="sets" type="text" />
+    <input id="sets" type="text" v-model="exercise.sets" />
     </div>
     <div class="add-workout-form">
     <label for="reps">Reps:</label>
-    <input id="reps" type="text" />
+    <input id="reps" type="text" v-model="exercise.reps"/>
+    </div>
+     <div class="add-workout-form">
+    <label for="time">Amount of Time (min):</label>
+    <input id="time" type="text" v-model="exercise.sets" />
     </div>
     <div class="add-workout-form">
-    <select id="tag">
+    <select id="bodyTargetId" v-model="exercise.bodyTargetId">
       <option value="1">Legs</option>
       <option value="2">Back</option>
       <option value="3">Chest</option>
@@ -34,6 +41,7 @@
       <button type="submit" v-on:click="saveExercise()">Save Exercise</button>
     </div>
   </form>
+</div>
 </template>
 
 <script>
@@ -58,8 +66,14 @@ export default {
     saveExercise() {
       exerciseService
         .addExercise(this.exercise)
-        .then((response) => { alert (response)})
-        .catch((error) => { alert (error)});
+        .then((response) => { 
+          if(response.status === 201){
+            this.$router.push('/');
+          }
+        })
+        .catch((error) => { 
+          this.handleErrorResponse(error, "adding");
+        });
     },
 
     handleErrorResponse(error, verb) {
@@ -83,4 +97,6 @@ export default {
 </script>
 
 <style>
+
+
 </style>
