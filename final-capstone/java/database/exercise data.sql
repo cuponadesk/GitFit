@@ -1,5 +1,10 @@
 drop table Exercise;
 
+                
+create table body_target ( 
+                body_target_id serial PRIMARY KEY unique,
+                body_target varchar(64) NOT NULL);
+
 
 CREATE table Exercise ( 
                 id serial PRIMARY KEY unique,
@@ -12,10 +17,7 @@ CREATE table Exercise (
                 body_target_id int NOT NULL,
                 constraint fk_body_target FOREIGN KEY (body_target_id) references body_target(body_target_id) );
                 
-                
-create table body_target ( 
-                body_target_id serial PRIMARY KEY unique,
-                body_target varchar(64) NOT NULL);
+
                 
 INSERT INTO body_target(body_target)
 VALUES('legs'), ('back'), ('chest'), ('arms'), ('cardio'), ('full body');
