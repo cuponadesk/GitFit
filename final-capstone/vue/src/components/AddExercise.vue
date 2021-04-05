@@ -2,7 +2,7 @@
 <div>
 <h1> Add an Exercise</h1>
 
-  <form>
+  <form v-on:prevent= "saveExercise">
     <div class="add-workout-form">
     <label for="name">Name:</label>
     <input id="name" type="text" v-model="exercise.name" />
@@ -12,7 +12,7 @@
     <textarea id="description" rows="10" cols="50" v-model="exercise.description" />
     </div>
     <div class="add-workout-form">
-    <label for="weight">Suggested Weight (lbs):</label>
+    <label for="weight">Suggested Weight &#40;lbs&#41;:</label>
     <input id="weight" type="text" v-model="exercise.suggestedWeight"/>
     </div>
     <div class="add-workout-form">
@@ -24,14 +24,14 @@
     <input id="reps" type="text" v-model="exercise.reps"/>
     </div>
      <div class="add-workout-form">
-    <label for="time">Amount of Time (min):</label>
-    <input id="time" type="text" v-model="exercise.sets" />
+    <label for="time">Amount of Time &#40;min&#41;:</label>
+    <input id="time" type="text" v-model="exercise.time" />
     </div>
     <div class="add-workout-form">
     <select id="bodyTargetId" v-model="exercise.bodyTargetId">
       <option value="1">Legs</option>
       <option value="2">Back</option>
-      <option value="3">Chest</option>
+      <option value="3"> 3</option>
       <option value="4">Arms</option>
       <option value="5">Cardio</option>
       <option value="6">Full Body</option>

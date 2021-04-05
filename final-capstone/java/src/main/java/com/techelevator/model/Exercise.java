@@ -8,7 +8,7 @@ public class Exercise {
     private int reps;
     private int sets;
     private int time;
-    private String bodyTarget;
+//    private String bodyTarget;
     private int bodyTargetId;
 
     public String getName() {
@@ -67,13 +67,13 @@ public class Exercise {
         this.time = time;
     }
 
-    public String getBodyTarget() {
-        return bodyTarget;
-    }
-
-    public void setBodyTarget(String bodyTarget) {
-        this.bodyTarget = bodyTarget;
-    }
+//    public String getBodyTarget() {
+//        return bodyTarget;
+//    }
+//
+//    public void setBodyTarget(String bodyTarget) {
+//        this.bodyTarget = bodyTarget;
+//    }
 
     public int getBodyTargetId() {
         return bodyTargetId;
