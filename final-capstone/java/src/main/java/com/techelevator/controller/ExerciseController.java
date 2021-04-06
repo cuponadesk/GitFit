@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 //@PreAuthorize("isAuthenticated()")
@@ -20,14 +22,26 @@ public class ExerciseController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/addExercise", method = RequestMethod.POST)
+    @RequestMapping(path = "/exercise/add", method = RequestMethod.POST)
     public boolean addExercise(@RequestBody Exercise exercise){
        return exerciseDAO.addExercise(exercise);
     }
 
-//    @ResponseStatus(HttpStatus.)
-    @RequestMapping(path = "/updateExercise", method = RequestMethod.PUT)
-    public boolean updateExercise(@RequestBody Exercise exercise){
-        return exerciseDAO.updateExercise(exercise);
+    @RequestMapping(path = "/exercise/{id}", method = RequestMethod.PUT)
+    public boolean updateExercise(@RequestBody Exercise exercise, @PathVariable int id){
+        return exerciseDAO.updateExercise(exercise, id);
     }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/exercise/{id}", method = RequestMethod.DELETE)
+    public boolean updateExercise( @PathVariable int id){
+        return exerciseDAO.deleteExercise(id);
+    }
+
+    @RequestMapping(path = "/exercise", method = RequestMethod.GET)
+    public List<Exercise> getAllExercises() {
+        return exerciseDAO.listAllExercises();
+    }
+
+
 }
