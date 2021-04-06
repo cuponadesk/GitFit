@@ -9,6 +9,7 @@ import Exercise from '@/views/ExerciseView.vue'
 import List from '@/views/List.vue'
 
 
+
 Vue.use(Router)
 
 /**
@@ -79,7 +80,15 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    }
+    },
+    {
+      path: "/exercise/delete/:id",
+      name: "delete",
+      component: Delete,
+      meta: {
+        requiresAuth: true
+      }
+    },
   ]
 })
 

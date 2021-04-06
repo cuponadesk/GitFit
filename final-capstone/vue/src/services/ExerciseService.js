@@ -16,5 +16,8 @@ const http = axios.create({
     },
     listExercises() {
       return http.get(`/exercises`);
+    },
+    deleteExercise(exercise){
+      return http.delete(`/exercises`);
     }
   }

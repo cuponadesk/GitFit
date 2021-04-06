@@ -46,6 +46,10 @@
         <button type="submit" v-on:click.prevent="saveExercise()">
           Save Exercise
         </button>
+     
+      <button type="submit" v-on:click.prevent="deleteExercise()">
+          Delete Exercise
+        </button>
       </div>
     </form>
   </div>
@@ -107,6 +111,37 @@ export default {
           .catch((error) => {
             console.log(error);
             this.handleErrorResponse(error, "editing");
+          });
+      }
+    },
+    //delete an exercise
+    deleteExercise() {
+      if (
+        confirm(
+          "Are you sure you want to delete this exercise? Your body may regret this."
+        )
+      ) {
+        ExerciseService
+          .deleteExercise(this.exercise.id)
+          .then(response => {
+            if (response.status === 200) {
+              alert("Exercise successfully deleted (Remember to stay healthy)");
+              this.$router.push('/exercises');
+            }
+          })//if error occurs deleting exercise on server or request
+          .catch(error => {
+            if (error.response) {
+              this.errorMsg =
+                "Error deleting your exercise . Response received was '" +
+                error.response.statusText +
+                "'.";
+            } else if (error.request) {
+              this.errorMsg =
+                "Error deleting exercise. Server could not be reached.";
+            } else {
+              this.errorMsg =
+                "Error deleting exercise. Request could not be created.";
+            }
           });
       }
     },
