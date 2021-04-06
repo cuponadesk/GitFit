@@ -84,7 +84,7 @@ const router = new Router({
     {
       path: "/exercise/delete/:id",
       name: "delete",
-      component: Delete,
+      component: Exercise,
       meta: {
         requiresAuth: true
       }
