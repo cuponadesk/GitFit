@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1>Add an Exercise</h1>
+    <h1>{{ Title }}</h1>
 
-    <form v-on:prevent="saveExercise">
+    <form>
       <div class="add-workout-form">
         <label for="name">Name:</label>
         <input id="name" type="text" v-model="exercise.name" />
@@ -43,7 +43,9 @@
         </select>
       </div>
       <div class="actions">
-        <button type="submit" v-on:click="saveExercise()">Save Exercise</button>
+        <button type="submit" v-on:click.prevent="saveExercise()">
+          Save Exercise
+        </button>
       </div>
     </form>
   </div>
@@ -64,70 +66,74 @@ export default {
         sets: "",
         time: "",
         bodyTargetId: "",
+        id: 0,
       },
     };
   },
+  created() {
+    this.exercise.id = this.$route.params.id;
+    ExerciseService.listExercises().then((response) => {
+      response.data.filter((e) => {
+        console.log(e);
+        if (e.id === this.$route.params.id) {
+          this.exercise = e;
+        }
+      });
+    });
+    console.log(this.exercise);
+  },
   methods: {
     saveExercise() {
-      const exercise = {
-      name: this.exerciseName,
-      description: this.exerciseDescription,
-      suggestedWeight: this.exerciseSuggestedWeight,
-      reps: this.exerciseReps,
-      sets: this.exerciseSets,
-      time: this.exerciseTime,
-      bodyTargetId: this.exerciseBodyTargetId,
-      };
-      if (this.exerciseBodyTargetId ===0){
-      //add Exercise
-      ExerciseService
-        .addExercise(this.exercise)
-        .then((response) => {
-          if (response.status === 201) {
-            this.$router.push("/");
-          }
-        })
-        .catch((error) => {
-          this.handleErrorResponse(error, "adding");
-        });
+      if (this.exercise.id === 0) {
+        //add Exercise
+        ExerciseService.addExercise(this.exercise)
+          .then((response) => {
+            if (response.status === 201) {
+              this.$router.push("/exercises");
+            }
+          })
+          .catch((error) => {
+            this.handleErrorResponse(error, "adding");
+          });
         //Edit Exercise(update)
-    } else {
-      exercise.name= this.exerciseName;
-      exercise.description= this.exerciseDescription;
-      exercise.suggestedWeight- this.exerciseSuggestedWeight;
-      exercise.reps= this.exerciseReps;
-      exercise.sets= this.exerciseSets;
-      exercise.exerciseTime = this.exerciseTime;
-      exercise.bodyTargetId= this.exerciseBodyTargetId;
-        ExerciseService
-          .updateExercise(exercise)
-          .then(response => {
+      } else {
+        console.log(this.exercise);
+        ExerciseService.editExercise(this.exercise)
+          .then((response) => {
             if (response.status === 200) {
               this.$router.push(`/exercises`);
             }
           })
-          .catch(error => {
+          .catch((error) => {
+            console.log(error);
             this.handleErrorResponse(error, "editing");
           });
       }
     },
-   
+
     handleErrorResponse(error, verb) {
       if (error.response) {
         this.errorMsg =
-          "Error " + verb + " card. Response received was '" +
+          "Error " +
+          verb +
+          " exercise. Response received was '" +
           error.response.statusText +
           "'.";
       } else if (error.request) {
         this.errorMsg =
-          "Error " + verb + " card. Server could not be reached.";
+          "Error " + verb + " exercise. Server could not be reached.";
       } else {
         this.errorMsg =
-          "Error " + verb + " card. Request could not be created.";
+          "Error " + verb + " exercise. Request could not be created.";
       }
+    },
+  },
+  computed: {
+    Title() {
+      return (this.exercise.id == 0? "Add an exercise" : "Edit an exercise");
     }
-}}
+  }
+};
 </script>
 
-<style>
-</style>
+<style></style>

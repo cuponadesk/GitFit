@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Exercise from '@/views/ExerciseView.vue'
+import List from '@/views/List.vue'
 
 
 Vue.use(Router)
@@ -64,7 +65,7 @@ const router = new Router({
       }
     },
     {
-      path: "/exercise/edit",
+      path: "/exercise/edit/:id",
       name: "edit",
       component: Exercise,
       meta: {
