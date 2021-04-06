@@ -82,22 +82,18 @@ export default {
     },
     editExercise() {
       //update exercise
-      newExercise.name = this.exerciseName;
-      newExercise.description = this.exerciseDescription;
-      newExercise.suggestedWeight = this.exerciseSuggestedWeight;
-      newExercise.reps = this.exerciseReps;
-      newExercise.sets = this.exerciseSets;
-      newExercise.time = this.exerciseTime;
-      newExercise.bodyTargetId = this.exerciseBodyTargetId;
-      exerciseService.updateExercise(newExercise).then(response => {
+      const exercise = {
+      name: this.exerciseName,
+      description: this.exerciseDescription,
+      suggestedWeight: this.exerciseSuggestedWeight,
+      reps: this.exerciseReps,
+      sets: this.exerciseSets,
+      time: this.exerciseTime,
+      bodyTargetId: this.exerciseBodyTargetId,
+      };
+      exerciseService.updateExercise(exercise).then(response => {
         if(response.status === 200) {
-          this.$router.push(`/exercise/${newExercise.exerciseName}`);
-          this.$router.push(`/exercise/${newExercise.exerciseDescription}`);
-          this.$router.push(`/exercise/${newExercise.exerciseSuggestedWeight}`);
-          this.$router.push(`/exercise/${newExercise.exerciseReps}`);
-          this.$router.push(`/exercise/${newExercise.exerciseSets}`);
-          this.$router.push(`/exercise/${newExercise.exerciseTime}`);
-          this.$router.push(`/exercise/${newExercise.exerciseBodyTargetId}`);
+          this.$router.push(`/exercise/${exercise.id}`);
         }
       })
       .catch(error => {

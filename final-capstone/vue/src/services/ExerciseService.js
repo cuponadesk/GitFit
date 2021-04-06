@@ -8,10 +8,10 @@ const http = axios.create({
   export default{
 
     addExercise(exercise){
-        return http.post('/addExercise', exercise);
+        return http.post('/exercise/add', exercise);
     },
 
     editExercise(exercise) {
-      return http.put(`/editExercise/${exercise.id}`, exercise)
+      return http.put(`/exercise/${exercise.id}`, exercise)
     }
   }
