@@ -23,6 +23,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 
 
 drop table Exercise;
+drop table body_target;
 
                 
 create table body_target ( 

@@ -13,5 +13,8 @@ const http = axios.create({
 
     editExercise(exercise) {
       return http.put(`/exercise/${exercise.id}`, exercise)
+    },
+    listExercises() {
+      return http.get(`/exercises`);
     }
   }

@@ -70,6 +70,14 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: "/exercises",
+      name: "list",
+      component: List,
+      meta: {
+        requiresAuth: false
+      }
     }
   ]
 })

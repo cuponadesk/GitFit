@@ -38,7 +38,7 @@ public class ExerciseController {
         return exerciseDAO.deleteExercise(id);
     }
 
-    @RequestMapping(path = "/exercise", method = RequestMethod.GET)
+    @RequestMapping(path = "/exercises", method = RequestMethod.GET)
     public List<Exercise> getAllExercises() {
         return exerciseDAO.listAllExercises();
     }
