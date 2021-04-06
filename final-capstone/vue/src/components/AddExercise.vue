@@ -70,17 +70,47 @@ export default {
       },
     };
   },
-  created() {
+  mounted() {
     this.exercise.id = this.$route.params.id;
     ExerciseService.listExercises().then((response) => {
       response.data.filter((e) => {
-        console.log(e);
         if (e.id === this.$route.params.id) {
           this.exercise = e;
         }
       });
     });
-    console.log(this.exercise);
+    if(this.$route.path == "/exercise/add") {
+      console.log("here");
+      this.exercise.name = "";
+      this.exercise.description = "";
+      this.exercise.suggestedWeight = "";
+      this.exercise.reps = "";
+      this.exercise.sets = "";
+      this.exercise.time = "";
+      this.exercise.bodyTargetId = "";
+      this.exercise.id = 0;
+    }
+  },
+  created() {
+    this.exercise.id = this.$route.params.id;
+    ExerciseService.listExercises().then((response) => {
+      response.data.filter((e) => {
+        if (e.id === this.$route.params.id) {
+          this.exercise = e;
+        }
+      });
+    });
+    if(this.$route.path == "/exercise/add") {
+      console.log("here");
+      this.exercise.name = "";
+      this.exercise.description = "";
+      this.exercise.suggestedWeight = "";
+      this.exercise.reps = "";
+      this.exercise.sets = "";
+      this.exercise.time = "";
+      this.exercise.bodyTargetId = "";
+      this.exercise.id = 0;
+    }
   },
   methods: {
     saveExercise() {
@@ -97,7 +127,6 @@ export default {
           });
         //Edit Exercise(update)
       } else {
-        console.log(this.exercise);
         ExerciseService.editExercise(this.exercise)
           .then((response) => {
             if (response.status === 200) {
@@ -130,7 +159,7 @@ export default {
   },
   computed: {
     Title() {
-      return (this.exercise.id == 0? "Add an exercise" : "Edit an exercise");
+      return (this.$route.path == "/exercise/add" ? "Add an exercise" : "Edit an exercise");
     }
   }
 };

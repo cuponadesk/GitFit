@@ -74,7 +74,7 @@ const router = new Router({
     },
     {
       path: "/exercises",
-      name: "list",
+      name: "List",
       component: List,
       meta: {
         requiresAuth: false
