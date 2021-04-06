@@ -9,14 +9,18 @@
     </thead>
     <tbody>
       <tr v-for="e in this.exercises" v-bind:key="e.id">
-        <td>{{e.name}}</td>
-        <td>{{e.body_target}}</td>
-        <td>{{e.sets}}</td>
-        <td>{{e.reps}}</td>
-        <td><router-link 
-           v-bind:to="{ name: 'edit' ,params: {id: e.id}}">
-           Edit
-        </router-link></td>
+        <td>{{ e.name }}</td>
+        <td>{{ e.body_target }}</td>
+        <td>{{ e.sets }}</td>
+        <td>{{ e.reps }}</td>
+        <td>
+          <router-link v-bind:to="{ name: 'edit', params: { id: e.id } }">
+            Edit
+          </router-link>
+        </td>
+        <td>
+          <button type="button" v-on:click="deleteExercise(e)">Delete</button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -61,17 +65,60 @@ export default {
     }); //end promise
   }, //end created
   methods: {
-    saveExercise() {
+    // saveExercise() {
+    //   exerciseService
+    //     .addExercise(this.exercise)
+    //     .then((response) => {
+    //       if (response.status === 201) {
+    //         this.$router.push("/");
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       this.handleErrorResponse(error, "adding");
+    //     });
+    // },
+    deleteExercise(exercise) {
+      console.log(exercise);
       exerciseService
-        .addExercise(this.exercise)
+        .deleteExercise(exercise)
         .then((response) => {
-          if (response.status === 201) {
-            this.$router.push("/");
+          if (response.status === 204) {
+            alert("Exercise successfully deleted.");
           }
         })
         .catch((error) => {
           this.handleErrorResponse(error, "adding");
         });
+      console.log("here");
+
+      exerciseService.listExercises().then((response) => {
+        this.exercises = response.data;
+        this.exercises.forEach((e) => {
+          switch (e.body_target_id) {
+            case 1:
+              e.body_target = "Legs";
+              break;
+            case 2:
+              e.body_target = "Back";
+              break;
+            case 3:
+              e.body_target = "Chest";
+              break;
+            case 4:
+              e.body_target = "Arms";
+              break;
+            case 5:
+              e.body_target = "Cardio";
+              break;
+            case 6:
+              e.body_target = "Full Body";
+              break;
+            default:
+              e.body_target = "Other";
+          }
+        });
+        //end for
+      }); //end promise
     },
   },
   computed: {
