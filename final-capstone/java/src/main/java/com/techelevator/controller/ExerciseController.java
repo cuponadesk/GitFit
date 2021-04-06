@@ -24,4 +24,10 @@ public class ExerciseController {
     public boolean addExercise(@RequestBody Exercise exercise){
        return exerciseDAO.addExercise(exercise);
     }
+
+//    @ResponseStatus(HttpStatus.)
+    @RequestMapping(path = "/updateExercise", method = RequestMethod.PUT)
+    public boolean updateExercise(@RequestBody Exercise exercise){
+        return exerciseDAO.updateExercise(exercise);
+    }
 }
