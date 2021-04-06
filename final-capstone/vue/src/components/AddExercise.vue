@@ -1,47 +1,52 @@
 <template>
-<div>
-<h1> Add an Exercise</h1>
+  <div>
+    <h1>Add an Exercise</h1>
 
-  <form v-on:prevent= "saveExercise">
-    <div class="add-workout-form">
-    <label for="name">Name:</label>
-    <input id="name" type="text" v-model="exercise.name" />
-    </div>
-    <div class="add-workout-form">
-    <label for="description">Description:</label>
-    <textarea id="description" rows="10" cols="50" v-model="exercise.description" />
-    </div>
-    <div class="add-workout-form">
-    <label for="weight">Suggested Weight &#40;lbs&#41;:</label>
-    <input id="weight" type="text" v-model="exercise.suggestedWeight"/>
-    </div>
-    <div class="add-workout-form">
-    <label for="sets">Sets:</label>
-    <input id="sets" type="text" v-model="exercise.sets" />
-    </div>
-    <div class="add-workout-form">
-    <label for="reps">Reps:</label>
-    <input id="reps" type="text" v-model="exercise.reps"/>
-    </div>
-     <div class="add-workout-form">
-    <label for="time">Amount of Time &#40;min&#41;:</label>
-    <input id="time" type="text" v-model="exercise.time" />
-    </div>
-    <div class="add-workout-form">
-    <select id="bodyTargetId" v-model="exercise.bodyTargetId">
-      <option value="1">Legs</option>
-      <option value="2">Back</option>
-      <option value="3"> 3</option>
-      <option value="4">Arms</option>
-      <option value="5">Cardio</option>
-      <option value="6">Full Body</option>
-    </select>
-    </div>
-    <div class="actions">
-      <button type="submit" v-on:click="saveExercise()">Save Exercise</button>
-    </div>
-  </form>
-</div>
+    <form v-on:prevent="saveExercise">
+      <div class="add-workout-form">
+        <label for="name">Name:</label>
+        <input id="name" type="text" v-model="exercise.name" />
+      </div>
+      <div class="add-workout-form">
+        <label for="description">Description:</label>
+        <textarea
+          id="description"
+          rows="10"
+          cols="50"
+          v-model="exercise.description"
+        />
+      </div>
+      <div class="add-workout-form">
+        <label for="weight">Suggested Weight &#40;lbs&#41;:</label>
+        <input id="weight" type="text" v-model="exercise.suggestedWeight" />
+      </div>
+      <div class="add-workout-form">
+        <label for="sets">Sets:</label>
+        <input id="sets" type="text" v-model="exercise.sets" />
+      </div>
+      <div class="add-workout-form">
+        <label for="reps">Reps:</label>
+        <input id="reps" type="text" v-model="exercise.reps" />
+      </div>
+      <div class="add-workout-form">
+        <label for="time">Amount of Time &#40;min&#41;:</label>
+        <input id="time" type="text" v-model="exercise.time" />
+      </div>
+      <div class="add-workout-form">
+        <select id="bodyTargetId" v-model="exercise.bodyTargetId">
+          <option value="1">Legs</option>
+          <option value="2">Back</option>
+          <option value="3">3</option>
+          <option value="4">Arms</option>
+          <option value="5">Cardio</option>
+          <option value="6">Full Body</option>
+        </select>
+      </div>
+      <div class="actions">
+        <button type="submit" v-on:click="saveExercise()">Save Exercise</button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -66,14 +71,38 @@ export default {
     saveExercise() {
       exerciseService
         .addExercise(this.exercise)
-        .then((response) => { 
-          if(response.status === 201){
-            this.$router.push('/');
+        .then((response) => {
+          if (response.status === 201) {
+            this.$router.push("/");
           }
         })
-        .catch((error) => { 
+        .catch((error) => {
           this.handleErrorResponse(error, "adding");
         });
+    },
+    editExercise() {
+      //update exercise
+      newExercise.name = this.exerciseName;
+      newExercise.description = this.exerciseDescription;
+      newExercise.suggestedWeight = this.exerciseSuggestedWeight;
+      newExercise.reps = this.exerciseReps;
+      newExercise.sets = this.exerciseSets;
+      newExercise.time = this.exerciseTime;
+      newExercise.bodyTargetId = this.exerciseBodyTargetId;
+      exerciseService.updateExercise(newExercise).then(response => {
+        if(response.status === 200) {
+          this.$router.push(`/exercise/${newExercise.exerciseName}`);
+          this.$router.push(`/exercise/${newExercise.exerciseDescription}`);
+          this.$router.push(`/exercise/${newExercise.exerciseSuggestedWeight}`);
+          this.$router.push(`/exercise/${newExercise.exerciseReps}`);
+          this.$router.push(`/exercise/${newExercise.exerciseSets}`);
+          this.$router.push(`/exercise/${newExercise.exerciseTime}`);
+          this.$router.push(`/exercise/${newExercise.exerciseBodyTargetId}`);
+        }
+      })
+      .catch(error => {
+        this.handleErrorResponse(error, "editing");
+      })
     },
 
     handleErrorResponse(error, verb) {
@@ -97,6 +126,4 @@ export default {
 </script>
 
 <style>
-
-
 </style>

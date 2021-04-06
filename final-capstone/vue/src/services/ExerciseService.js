@@ -9,5 +9,9 @@ const http = axios.create({
 
     addExercise(exercise){
         return http.post('/addExercise', exercise);
+    },
+
+    editExercise(exercise) {
+      return http.put(`/editExercise/${exercise.id}`, exercise)
     }
   }
