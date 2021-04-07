@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 <template>
   <div id="app">
     <div id="nav">
@@ -60,10 +61,59 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
               Login
             </button>
+
           </form>
         </div>
       </nav>
     </div>
+    <body>
+     <div id="terminal">
+        <h5>Terminal</h5>
+        <p class="git-fit">git fit - <span class ="git-fit" style="color: #F9F871">be your best version</span></p>
+    </div>
+    </body>
     <router-view />
   </div>
 </template>
+<style>
+body{
+  padding: 40px;
+  background-color: white;  
+}
+
+p  {
+  border-right: solid 3px rgba(0,255,0,.75);
+  white-space: nowrap;
+  overflow: hidden;    
+  font-family: 'Source Code Pro', monospace;  
+  font-size: 28px;
+  color: #06BADD;
+}
+
+/* Animation */
+p {
+  animation: animated-text 4s steps(29,end) 1s 1 normal both,
+             animated-cursor 600ms steps(29,end) infinite;
+}
+
+/* text animation */
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 502px;}
+}
+
+/* cursor animations */
+@keyframes animated-cursor{
+  from{border-right-color: rgba(0,255,0,.75);}
+  to{border-right-color: transparent;}
+}
+
+div .terminal {
+  background-color: black;
+  height: 20vh;
+  color: white;
+  font: 1.3rem Inconsolata, monospace;
+}  
+
+
+</style>
