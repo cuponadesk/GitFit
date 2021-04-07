@@ -1,6 +1,7 @@
 <template>
   <div class="welcome">
-    <h1>Welcome</h1> <p> Push your body, you'll pull the rewards!</p>
+    <h1>Welcome</h1>
+    <p id="welcome-slogan"> Push your body, you'll pull the rewards!</p>
     <!--insert windows terminal animation-->
     
     <h2> Our Story</h2>
@@ -28,5 +29,13 @@ export default {
 </script>
 
 <style>
+
+p#welcome-slogan {
+  color: black;
+  size: 10rem;
+  animation: none;
+
+}
+
 
 </style>
