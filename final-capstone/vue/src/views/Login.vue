@@ -74,3 +74,10 @@ export default {
   }
 };
 </script>
+<style scoped>
+
+.form-control{
+  width: 25%;
+}
+
+</style>
