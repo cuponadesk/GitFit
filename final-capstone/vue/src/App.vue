@@ -3,7 +3,7 @@
   <div id="app">
     <div id="nav">
      
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-xl">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark container-xl">
         <a class="navbar-brand" href="#">GIT Fit</a>
         <button
           class="navbar-toggler"
@@ -19,10 +19,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <router-link v-bind:to="{ name: 'home' }" class="nav-link">Home <span class="sr-only">(current)</span></router-link>
+              <router-link v-bind:to="{ name: 'home' }" class="nav-link"
+                >Home <span class="sr-only">(current)</span></router-link
+              >
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-            <li class="nav-item dropdown">
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/exercises">Exercises</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -43,9 +50,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+            </li> -->
           </ul>
-          <form class="form-inline my-2 my-lg-0">
+          <!-- <form class="form-inline my-2 my-lg-0">
             <input
               class="form-control mr-sm-2"
               type="text"
@@ -62,31 +69,30 @@
               Login
             </button>
 
-          </form>
+          </form> -->
         </div>
       </nav>
     </div>
-    <body>
+        <div class="section">
+      <div class="container">
+        <div class="row">
      <div id="terminal">
         <h5>Terminal</h5>
         <p class="git-fit">git fit - <span class ="git-fit" style="color: #F9F871">be your best version</span></p>
     </div>
-    </body>
+    </div></div></div>
+
     <router-view />
   </div>
 </template>
 <style>
-body{
-  padding: 40px;
-  background-color: white;  
-}
 
 p  {
   border-right: solid 3px rgba(0,255,0,.75);
   white-space: nowrap;
   overflow: hidden;    
   font-family: 'Source Code Pro', monospace;  
-  font-size: 28px;
+  font-size: 2.0rem;
   color: #5FECC8;
 }
 
@@ -99,7 +105,7 @@ p {
 /* text animation */
 @keyframes animated-text{
   from{width: 0;}
-  to{width: 463px;}
+  to{width: 100%;}
 }
 
 /* cursor animations */
@@ -109,6 +115,10 @@ p {
 }
 
 div#terminal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 25%;
   background-color: black;
   height: 20vh;
   color: white; 
