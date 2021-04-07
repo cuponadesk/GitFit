@@ -58,11 +58,11 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Body Target</th>
-          <th>e.sets</th>
-          <th>e.reps</th>
-          <th>e.time</th>
+          <th>Name</th> 
+          <th>Body Target</th> 
+          <th>Sets</th> 
+          <th>Reps</th> 
+          <th>Time</th>
         </tr>
       </thead>
       <tbody>
