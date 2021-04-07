@@ -87,7 +87,7 @@ p  {
   overflow: hidden;    
   font-family: 'Source Code Pro', monospace;  
   font-size: 28px;
-  color: #06BADD;
+  color: #5FECC8;
 }
 
 /* Animation */
@@ -99,7 +99,7 @@ p {
 /* text animation */
 @keyframes animated-text{
   from{width: 0;}
-  to{width: 502px;}
+  to{width: 463px;}
 }
 
 /* cursor animations */
@@ -108,10 +108,10 @@ p {
   to{border-right-color: transparent;}
 }
 
-div .terminal {
+div#terminal {
   background-color: black;
   height: 20vh;
-  color: white;
+  color: white; 
   font: 1.3rem Inconsolata, monospace;
 }  
 
