@@ -86,6 +86,9 @@
   </div>
 </template>
 <style>
+*{
+  background-color: #5e62d1;
+}
 
 p  {
   border-right: solid 3px rgba(0,255,0,.75);
@@ -119,7 +122,7 @@ div#terminal {
   flex-direction: column;
   width: 100%;
   height: 25%;
-  background-color: black;
+  background-color: #5e62d1;
   height: 20vh;
   color: white; 
   font: 1.3rem Inconsolata, monospace;
