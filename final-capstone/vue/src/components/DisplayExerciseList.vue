@@ -55,7 +55,7 @@
       </div>
     </form>
 
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <th>Name</th> 
