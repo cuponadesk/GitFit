@@ -84,7 +84,6 @@ export default {
       });
     });
     if(this.$route.path == "/exercise/add") {
-      console.log("here");
       this.exercise.name = "";
       this.exercise.description = "";
       this.exercise.suggestedWeight = "";
@@ -105,7 +104,6 @@ export default {
       });
     });
     if(this.$route.path == "/exercise/add") {
-      console.log("here");
       this.exercise.name = "";
       this.exercise.description = "";
       this.exercise.suggestedWeight = "";

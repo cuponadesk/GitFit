@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@PreAuthorize("isAuthenticated()")
+
 public class ExerciseController {
 
 
@@ -21,6 +21,7 @@ public class ExerciseController {
         this.exerciseDAO= exerciseDAO;
     }
 
+    @PreAuthorize("isAuthenticated()")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/exercise/add", method = RequestMethod.POST)
     public boolean addExercise(@RequestBody Exercise exercise){
@@ -32,6 +33,7 @@ public class ExerciseController {
         return exerciseDAO.updateExercise(exercise, id);
     }
 
+    @PreAuthorize("isAuthenticated()")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/exercise/{id}", method = RequestMethod.DELETE)
     public boolean updateExercise( @PathVariable int id){
