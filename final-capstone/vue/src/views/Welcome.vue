@@ -1,6 +1,11 @@
 <template>
   <div class="welcome">
+<<<<<<< HEAD
     <h1>Welcome</h1> <p> Push your body, you'll pull the rewards</p>
+=======
+    <h1>Welcome</h1>
+    <p id="welcome-slogan"> Push your body, you'll pull the rewards!</p>
+>>>>>>> aff5599098616bc901bc9cebb86674d102943038
     <!--insert windows terminal animation-->
     <p>"Self-care is, fundamentally, about bringing balance back to a life that has grown imbalanced from too many commitments or responsibilities." -Dr. Robyn L. Gobin</p>
     <h2> Our Story</h2>
@@ -35,5 +40,13 @@ export default {
 </script>
 
 <style>
+
+p#welcome-slogan {
+  color: black;
+  size: 10rem;
+  animation: none;
+
+}
+
 
 </style>
