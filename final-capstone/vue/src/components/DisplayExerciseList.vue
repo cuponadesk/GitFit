@@ -103,7 +103,11 @@ export default {
     };
   },
   created() {
-    exerciseService.listExercises().then((response) => {
+    this.getExercises();
+     //end promise
+  }, //end created
+  methods: {
+    getExercises(){ exerciseService.listExercises().then((response) => {
       this.exercises = response.data;
       this.exercises.forEach((e) => {
         switch (e.body_target_id) {
@@ -130,9 +134,8 @@ export default {
         }
       });
       //end for
-    }); //end promise
-  }, //end created
-  methods: {
+    });
+  },
     // saveExercise() {
     //   exerciseService
     //     .addExercise(this.exercise)
@@ -151,6 +154,7 @@ export default {
         .then((response) => {
           if (response.status === 204) {
             alert("Exercise successfully deleted.");
+            this.getExercises();
           }
         })
         .catch((error) => {
