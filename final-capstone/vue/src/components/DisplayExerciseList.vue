@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <form>
       <span>
         Legs
@@ -38,6 +38,14 @@
         
       </span>
       <span>
+        Abs
+        <label class="switch">
+          <input type="checkbox" v-model="filterAbs" />
+          <span class="slider round"></span>
+        </label>
+        
+      </span>
+      <span>
         Full Body
         <label class="switch">
           <input type="checkbox" v-model="filterFullBody" />
@@ -60,9 +68,10 @@
         <tr>
           <th>Name</th>
           <th>Body Target</th>
-          <th>e.sets</th>
-          <th>e.reps</th>
-          <th>e.time</th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Time</th>
+          <th colspan="2">Link</th>
         </tr>
       </thead>
       <tbody>
@@ -73,7 +82,7 @@
           <td>{{ e.reps }}</td>
           <td>{{ e.time}}</td>
           <td>
-            <router-link v-bind:to="{ name: 'edit', params: { id: e.id } }">
+            <router-link v-bind:to="{ name: 'edit', params: { id: e.id } }" tag="button">
               Edit
             </router-link>
           </td>
@@ -92,18 +101,23 @@ export default {
   data() {
     return {
       exercises: [],
-      filterExercises : [ true, true, true, true, true, true ],
+      filterExercises : [ true, true, true, true, true, true, true ],
       filterArms: true,
       filterChest: true,
       filterBack: true,
       filterCardio: true,
       filterFullBody: true,
       filterLegs: true,
+      filterAbs: true,
       maxLength: 99999,
     };
   },
-  created() {
-    exerciseService.listExercises().then((response) => {
+ created() {
+    this.getExercises();
+     //end promise
+  }, //end created
+  methods: {
+    getExercises(){ exerciseService.listExercises().then((response) => {
       this.exercises = response.data;
       this.exercises.forEach((e) => {
         switch (e.body_target_id) {
@@ -130,9 +144,8 @@ export default {
         }
       });
       //end for
-    }); //end promise
-  }, //end created
-  methods: {
+    });
+  },
     // saveExercise() {
     //   exerciseService
     //     .addExercise(this.exercise)
@@ -151,6 +164,7 @@ export default {
         .then((response) => {
           if (response.status === 204) {
             alert("Exercise successfully deleted.");
+            this.getExercises();
           }
         })
         .catch((error) => {

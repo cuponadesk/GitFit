@@ -18,37 +18,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <router-link v-bind:to="{ name: 'home' }" class="nav-link"
+              <router-link v-bind:to="{ name: 'welcome' }" class="nav-link"
                 >Home <span class="sr-only">(current)</span></router-link
               >
             </li>
             <li class="nav-item">
               <router-link v-bind:to="{ name: 'List' }" class="nav-link"
-                >Exercises <span class="sr-only">(current)</span></router-link
-              >
-              <!-- <a class="nav-link" href="/exercises">Exercises</a> -->
+                >Exercises <span class="sr-only">(current)</span></router-link>
             </li>
-            <li class="nav-item">
-<<<<<<< HEAD
-              <!-- <router-link v-bind:to="{ name: 'login' }" class="nav-link"
-                >Login <span class="sr-only">(current)</span></router-link
-              > -->
-              <a class="nav-link" href="/login" >Login</a>
-=======
-              <a class="nav-link" href="/logout">Log Out</a>
+            <li class="nav-item" v-if="admin">
+              <router-link v-bind:to="{ name: 'Exercise' }" class="nav-link"
+                >Add Exercise <span class="sr-only">(current)</span></router-link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/exercises">Exercises</a>
->>>>>>> 0fd29acdc8a45fde2c4e899c73891a155ed23032
+            <li class="nav-item" v-if="!loggedIn">
+              <a class="nav-link" href="/login">Login</a>
             </li>
-            <li class="nav-item">
-              <router-link v-bind:to="{ name: 'logout' }" class="nav-link"
-                >Logout <span class="sr-only" v-if="loggedIn">(current)</span></router-link
-              >
-              <!-- <a class="nav-link" href="/logout" v-if="this.$store.token!=''">Logout</a> -->
+            <li class="nav-item" v-if="loggedIn">
+              <a class="nav-link" href="/logout">Logout</a>
             </li>
-            
-            
+
             <!-- <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -117,15 +105,8 @@
     </div>
   </div>
 </template>
-<<<<<<< HEAD
 <script>
 import authService from "./services/AuthService";
-=======
-<style>
-*{
-  background-color: #5e62d1;
-}
->>>>>>> 0fd29acdc8a45fde2c4e899c73891a155ed23032
 
 export default {
   components: {},
@@ -133,41 +114,46 @@ export default {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
       },
-      invalidCredentials: false
+      invalidCredentials: false,
     };
   },
   methods: {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/home");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
-    }
+    },
   },
   computed: {
     loggedIn() {
       console.log(this.$store.state.token);
       return this.$store.state.token != "";
+    },
+    admin() {
+      // console.log(this.$store.state.user.authorities.includes( 'ROLE_ADMIN'));
+      // return this.$store.state.user.authorities.includes("ROLE_ADMIN");
+      return true;
     }
-  }
+  },
 };
 </script>
 <style>
-p {
+#terminal p {
   border-right: solid 3px rgba(0, 255, 0, 0.75);
   white-space: nowrap;
   overflow: hidden;
@@ -177,7 +163,7 @@ p {
 }
 
 /* Animation */
-p {
+#terminal p {
   animation: animated-text 4s steps(29, end) 1s 1 normal both,
     animated-cursor 600ms steps(29, end) infinite;
 }
@@ -202,21 +188,22 @@ p {
   }
 }
 
+body {
+  background-color: #5e62d1;
+}
+
+td {
+  color: white;
+}
+
 div#terminal {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 25%;
-  background-color: #5e62d1;
+  background-color: black;
   height: 20vh;
   color: white;
   font: 1.3rem Inconsolata, monospace;
-<<<<<<< HEAD
 }
-=======
-}  
-
-
-
->>>>>>> 0fd29acdc8a45fde2c4e899c73891a155ed23032
 </style>

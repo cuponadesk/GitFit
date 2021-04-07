@@ -41,7 +41,7 @@ export default {
 <style>
 
 p#welcome-slogan {
-  color:white;
+  color:black;
   size: 10rem;
   animation: none;
   font-family: 'Times New Roman', Times, serif;
