@@ -29,17 +29,10 @@
               <!-- <a class="nav-link" href="/exercises">Exercises</a> -->
             </li>
             <li class="nav-item">
-<<<<<<< HEAD
               <!-- <router-link v-bind:to="{ name: 'login' }" class="nav-link"
                 >Login <span class="sr-only">(current)</span></router-link
               > -->
               <a class="nav-link" href="/login" >Login</a>
-=======
-              <a class="nav-link" href="/logout">Log Out</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/exercises">Exercises</a>
->>>>>>> 0fd29acdc8a45fde2c4e899c73891a155ed23032
             </li>
             <li class="nav-item">
               <router-link v-bind:to="{ name: 'logout' }" class="nav-link"
@@ -117,15 +110,8 @@
     </div>
   </div>
 </template>
-<<<<<<< HEAD
 <script>
 import authService from "./services/AuthService";
-=======
-<style>
-*{
-  background-color: #5e62d1;
-}
->>>>>>> 0fd29acdc8a45fde2c4e899c73891a155ed23032
 
 export default {
   components: {},
@@ -167,6 +153,9 @@ export default {
 };
 </script>
 <style>
+*{
+  background-color:#5e62d1 ;
+}
 p {
   border-right: solid 3px rgba(0, 255, 0, 0.75);
   white-space: nowrap;
@@ -211,12 +200,5 @@ div#terminal {
   height: 20vh;
   color: white;
   font: 1.3rem Inconsolata, monospace;
-<<<<<<< HEAD
 }
-=======
-}  
-
-
-
->>>>>>> 0fd29acdc8a45fde2c4e899c73891a155ed23032
 </style>
