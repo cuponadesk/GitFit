@@ -8,18 +8,18 @@
     <!--insert windows terminal animation-->
     <p id="welcome-slogan">"Self-care is, fundamentally, about bringing balance back to a life that has grown imbalanced from too many commitments or responsibilities." -Dr. Robyn L. Gobin</p>
     <h2> Our Story</h2>
-    <p id="welcome-slogan"> While there is nothing better than spending hours creating original code and watching it take shape over time, this is often paired with hours of sitting and minimal movement. Founded by five passionate and talented software developers based in Cincinnati, OH. We understand the need and importance of a balanced lifestyle through physical exercise.
-      We specialize in a variety of physical fitness styles tailored to your needs, goals, and individual lifestyle. Whether you are starting from day 1 and have never belonged to a gym or just wanting to tone up that pandemic poundage we will be as attentive to your needs as we are with our own code! </p> <!--paragraph about fitness that is funny-->
+    <p id="welcome-slogan"> While there is nothing better than spending hours creating original code and watching it take shape over time, this is often paired with hours of sitting and minimal movement. <br> Founded by five passionate and talented software developers based in Cincinnati, OH.  We understand the need and importance of a balanced lifestyle through physical exercise.
+    <br> Whether you are starting from day 1 or just wanting to tone up that pandemic poundage we will be as attentive to your needs as we are with our own code!<br>We specialize in a variety of physical fitness styles tailored to your needs, goals, and individual lifestyle. </p> <!--paragraph about fitness that is funny-->
 
     <h2> Why Git? </h2>
-    <p id="welcome-slogan">GIT, an open source software for tracking and coordinating changes, often used by developers. No better name describes our mentality towards your fitness goals. We will be
-      will Add our unique and experienced perspective as we tracj your development. We are Commited to tackling all your physical fitness goals. We will Push you to be the best version of yourself. </p> <!--paragraph about why you wanna join our gym-->
+    <p id="welcome-slogan">GIT, an open source software for tracking and coordinating changes, often used by developers. No better name describes our mentality towards your fitness goals.<br> We will be
+      will Add our unique and experienced perspective as we tracj your development. We are Commited to tackling all your physical fitness goals.<br> We will Push you to be the best version of yourself. </p> <!--paragraph about why you wanna join our gym-->
 
     <h2>Our Trainers</h2>
-    <p id="welcome-slogan"> Jaclyn Spangler
-       John Baringhaus
-        Domenic Ceccoli 
-        Zack Sempsrott 
+    <p id="welcome-slogan"> Jaclyn Spangler<br>
+       John Baringhaus<br>
+        Domenic Ceccoli <br>
+        Zack Sempsrott <br>
         Jamal Stephenson
  </p> <!--insert images of the 5 of us as "trainers" and funny about section with different workout focus-->
 
