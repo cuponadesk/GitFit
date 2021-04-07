@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Exercise from '@/views/ExerciseView.vue'
 import List from '@/views/List.vue'
+import Welcome from '@/views/Welcome.vue'
 
 
 
@@ -26,11 +27,19 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/home',
       name: 'home',
       component: Home,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: '/',
+      name: 'welcome',
+      component: Welcome,
+      meta: {
+        requiresAuth: false
       }
     },
     {
