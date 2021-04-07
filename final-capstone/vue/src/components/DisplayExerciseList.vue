@@ -1,59 +1,61 @@
 <template>
   <div>
     <form>
-      <div>
+      <span>
         Legs
         <label class="switch">
           <input type="checkbox" v-model="filterLegs" />
           <span class="slider round"></span>
         </label>
-      </div>
-      <div>
+      </span>
+      <span>
         Back
         <label class="switch">
           <input type="checkbox" v-model="filterBack"/>
           <span class="slider round"></span>
         </label>
-      </div>
-      <div>
+      </span>
+      <span>
         Chest
         <label class="switch">
           <input type="checkbox" v-model="filterChest" />
           <span class="slider round"></span>
         </label>
-      </div>
-      <div>
+      </span>
+      <span>
         Arms
         <label class="switch">
           <input type="checkbox" v-model="filterArms" />
           <span class="slider round"></span>
         </label>
-      </div>
-      <div>
+      </span>
+      <span>
+        Cardio
         <label class="switch">
           <input type="checkbox" v-model="filterCardio" />
           <span class="slider round"></span>
         </label>
-        Cardio
-      </div>
-      <div>
+        
+      </span>
+      <span>
+        Full Body
         <label class="switch">
           <input type="checkbox" v-model="filterFullBody" />
           <span class="slider round"></span>
         </label>
-        Full Body
-      </div>
+        
+      </span>
       <div>
           <select v-model="maxLength">
               <option value ="3">Less than three minutes</option>
               <option value ="6">Less than six minutes</option>
               <option value ="10">Less than ten minutes</option>
-              <option value ="99999">More than ten minutes</option>
+              <option value ="99999">All lengths of time</option>
           </select>
       </div>
     </form>
 
-    <table>
+    <table class="table">
       <thead>
         <tr>
           <th>Name</th>
