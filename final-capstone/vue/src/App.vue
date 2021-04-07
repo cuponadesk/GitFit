@@ -27,6 +27,9 @@
               <a class="nav-link" href="/login">Login</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="/logout">Log Out</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="/exercises">Exercises</a>
             </li>
             <!-- <li class="nav-item dropdown">
