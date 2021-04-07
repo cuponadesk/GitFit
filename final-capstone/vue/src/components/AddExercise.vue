@@ -36,7 +36,7 @@
         <select id="bodyTargetId" v-model="exercise.bodyTargetId">
           <option value="1">Legs</option>
           <option value="2">Back</option>
-          <option value="3">3</option>
+          <option value="3">Chest</option>
           <option value="4">Arms</option>
           <option value="5">Cardio</option>
           <option value="6">Full Body</option>
