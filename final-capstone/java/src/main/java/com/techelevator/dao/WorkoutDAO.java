@@ -1,3 +1,4 @@
+
 package com.techelevator.dao;
 
 import com.techelevator.model.Exercise;
@@ -17,3 +18,4 @@ public interface WorkoutDAO {
 
     List<ExerciseTrainer> generateWorkout(int[] trainerIds, int[] bodyTargetIds, int totalTime);
 }
+

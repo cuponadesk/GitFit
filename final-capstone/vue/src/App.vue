@@ -24,22 +24,30 @@
             </li>
             <li class="nav-item">
               <router-link v-bind:to="{ name: 'List' }" class="nav-link"
-                >Exercises <span class="sr-only">(current)</span></router-link>
+                >Exercises <span class="sr-only">(current)</span></router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link v-bind:to="{ name: 'workout' }" class="nav-link"
+                >Workouts <span class="sr-only">(current)</span></router-link
+              >
+            </li>
+
+            <li class="nav-item" v-if="admin">
+              <router-link v-bind:to="{ name: 'Exercise' }" class="nav-link"
+                >Add Exercise
+                <span class="sr-only">(current)</span></router-link
+              >
             </li>
 
             <li class="nav-item">
               <!-- <router-link v-bind:to="{ name: 'login' }" class="nav-link"
                 >Login <span class="sr-only">(current)</span></router-link
               > -->
-              <a class="nav-link" href="/login" >Login</a>
-
-            <li class="nav-item" v-if="admin">
-              <router-link v-bind:to="{ name: 'Exercise' }" class="nav-link"
-                >Add Exercise <span class="sr-only">(current)</span></router-link>
+              <a class="nav-link" href="/login">Login</a>
             </li>
             <li class="nav-item" v-if="!loggedIn">
               <a class="nav-link" href="/login">Login</a>
-
             </li>
             <li class="nav-item" v-if="loggedIn">
               <a class="nav-link" href="/logout">Logout</a>
@@ -96,7 +104,7 @@
             <h5>Terminal</h5>
             <p class="git-fit">
               git fit -
-              <span class="git-fit" style="color: #F9F871"
+              <span class="git-fit" style="color: #f9f871"
                 >be your best version</span
               >
             </p>
@@ -156,7 +164,7 @@ export default {
       // console.log(this.$store.state.user.authorities.includes( 'ROLE_ADMIN'));
       // return this.$store.state.user.authorities.includes("ROLE_ADMIN");
       return true;
-    }
+    },
   },
 };
 </script>
