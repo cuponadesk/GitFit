@@ -61,7 +61,7 @@ CREATE table trainer(
 CREATE table workout(
                 workout_id serial PRIMARY KEY unique,
                 workout_name varchar(128),
-                trainer_id int NOT NULL,
+                trainer_id int,
                 intensity int NOT NULL,
                 body_target_id int NOT NULL,
                 constraint fk_trainer_id FOREIGN KEY (trainer_id) references trainer(trainer_id),
