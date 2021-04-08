@@ -58,38 +58,6 @@
 
           </form>
 
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Body Target</th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Time</th>
-          <th colspan="2">Link</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="e in this.exercises" v-bind:key="e.id" v-show="filterExerciseBodyPart(e.bodyTargetId) && filterExerciseTime(e.time)">
-          <td>{{ e.name }}</td>
-          <td>{{ e.bodyTargetId}}</td>
-          <td>{{ e.sets }}</td>
-          <td>{{ e.reps }}</td>
-          <td>{{ e.time}}</td>
-          <td>
-            <router-link v-bind:to="{ name: 'edit', params: { id: e.id } }" tag="button">
-              Edit
-            </router-link>
-          </td>
-          <td>
-            <button type="button" v-on:click="deleteExercise(e)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
           <table class="table table-striped">
             <thead>
               <tr>
@@ -133,9 +101,8 @@
           </table>
         </div>
       </div>
-   
+    </div>
   </section>
-
 </template>
 
 <script>
@@ -155,12 +122,9 @@ export default {
       maxLength: 99999,
     };
   },
-
   created() {
-
     this.getExercises();
-    //end promise
-  }, //end created
+  }, 
   methods: {
     bodyTargetIdToWord(id) {
                 switch (id) {
