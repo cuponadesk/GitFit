@@ -1,9 +1,10 @@
 BEGIN TRANSACTION;
 
-
+DROP table if exists trainer_exercise;
 Drop table if exists users_workout;
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS seq_user_id;
+
 
 DROP table if exists workout_exercise;
 DROP table if exists workout;
@@ -79,6 +80,15 @@ CREATE table users_workout(
                 Primary key (user_id, workout_id),
                 constraint fk_user_id FOREIGN KEY (user_id) references users(user_id),
                 constraint fk_workout_id FOREIGN KEY (workout_id) references workout(workout_id));  
+                
+                
+                
+CREATE table trainers_exercises(
+                exercise_id int NOT NULL,
+                trainer_id int NOT NULL,
+                Primary key (exercise_id, trainer_id),
+                constraint fk_exercise_id FOREIGN KEY (exercise_id) references exercise(id),
+                constraint fk_trainer_id FOREIGN KEY (trainer_id) references trainer(trainer_id)); 
                 
 INSERT INTO trainer(trainer_name)
 VALUES('Jaclyn'), ('John'), ('Zack'), ('Jamal'), ('Domenic');
