@@ -22,7 +22,7 @@
                 >Home <span class="sr-only">(current)</span></router-link
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item" >
               <router-link v-bind:to="{ name: 'List' }" class="nav-link"
                 >Exercises <span class="sr-only">(current)</span></router-link
               >
@@ -84,7 +84,7 @@
         </div>
       </nav>
     </div>
-    <div class="section">
+    <div class="section" sytle="height: 20vh !important">
       <div class="container">
         <div class="row">
           <div id="terminal">
@@ -99,13 +99,9 @@
         </div>
       </div>
     </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
+
           <router-view />
-        </div>
-      </div>
-    </div>
+
   </div>
 </template>
 <script>
@@ -207,7 +203,6 @@ div#terminal {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 25%;
   background-color: black;
   height: 20vh;
   color: white;

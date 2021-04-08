@@ -1,5 +1,8 @@
 <template>
-  <div class="welcome">
+  <section>
+  <div class="container welcome">
+    <div class="row">
+      <div class="col-12">
  
 
     <h1>Welcome</h1>
@@ -29,7 +32,10 @@
     <footer>Join Us</footer> 
     <!--insert social media links, ability to sign up, physicall address, resources about fitness-->
     
+      </div>
   </div>
+  </div>
+</section>
 </template>
 
 <script>
