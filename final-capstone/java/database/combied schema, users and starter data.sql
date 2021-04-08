@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP table if exists trainer_exercise;
+DROP table if exists trainers_exercises;
 Drop table if exists users_workout;
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS seq_user_id;
