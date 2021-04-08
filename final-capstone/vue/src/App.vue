@@ -24,11 +24,14 @@
             </li>
             <li class="nav-item">
               <router-link v-bind:to="{ name: 'List' }" class="nav-link"
-                >Exercises <span class="sr-only">(current)</span></router-link>
+                >Exercises <span class="sr-only">(current)</span></router-link
+              >
             </li>
             <li class="nav-item" v-if="admin">
               <router-link v-bind:to="{ name: 'Exercise' }" class="nav-link"
-                >Add Exercise <span class="sr-only">(current)</span></router-link>
+                >Add Exercise
+                <span class="sr-only">(current)</span></router-link
+              >
             </li>
             <li class="nav-item" v-if="!loggedIn">
               <a class="nav-link" href="/login">Login</a>
@@ -145,10 +148,14 @@ export default {
       return this.$store.state.token != "";
     },
     admin() {
-      // console.log(this.$store.state.user.authorities.includes( 'ROLE_ADMIN'));
-      // return this.$store.state.user.authorities.includes("ROLE_ADMIN");
-      return true;
-    }
+      if (this.$store.state.token != "") {
+        console.log(
+          this.$store.state.user.authorities[0].name === "ROLE_ADMIN"
+        );
+        return this.$store.state.user.authorities[0].name === "ROLE_ADMIN";
+      }
+      return false;
+    },
   },
 };
 </script>
