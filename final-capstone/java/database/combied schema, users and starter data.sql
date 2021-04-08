@@ -90,6 +90,8 @@ CREATE table trainers_exercises(
                 constraint fk_exercise_id FOREIGN KEY (exercise_id) references exercise(id),
                 constraint fk_trainer_id FOREIGN KEY (trainer_id) references trainer(trainer_id)); 
                 
+                
+                
 INSERT INTO trainer(trainer_name)
 VALUES('Jaclyn'), ('John'), ('Zack'), ('Jamal'), ('Domenic');
 
@@ -100,7 +102,7 @@ VALUES('legs'), ('back'), ('chest'), ('arms'), ('cardio'), ('full body'), ('abs'
                         
 INSERT INTO Exercise(exercise_name, description, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id)
 VALUES('chest press', 'Lie face up on a flat bench, and grip a barbell with the hands slightly wider than shoulder-width. Press the feet into the ground and the hips into the bench while lifting the bar off the rack. Slowly lower the bar to the chest by allowing the elbows to bend out to the side. Stop when the elbows are just below the bench, and press feet into the floor to press the weight straight up to return to the starting position.',
-45, 10, 3, 10, 3);  
+145, 10, 3, 10, 3);  
 
 INSERT INTO exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
 VALUES ('Chest Press', 45, 10, 3, 10, 3 ,'Lie face up on a flat bench, and grip a barbell with the hands slightly wider than shoulder-width. Press the feet into the ground and the hips into the bench while lifting the bar off the rack. Slowly lower the bar to the chest by allowing the elbows to bend out to the side. Stop when the elbows are just below the bench, and press feet into the floor to press the weight straight up to return to the starting position.'),
@@ -126,7 +128,8 @@ Lie faceup, arms out to your sides at 45-degree angles, left foot flat on the fl
  ('Jump Squat', 0, 4, 8, 8, 1, 'Stand with feet shoulder-width apart and squat down until your thighs are about parallel to the floor but no deeper. Jump as high as you can. Land with soft knees and begin the next rep.'),
  ('Kneeling Hip Flexor Stretch', 0, 3, 15, 5, 1, 'Kneel down in a lunge position with your right leg in front, and rest your back knee on a towel or mat, if available. Extend your left hand above your head and let your right hand hang at your side. Contract your left glute and push your hips forward until you feel a stretch in the front of your hip. Hold for 30 seconds.');
  
-  
+  INSERT INTO trainers_exercises(exercise_id, trainer_id)
+  VALUES(1,1);
  
 INSERT INTO exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
 VALUES ('Hammer Curl', 25, 12, 3, 10, 4 ,'Stand holding a pair of dumbbells at arms length by your sides with your palms facing each other. Keeping your elbows tucked, your upper arms locked in place (only your hands and forearms should move), and your palms facing inward, curl the dumbbells as close to your shoulders as you can.Pause, and then slowly lower the weights back to the starting position.'),
