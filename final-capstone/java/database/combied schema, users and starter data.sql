@@ -3,6 +3,13 @@ BEGIN TRANSACTION;
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS seq_user_id;
 
+DROP table if exists workout_exercise;
+DROP table if exists workout;
+DROP table if exists trainer;
+drop table if exists Exercise;
+drop table if exists body_target;
+
+
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
   NO MAXVALUE
@@ -22,8 +29,8 @@ INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULi
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 
-drop table Exercise;
-drop table body_target;
+
+
 
                 
 create table body_target ( 
@@ -41,6 +48,28 @@ CREATE table Exercise (
                 expected_time int NOT NULL,
                 body_target_id int NOT NULL,
                 constraint fk_body_target FOREIGN KEY (body_target_id) references body_target(body_target_id) );
+                
+CREATE table trainer(
+                trainer_id serial PRIMARY KEY unique,
+                trainer_name varchar(64) NOT NULL,
+                bio varchar(2000),
+                picture varchar(300));
+                
+CREATE table workout(
+                workout_id serial PRIMARY KEY unique,
+                workout_name varchar(128),
+                trainer_id int NOT NULL,
+                intensity int NOT NULL,
+                body_target_id int NOT NULL,
+                constraint fk_trainer_id FOREIGN KEY (trainer_id) references trainer(trainer_id),
+                constraint fk_body_target_id FOREIGN KEY (body_target_id) references body_target(body_target_id)); 
+                
+CREATE table workout_exercise(
+                exercise_id int NOT NULL,
+                workout_id int NOT NULL,
+                Primary key (exercise_id, workout_id),
+                constraint fk_exercise_id FOREIGN KEY (exercise_id) references exercise(id),
+                constraint fk_workout_id FOREIGN KEY (workout_id) references workout(workout_id));  
                 
 
                 
@@ -115,18 +144,22 @@ VALUES ('Jumping Jacks', 0, 50, 2, 3, 5, 'Begin with the feet hip-width apart an
         ('Mountain Climbers', 0, 25, 3, 4, 5, 'Start in pushup position with the right leg extended backward and the left leg near the chest with toes on the ground. Keep the hands on the ground and hips level, quickly sqitch position of legs. Continue to alternate legs, increasing speed to increase difficulty.');
 
 
-//new data adding 
 
 INSERT INTO Exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
-VALUES('Grounded Russian Twist', 0 30, 3, 6, 7, 'Sit on the floor with your knees bent and heels resting on the ground. Lean back so that your torso is at 45°. Keep your chest up to stop you from hunching your back. Interlock your fingers and extend your arms in front of you. Turn your torso to the left or right, bringing your hands to touch the ground on that side. Rotate back to centre and then carry on to touch the opposite side. Once you’ve mastered the movement, make it more difficult by raising your heels off the floor and/or holding a weight.'),
+VALUES('Grounded Russian Twist', 0, 30, 3, 6, 7, 'Sit on the floor with your knees bent and heels resting on the ground. Lean back so that your torso is at 45°. Keep your chest up to stop you from hunching your back. Interlock your fingers and extend your arms in front of you. Turn your torso to the left or right, bringing your hands to touch the ground on that side. Rotate back to centre and then carry on to touch the opposite side. Once you’ve mastered the movement, make it more difficult by raising your heels off the floor and/or holding a weight.'),
       ('Dumbbell Woodchop', 15, 12, 3, 6, 7, 'Stand holding a dumbbell in both hands. Squat down and move the dumbbell over to the outside of your left thigh. Stand up and raise the dumbbell with straight arms, twisting to take it across your torso to finish above your right shoulder. In the final position you should have twisted your entire torso to face the dumbbell and be up on your toes, using your core to hold the position. Twist back to return the dumbbell to the starting position. Do all the required reps on one side and then swap.'),
       ('Medicine Ball Crunch', 13, 15, 3, 7, 7, 'Lie on your back with your knees bent and feet flat on the floor. Hold a medicine ball – 6kg to 10kg should be fine – to your chest. Raise your torso off the floor and press the medicine ball above your head with straight arms. To encourage good form, bring your head forwards between your arms and keep your chest up as your torso reaches vertical. Slowly lower under control, keeping your arms extended so the medicine ball touches the floor behind your head. Keep the movement smooth and controlled.'),
-      ('Flutter Kicks', 0, 1, 3, 6, 7, 'Sometimes known as scissor kicks, this movement will certainly feel like it’s carving out your abs. Lie on your back and raise your legs so that they’re roughly 15cm above the ground. Keeping your legs straight throughout, move your legs up and down in a kicking motion, with the movement coming from your hips. Go at a pace that’s comfortable and allows you to keep your legs off the ground for the duration, and make smooth and controlled movements. Work for between 30 and 60 seconds at a time.')          
+      ('Flutter Kicks', 0, 1, 3, 6, 7, 'Sometimes known as scissor kicks, this movement will certainly feel like it’s carving out your abs. Lie on your back and raise your legs so that they’re roughly 15cm above the ground. Keeping your legs straight throughout, move your legs up and down in a kicking motion, with the movement coming from your hips. Go at a pace that’s comfortable and allows you to keep your legs off the ground for the duration, and make smooth and controlled movements. Work for between 30 and 60 seconds at a time.'),          
    ('Back Squat', 65, 3, 6, 6, 1, 'Grip the bar with the hands wider than shoulder-width apart. Lift the chest up and squeeze the shoulder blades together to keep the straight back throughout the entire movement. Stand up to bring the bar off the rack and step backwards, then place the feet so that they are a little wider than shoulder-width apart. Sit back into hips and keep the back straight and the chest up, squatting down so the hips are below the knees. From the bottom of the squat, press feet into the ground and push hips forward to return to the top of the standing position.'),
  ('Front Squat', 30, 4, 5, 10, 1, ' Stand with your feet slightly wider than hip-width, facing outward or turned slightly outwards while holding a dumbbell in each hand by your sides, with palms facing inwards.Continue to lower yourself until your thighs are parallel or almost parallel with the floor, or until your heels begin to lift off the floor, or until your torso begins to round or flex forward. Push back up to starting position.'),
  ('Hip Hinge', 65, 3, 10, 5, 1, 'While standing, position your feet shoulder-width apart, side-by-side, with your toes pointed forward or slightly outward. Take a light bar and place it behind your head grasping the end with one hand above your head and the other end with your opposite hand in the small of your back. Push your hips backwards towards the wall behind you and hinge forward at the hips. Gently inhale and return to upright positun contracting your glutes.'),
  ('Leg Crossover Stretch', 0, 1, 5, 5, 1, 'Lie flat on your back on the floor / mat in a bent-knee position. Gently exhale and slowly press the knee of the crossed leg away from your body, continue pushing your knee away from you until you reach the point of tension, avoid bouncing or pushing to the point of pain. Hold this position for 15 – 30 seconds then relax and return to your starting position.  Perform 2 – 4 repetitions then repeat to the opposite side.'),
-      
+('Burpees', 0, 15, 3, 6, 6, 'Stand up straight, then get into a squat position with your hands on the floor in front of you. Kick your feet back into a push up position and lower your body so that your chest touches the floor. Jump and return your feet to the squat position as fast as possible. Immediately jump up into the air as high as you can. Add a little clap for pizazz!'),
+              ('Squats', 0, 15, 3, 6, 6, 'Stand with your feed hip-width apart while pulling your shoulders back and engaging your abs. Push your butt and hips back as if you were sitting in a chair. While keeping your weight on your heels, lower down until your thighs are parallel or lower to the floor. Raise back up to the starting position, squeezing your butt and pushing your knees outward as you straighten. Hold weight for an additional challenge.'),
+              ('Step Ups', 0, 12, 3, 6, 6, 'Stand in front of a box or an elevated surface, pulling your shoulders back and keeping your abs tight. Set your left leg onto the box, then step to top of the box making sure your feet are flat. Step back down with the same leg, then repeat with your right leg.'),
+              ('Pull Ups', 0, 10, 3, 6, 6, 'Start by hanging from a pull up bar with your palms facing away from you. Keeping your chest up and your shoulders back, squeeze your glutes and cross your feet, then pull yourself up so that your chin rests over the bar. Lower back down with control.'),
+              ('Dips', 0, 12, 3, 5, 6, 'Stand in between a set of parallel bars. Grab the bars, straighten your arms, and hoist yourself up off the ground while slightly crossing your legs. While pulling your shoulders back and keeping your chest up, lower yourself down so that your elbows are parallel to the floor. Raise yourself back up to the starting position so that your arms are straight.'),
+              ('Kettlebell Swings', 10, 15, 3, 6, 6, 'Stand with your legs hip-width apart, holding a kettlebell between them. Allow the kettlebell to swing slightly behind your legs, then propel your hips forward, bringing the kettlebell straight over your head. Keep your eyes on the kettlebell and point it straight up or slightly forward. Pull the kettlebell down from the sky and repeat.');      
 
 COMMIT;
 
