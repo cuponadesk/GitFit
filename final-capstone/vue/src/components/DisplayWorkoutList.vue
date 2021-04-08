@@ -76,7 +76,8 @@
                 v-bind:key="e.id"
                 v-show="
                   filterExerciseBodyPart(e.bodyTargetId) &&
-                  filterExerciseTime(e.time)
+                  filterExerciseTime(e.time) &&
+                  filterTrainer(e.trainer)
                 "
               >
                 <td class="text-left">{{ e.name }}</td>
@@ -104,9 +105,90 @@
     </div>
   </section>
 </template>
-
 <script>
+import workoutService from "@/services/WorkoutService";
 export default {
+  data() {
+    return {
+      trainers: [],
+      filterTrainers: [true, true, true, true, true],
+      filterZach: true,
+      filterJaclyn:true,
+      filterDom: true,
+      filterJamal: true,
+      filterJohn: true,
+      maxLength:100,
+    };
+  },
+  created() {
+    this.getTrainers();
+  },
+  methods: {
+    filterTrainer(e) {
+      switch (e) {
+        case 1:
+          return this.filterJamal;
+        case 2:
+          return this.filterDom;
+        case 3:
+          return this.filterJohn;
+        case 4:
+          return this.filterZach;
+        case 5:
+          return this.filterJaclyn;
+        default:
+          return false;
+      }
+    },
+    trainerIdToWord(id) {
+                switch (id) {
+            case 1:
+              return  "Jamal";
+            case 2:
+              return "Dom";
+            case 3:
+              return "John";
+            case 4:
+              return "Zach";
+            case 5:
+              return "Jaclyn";
+            case 7:
+              return "Other";
+          }
+
+    },
+    getTrainers() {
+      workoutService.listTrainers().then((response) => {
+        this.trainers = response.data;
+        this.trainers.forEach((e) => {
+          switch (e.trainer_id) {
+            case 1:
+              e.trainer_id = "Jamal";
+              break;
+            case 2:
+              e.body_target = "Dom";
+              break;
+            case 3:
+              e.body_target = "John";
+              break;
+            case 4:
+              e.body_target = "Zach";
+              break;
+            case 5:
+              e.body_target = "Jaclyn";
+              break;
+            default:
+              e.body_target = "Other";
+          }
+        });
+      });
+    },
+  },
+  computed: {
+    getTrainersArray() {
+      return this.trainers;
+    }
+  }
 
 }
 </script>

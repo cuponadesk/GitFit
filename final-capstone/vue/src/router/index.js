@@ -8,6 +8,7 @@ import store from '../store/index'
 import Exercise from '@/views/ExerciseView.vue'
 import List from '@/views/List.vue'
 import Welcome from '@/views/Welcome.vue'
+import Workout from '@/views/WorkoutView.vue'
 
 
 
@@ -96,6 +97,14 @@ const router = new Router({
       component: Exercise,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: "/workout",
+      name: "workout",
+      component: Workout,
+      meta: {
+        requiresAuth: false
       }
     },
   ]

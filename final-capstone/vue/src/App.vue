@@ -22,20 +22,24 @@
                 >Home <span class="sr-only">(current)</span></router-link
               >
             </li>
-            <li class="nav-item" >
+            <li class="nav-item">
               <router-link v-bind:to="{ name: 'List' }" class="nav-link"
-                >Exercises <span class="sr-only">(current)</span></router-link
-              >
+                >Exercises <span class="sr-only">(current)</span></router-link>
             </li>
+
+            <li class="nav-item">
+              <!-- <router-link v-bind:to="{ name: 'login' }" class="nav-link"
+                >Login <span class="sr-only">(current)</span></router-link
+              > -->
+              <a class="nav-link" href="/login" >Login</a>
 
             <li class="nav-item" v-if="admin">
               <router-link v-bind:to="{ name: 'Exercise' }" class="nav-link"
-                >Add Exercise
-                <span class="sr-only">(current)</span></router-link
-              >
+                >Add Exercise <span class="sr-only">(current)</span></router-link>
             </li>
             <li class="nav-item" v-if="!loggedIn">
               <a class="nav-link" href="/login">Login</a>
+
             </li>
             <li class="nav-item" v-if="loggedIn">
               <a class="nav-link" href="/logout">Logout</a>
@@ -85,7 +89,7 @@
         </div>
       </nav>
     </div>
-    <div class="section" sytle="height: 20vh !important">
+    <div class="section">
       <div class="container">
         <div class="row">
           <div id="terminal">
@@ -100,9 +104,13 @@
         </div>
       </div>
     </div>
-
+    <div class="section">
+      <div class="container">
+        <div class="row">
           <router-view />
-
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -145,19 +153,14 @@ export default {
       return this.$store.state.token != "";
     },
     admin() {
-      if (this.$store.state.token != "") {
-        console.log(
-          this.$store.state.user.authorities[0].name === "ROLE_ADMIN"
-        );
-        return this.$store.state.user.authorities[0].name === "ROLE_ADMIN";
-      }
-      return false;
-    },
+      // console.log(this.$store.state.user.authorities.includes( 'ROLE_ADMIN'));
+      // return this.$store.state.user.authorities.includes("ROLE_ADMIN");
+      return true;
+    }
   },
 };
 </script>
 <style>
-
 #terminal p {
   border-right: solid 3px rgba(0, 255, 0, 0.75);
 
@@ -206,6 +209,7 @@ div#terminal {
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 25%;
   background-color: black;
   height: 20vh;
   color: white;
