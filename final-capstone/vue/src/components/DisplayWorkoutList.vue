@@ -1,62 +1,119 @@
 <template>
-   <section>
+  <section>
     <div class="container text-center">
       <div class="row justify-content-center">
         <div class="col-12">
           <form>
-             <table class="table" style="border: none; color: white;">
-               <tr  style="border: none;"> 
-                 <td style="border: none;">Legs</td>
-                 <td style="border: none;">Back</td>
-                 <td style="border: none;">Chest</td>
-                 <td style="border: none;">Arms</td>
-                 <td style="border: none;">Cardio</td>
-                 <td style="border: none;">Abs</td>
-                 <td style="border: none;">Full Body</td>
-                 </tr>
-                 <tr style="border: none;">
-                 <td style="border: none;"><label class="switch">
-                <input type="checkbox" v-model="filterLegs" />
-                <span class="slider round"></span>
-              </label></td>
-                 <td style="border: none;">              <label class="switch">
-                <input type="checkbox" v-model="filterBack" />
-                <span class="slider round"></span>
-              </label></td>
-                 <td style="border: none;">              <label class="switch">
-                <input type="checkbox" v-model="filterChest" />
-                <span class="slider round"></span>
-              </label></td>
-                 <td style="border: none;">              <label class="switch">
-                <input type="checkbox" v-model="filterArms" />
-                <span class="slider round"></span>
-              </label></td>
-                 <td style="border: none;">            <label class="switch">
-                <input type="checkbox" v-model="filterCardio" />
-                <span class="slider round"></span>
-              </label></td>
-                 <td style="border: none;">              <label class="switch">
-                <input type="checkbox" v-model="filterAbs" />
-                <span class="slider round"></span>
-              </label></td>
-                 <td style="border: none;">              <label class="switch">
-                <input type="checkbox" v-model="filterFullBody" />
-                <span class="slider round"></span>
-              </label></td>
-                 </tr>
-                 <tr style="border: none;"><td colspan="7" style="border:none"><select v-model="maxLength" class="custom-select">
-                <option value="3">Less than three minutes</option>
-                <option value="6">Less than six minutes</option>
-                <option value="10">Less than ten minutes</option>
-                <option value="99999">All lengths of time</option>
-              </select></td></tr>
-                 </table>
-            
-            <div>
-              
-            </div>
+            <p>Please select a Trainer(s):</p>
+            <table class="table" style="border: none; color: white">
+              <tr style="border: none">
+                <td style="border: none">Jaclyn</td>
+                <td style="border: none">John</td>
+                <td style="border: none">Zack</td>
+                <td style="border: none">Jamal</td>
+                <td style="border: none">Dom</td>
+              </tr>
+              <tr style="border: none">
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterJaclyn" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterJohn" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterZack" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterJamal" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterDom" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+              </tr>
+              <p>Please Select a Body Target(s):</p>
+              <tr style="border: none">
+                <td style="border: none">Legs</td>
+                <td style="border: none">Back</td>
+                <td style="border: none">Chest</td>
+                <td style="border: none">Arms</td>
+                <td style="border: none">Cardio</td>
+                <td style="border: none">Abs</td>
+                <td style="border: none">Full Body</td>
+              </tr>
+              <tr style="border: none">
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterLegs" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterBack" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterChest" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterArms" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterCardio" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterAbs" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+                <td style="border: none">
+                  <label class="switch">
+                    <input type="checkbox" v-model="filterFullBody" />
+                    <span class="slider round"></span>
+                  </label>
+                </td>
+              </tr>
+              <tr style="border: none">
+                <td colspan="7" style="border: none">
+                  <select v-model="maxLength" class="custom-select">
+                    <option value="3">Less than three minutes</option>
+                    <option value="6">Less than six minutes</option>
+                    <option value="10">Less than ten minutes</option>
+                    <option value="99999">All lengths of time</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
 
+            <div></div>
           </form>
+      
 
           <table class="table table-striped">
             <thead>
@@ -81,7 +138,9 @@
                 "
               >
                 <td class="text-left">{{ e.name }}</td>
-                <td class="text-center">{{ bodyTargetIdToWord(e.bodyTargetId) }}</td>
+                <td class="text-center">
+                  {{ bodyTargetIdToWord(e.bodyTargetId) }}
+                </td>
                 <td class="text-center">{{ e.sets }}</td>
                 <td class="text-center">{{ e.reps }}</td>
                 <td class="text-center">{{ e.time }}</td>
@@ -113,11 +172,11 @@ export default {
       trainers: [],
       filterTrainers: [true, true, true, true, true],
       filterZach: true,
-      filterJaclyn:true,
+      filterJaclyn: true,
       filterDom: true,
       filterJamal: true,
       filterJohn: true,
-      maxLength:100,
+      maxLength: 100,
     };
   },
   created() {
@@ -141,21 +200,20 @@ export default {
       }
     },
     trainerIdToWord(id) {
-                switch (id) {
-            case 1:
-              return  "Jamal";
-            case 2:
-              return "Dom";
-            case 3:
-              return "John";
-            case 4:
-              return "Zach";
-            case 5:
-              return "Jaclyn";
-            case 7:
-              return "Other";
-          }
-
+      switch (id) {
+        case 1:
+          return "Jamal";
+        case 2:
+          return "Dom";
+        case 3:
+          return "John";
+        case 4:
+          return "Zach";
+        case 5:
+          return "Jaclyn";
+        case 7:
+          return "Other";
+      }
     },
     getTrainers() {
       workoutService.listTrainers().then((response) => {
@@ -187,12 +245,10 @@ export default {
   computed: {
     getTrainersArray() {
       return this.trainers;
-    }
-  }
-
-}
+    },
+  },
+};
 </script>
 
 <style>
-
 </style>
