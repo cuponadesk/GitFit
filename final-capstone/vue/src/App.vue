@@ -158,6 +158,7 @@ export default {
 <style>
 #terminal p {
   border-right: solid 3px rgba(0, 255, 0, 0.75);
+
   white-space: nowrap;
   overflow: hidden;
   font-family: "Source Code Pro", monospace;
