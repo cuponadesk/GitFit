@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <form>
       <span>
         Legs
@@ -38,6 +38,14 @@
         
       </span>
       <span>
+        Abs
+        <label class="switch">
+          <input type="checkbox" v-model="filterAbs" />
+          <span class="slider round"></span>
+        </label>
+        
+      </span>
+      <span>
         Full Body
         <label class="switch">
           <input type="checkbox" v-model="filterFullBody" />
@@ -58,11 +66,12 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th> 
-          <th>Body Target</th> 
-          <th>Sets</th> 
-          <th>Reps</th> 
+          <th>Name</th>
+          <th>Body Target</th>
+          <th>Sets</th>
+          <th>Reps</th>
           <th>Time</th>
+          <th colspan="2">Link</th>
         </tr>
       </thead>
       <tbody>
@@ -73,7 +82,7 @@
           <td>{{ e.reps }}</td>
           <td>{{ e.time}}</td>
           <td>
-            <router-link v-bind:to="{ name: 'edit', params: { id: e.id } }">
+            <router-link v-bind:to="{ name: 'edit', params: { id: e.id } }" tag="button">
               Edit
             </router-link>
           </td>
@@ -92,17 +101,18 @@ export default {
   data() {
     return {
       exercises: [],
-      filterExercises : [ true, true, true, true, true, true ],
+      filterExercises : [ true, true, true, true, true, true, true ],
       filterArms: true,
       filterChest: true,
       filterBack: true,
       filterCardio: true,
       filterFullBody: true,
       filterLegs: true,
+      filterAbs: true,
       maxLength: 99999,
     };
   },
-  created() {
+ created() {
     this.getExercises();
      //end promise
   }, //end created

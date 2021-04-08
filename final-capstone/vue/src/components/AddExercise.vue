@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div style="text-align: center; display:flex; justify-content: right; flex-direction: column; width:1108px" class="container">
     <h1>{{ Title }}</h1>
 
     <form>
       <div class="add-workout-form">
-        <label for="name">Name:</label>
+        <label for="name">Name:</label><br>
         <input id="name" type="text" v-model="exercise.name" />
       </div>
       <div class="add-workout-form">
-        <label for="description">Description:</label>
+        <label for="description">Description:</label><br>
         <textarea
           id="description"
           rows="10"
@@ -17,22 +17,23 @@
         />
       </div>
       <div class="add-workout-form">
-        <label for="weight">Suggested Weight &#40;lbs&#41;:</label>
+        <label for="weight">Suggested Weight &#40;lbs&#41;:</label><br>
         <input id="weight" type="text" v-model="exercise.suggestedWeight" />
       </div>
       <div class="add-workout-form">
-        <label for="sets">Sets:</label>
+        <label for="sets">Sets:</label><br>
         <input id="sets" type="text" v-model="exercise.sets" />
       </div>
       <div class="add-workout-form">
-        <label for="reps">Reps:</label>
+        <label for="reps">Reps:</label><br>
         <input id="reps" type="text" v-model="exercise.reps" />
       </div>
       <div class="add-workout-form">
-        <label for="time">Amount of Time &#40;min&#41;:</label>
+        <label for="time">Amount of Time &#40;min&#41;:</label><br>
         <input id="time" type="text" v-model="exercise.time" />
       </div>
       <div class="add-workout-form">
+                <label for="bodyTargetId">Body Part Target</label><br>
         <select id="bodyTargetId" v-model="exercise.bodyTargetId">
           <option value="1">Legs</option>
           <option value="2">Back</option>
@@ -45,10 +46,6 @@
       <div class="actions">
         <button type="submit" v-on:click.prevent="saveExercise()">
           Save Exercise
-        </button>
-     
-      <button type="submit" v-on:click.prevent="deleteExercise()">
-          Delete Exercise
         </button>
       </div>
     </form>
@@ -84,6 +81,7 @@ export default {
       });
     });
     if(this.$route.path == "/exercise/add") {
+   
       this.exercise.name = "";
       this.exercise.description = "";
       this.exercise.suggestedWeight = "";
@@ -104,6 +102,7 @@ export default {
       });
     });
     if(this.$route.path == "/exercise/add") {
+      console.log("here");
       this.exercise.name = "";
       this.exercise.description = "";
       this.exercise.suggestedWeight = "";
@@ -198,4 +197,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+label {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: white;
+  padding: 1rem 0 0 0;
+}
+
+input, textarea {
+  width: 50%;
+}
+</style>

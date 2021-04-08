@@ -56,7 +56,7 @@ public ExerciseSqlDAO(JdbcTemplate jdbcTemplate){
     public List<Exercise> listAllExercises() {
         List<Exercise> allExercises = new ArrayList<>();
 
-        String exerciseSQL = "SELECT * FROM exercise;";
+        String exerciseSQL = "SELECT * FROM exercise ORDER BY id;";
 
         SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(exerciseSQL);
 
