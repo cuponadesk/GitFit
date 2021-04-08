@@ -90,4 +90,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+a, a:hover {
+  color: white;
+}
+</style>
