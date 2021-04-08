@@ -47,46 +47,47 @@
       </span>
       <span>
         Full Body
-        <label class="switch">
+        <label class="custom-control-input">
           <input type="checkbox" v-model="filterFullBody" />
           <span class="slider round"></span>
         </label>
         
       </span>
       <div>
-          <select v-model="maxLength">
+          <select v-model="maxLength"  class="custom-select">
               <option value ="3">Less than three minutes</option>
               <option value ="6">Less than six minutes</option>
               <option value ="10">Less than ten minutes</option>
               <option value ="99999">All lengths of time</option>
           </select>
-      </div>
+          </div>
     </form>
 
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Body Target</th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Time</th>
-          <th colspan="2">Link</th>
+          <th class="text-left">Name</th>
+          <th class="text-center">Body Target</th>
+          <th class="text-center"> class="text-center"Sets</th>
+          <th class="text-center">Reps</th>
+          <th class="text-center">Time</th>
+          <th class="text-center" v-if="admin"> </th>
+          <th class="text-center" v-if="admin"></th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="e in this.exercises" v-bind:key="e.id" v-show="filterExerciseBodyPart(e.bodyTargetId) && filterExerciseTime(e.time)">
           <td>{{ e.name }}</td>
-          <td>{{ e.bodyTargetId}}</td>
-          <td>{{ e.sets }}</td>
-          <td>{{ e.reps }}</td>
-          <td>{{ e.time}}</td>
-          <td>
+          <td class="text-center">{{ e.bodyTargetId}}</td>
+          <td class="text-center">{{ e.sets }}</td>
+          <td class="text-center">{{ e.reps }}</td>
+          <td class="text-center">{{ e.time}}</td>
+          <td  v-if="admin" class="text-center">
             <router-link v-bind:to="{ name: 'edit', params: { id: e.id } }" tag="button">
               Edit
             </router-link>
           </td>
-          <td>
+          <td v-if="admin" class="text-center">
             <button type="button" v-on:click="deleteExercise(e)">Delete</button>
           </td>
         </tr>
@@ -228,6 +229,15 @@ export default {
   computed: {
     getExercisesArray() {
       return this.exercises;
+    },
+       admin() {
+      if (this.$store.state.token != "") {
+        console.log(
+          this.$store.state.user.authorities[0].name === "ROLE_ADMIN"
+        );
+        return this.$store.state.user.authorities[0].name === "ROLE_ADMIN";
+      }
+      return false;
     },
     
   },

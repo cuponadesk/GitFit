@@ -7,7 +7,7 @@
 
     <!--insert windows terminal animation-->
     <p id="welcome-slogan">"Self-care is, fundamentally, about bringing balance back to a life that has grown imbalanced from too many commitments or responsibilities." -Dr. Robyn L. Gobin</p>
-    <h2> Our Story</h2>
+    <h1> Our Story</h1>
     <p id="welcome-slogan"> While there is nothing better than spending hours creating original code and watching it take shape over time, this is often paired with hours of sitting and minimal movement. <br> Founded by five passionate and talented software developers based in Cincinnati, OH.  We understand the need and importance of a balanced lifestyle through physical exercise.
     <br> Whether you are starting from day 1 or just wanting to tone up that pandemic poundage we will be as attentive to your needs as we are with our own code!<br>We specialize in a variety of physical fitness styles tailored to your needs, goals, and individual lifestyle. </p> <!--paragraph about fitness that is funny-->
 
@@ -47,7 +47,10 @@ p#welcome-slogan {
   font-family: 'Times New Roman', Times, serif;
   font-size: medium;
   font-style: italic;
+}
 
+h2 {
+  text-shadow: 0.05px 0.05px #5e62d1;
 }
 
 
