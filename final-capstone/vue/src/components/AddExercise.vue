@@ -1,55 +1,65 @@
 <template>
-  <div style="text-align: center; display:flex; justify-content: right; flex-direction: column; width:1108px" class="container">
-    <h1>{{ Title }}</h1>
+  <section>
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <h1>{{ Title }}</h1>
 
-    <form>
-      <div class="add-workout-form">
-        <label for="name">Name:</label><br>
-        <input id="name" type="text" v-model="exercise.name" />
+          <form>
+            <div class="add-workout-form">
+              <label for="name">Name:</label><br />
+              <input id="name" type="text" v-model="exercise.name" />
+            </div>
+            <div class="add-workout-form">
+              <label for="description">Description:</label><br />
+              <textarea
+                id="description"
+                rows="10"
+                cols="50"
+                v-model="exercise.description"
+              />
+            </div>
+            <div class="add-workout-form">
+              <label for="weight">Suggested Weight &#40;lbs&#41;:</label><br />
+              <input
+                id="weight"
+                type="text"
+                v-model="exercise.suggestedWeight"
+              />
+            </div>
+            <div class="add-workout-form">
+              <label for="sets">Sets:</label><br />
+              <input id="sets" type="text" v-model="exercise.sets" />
+            </div>
+            <div class="add-workout-form">
+              <label for="reps">Reps:</label><br />
+              <input id="reps" type="text" v-model="exercise.reps" />
+            </div>
+            <div class="add-workout-form">
+              <label for="time">Amount of Time &#40;min&#41;:</label><br />
+              <input id="time" type="text" v-model="exercise.time" />
+            </div>
+            <div class="add-workout-form">
+              <label for="bodyTargetId">Body Part Target</label><br />
+              <select id="bodyTargetId" v-model="exercise.bodyTargetId">
+                <option value="1">Legs</option>
+                <option value="2">Back</option>
+                <option value="3">Chest</option>
+                <option value="4">Arms</option>
+                <option value="5">Cardio</option>
+                <option value="6">Full Body</option>
+              </select>
+            </div>
+            <div class="actions">
+              <button type="submit" v-on:click.prevent="saveExercise()">
+                Save Exercise
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="add-workout-form">
-        <label for="description">Description:</label><br>
-        <textarea
-          id="description"
-          rows="10"
-          cols="50"
-          v-model="exercise.description"
-        />
-      </div>
-      <div class="add-workout-form">
-        <label for="weight">Suggested Weight &#40;lbs&#41;:</label><br>
-        <input id="weight" type="text" v-model="exercise.suggestedWeight" />
-      </div>
-      <div class="add-workout-form">
-        <label for="sets">Sets:</label><br>
-        <input id="sets" type="text" v-model="exercise.sets" />
-      </div>
-      <div class="add-workout-form">
-        <label for="reps">Reps:</label><br>
-        <input id="reps" type="text" v-model="exercise.reps" />
-      </div>
-      <div class="add-workout-form">
-        <label for="time">Amount of Time &#40;min&#41;:</label><br>
-        <input id="time" type="text" v-model="exercise.time" />
-      </div>
-      <div class="add-workout-form">
-                <label for="bodyTargetId">Body Part Target</label><br>
-        <select id="bodyTargetId" v-model="exercise.bodyTargetId">
-          <option value="1">Legs</option>
-          <option value="2">Back</option>
-          <option value="3">Chest</option>
-          <option value="4">Arms</option>
-          <option value="5">Cardio</option>
-          <option value="6">Full Body</option>
-        </select>
-      </div>
-      <div class="actions">
-        <button type="submit" v-on:click.prevent="saveExercise()">
-          Save Exercise
-        </button>
-      </div>
-    </form>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -80,8 +90,7 @@ export default {
         }
       });
     });
-    if(this.$route.path == "/exercise/add") {
-   
+    if (this.$route.path == "/exercise/add") {
       this.exercise.name = "";
       this.exercise.description = "";
       this.exercise.suggestedWeight = "";
@@ -101,7 +110,7 @@ export default {
         }
       });
     });
-    if(this.$route.path == "/exercise/add") {
+    if (this.$route.path == "/exercise/add") {
       console.log("here");
       this.exercise.name = "";
       this.exercise.description = "";
@@ -147,15 +156,14 @@ export default {
           "Are you sure you want to delete this exercise? Your body may regret this."
         )
       ) {
-        ExerciseService
-          .deleteExercise(this.exercise.id)
-          .then(response => {
+        ExerciseService.deleteExercise(this.exercise.id)
+          .then((response) => {
             if (response.status === 200) {
               alert("Exercise successfully deleted (Remember to stay healthy)");
-              this.$router.push('/exercises');
+              this.$router.push("/exercises");
             }
-          })//if error occurs deleting exercise on server or request
-          .catch(error => {
+          }) //if error occurs deleting exercise on server or request
+          .catch((error) => {
             if (error.response) {
               this.errorMsg =
                 "Error deleting your exercise . Response received was '" +
@@ -191,9 +199,11 @@ export default {
   },
   computed: {
     Title() {
-      return (this.$route.path == "/exercise/add" ? "Add an exercise" : "Edit an exercise");
-    }
-  }
+      return this.$route.path == "/exercise/add"
+        ? "Add an exercise"
+        : "Edit an exercise";
+    },
+  },
 };
 </script>
 
@@ -205,7 +215,8 @@ label {
   padding: 1rem 0 0 0;
 }
 
-input, textarea {
+input,
+textarea {
   width: 50%;
 }
 </style>

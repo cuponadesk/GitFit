@@ -1,85 +1,73 @@
 <template>
-  <div class="container">
-    <form>
-      <span>
-        Legs
-        <label class="switch">
-          <input type="checkbox" v-model="filterLegs" />
-          <span class="slider round"></span>
-        </label>
-      </span>
-      <span>
-        Back
-        <label class="switch">
-          <input type="checkbox" v-model="filterBack"/>
-          <span class="slider round"></span>
-        </label>
-      </span>
-      <span>
-        Chest
-        <label class="switch">
-          <input type="checkbox" v-model="filterChest" />
-          <span class="slider round"></span>
-        </label>
-      </span>
-      <span>
-        Arms
-        <label class="switch">
-          <input type="checkbox" v-model="filterArms" />
-          <span class="slider round"></span>
-        </label>
-      </span>
-      <span>
-        Cardio
-        <label class="switch">
-          <input type="checkbox" v-model="filterCardio" />
-          <span class="slider round"></span>
-        </label>
-        
-      </span>
-      <span>
-        Abs
-        <label class="switch">
-          <input type="checkbox" v-model="filterAbs" />
-          <span class="slider round"></span>
-        </label>
-        
-      </span>
-      <span>
-        Full Body
-        <label class="switch">
-          <input type="checkbox" v-model="filterFullBody" />
-          <span class="slider round"></span>
-        </label>
-        
-      </span>
-      <div>
-          <select v-model="maxLength">
-              <option value ="3">Less than three minutes</option>
-              <option value ="6">Less than six minutes</option>
-              <option value ="10">Less than ten minutes</option>
-              <option value ="99999">All lengths of time</option>
-          </select>
-      </div>
-    </form>
+  <section>
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <form>
+             <table class="table" style="border: none; color: white;">
+               <tr  style="border: none;"> 
+                 <td style="border: none;">Legs</td>
+                 <td style="border: none;">Back</td>
+                 <td style="border: none;">Chest</td>
+                 <td style="border: none;">Arms</td>
+                 <td style="border: none;">Cardio</td>
+                 <td style="border: none;">Abs</td>
+                 <td style="border: none;">Full Body</td>
+                 </tr>
+                 <tr style="border: none;">
+                 <td style="border: none;"><label class="switch">
+                <input type="checkbox" v-model="filterLegs" />
+                <span class="slider round"></span>
+              </label></td>
+                 <td style="border: none;">              <label class="switch">
+                <input type="checkbox" v-model="filterBack" />
+                <span class="slider round"></span>
+              </label></td>
+                 <td style="border: none;">              <label class="switch">
+                <input type="checkbox" v-model="filterChest" />
+                <span class="slider round"></span>
+              </label></td>
+                 <td style="border: none;">              <label class="switch">
+                <input type="checkbox" v-model="filterArms" />
+                <span class="slider round"></span>
+              </label></td>
+                 <td style="border: none;">            <label class="switch">
+                <input type="checkbox" v-model="filterCardio" />
+                <span class="slider round"></span>
+              </label></td>
+                 <td style="border: none;">              <label class="switch">
+                <input type="checkbox" v-model="filterAbs" />
+                <span class="slider round"></span>
+              </label></td>
+                 <td style="border: none;">              <label class="switch">
+                <input type="checkbox" v-model="filterFullBody" />
+                <span class="slider round"></span>
+              </label></td>
+                 </tr>
+                 <tr style="border: none;"><td colspan="7" style="border:none"><select v-model="maxLength" class="custom-select">
+                <option value="3">Less than three minutes</option>
+                <option value="6">Less than six minutes</option>
+                <option value="10">Less than ten minutes</option>
+                <option value="99999">All lengths of time</option>
+              </select></td></tr>
+                 </table>
+            
+            <div>
+              
+            </div>
+
+          </form>
+
 
     <table class="table">
       <thead>
         <tr>
-<<<<<<< HEAD
-          <th>Name</th> 
-          <th>Body Target</th> 
-          <th>Sets</th> 
-          <th>Reps</th> 
-          <th>Time</th>
-=======
           <th>Name</th>
           <th>Body Target</th>
           <th>Sets</th>
           <th>Reps</th>
           <th>Time</th>
           <th colspan="2">Link</th>
->>>>>>> 0856876f12cfc608c7f2c2211653c15851134546
         </tr>
       </thead>
       <tbody>
@@ -101,6 +89,53 @@
       </tbody>
     </table>
   </div>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="text-left col-1">Name</th>
+                <th class="text-center">Target</th>
+                <th class="text-center">Sets</th>
+                <th class="text-center">Reps</th>
+                <th class="text-center">Time</th>
+                <th class="text-center" v-if="admin"></th>
+                <th class="text-center" v-if="admin"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="e in this.exercises"
+                v-bind:key="e.id"
+                v-show="
+                  filterExerciseBodyPart(e.bodyTargetId) &&
+                  filterExerciseTime(e.time)
+                "
+              >
+                <td class="text-left">{{ e.name }}</td>
+                <td class="text-center">{{ bodyTargetIdToWord(e.bodyTargetId) }}</td>
+                <td class="text-center">{{ e.sets }}</td>
+                <td class="text-center">{{ e.reps }}</td>
+                <td class="text-center">{{ e.time }}</td>
+                <td v-if="admin" class="text-center">
+                  <router-link
+                    v-bind:to="{ name: 'edit', params: { id: e.id } }"
+                  >
+                    <img src="png\pencil-4x.png" />
+                  </router-link>
+                  <!-- <button type="button" v-on:click="deleteExercise(e)">Delete</button> -->
+                </td>
+                <td v-if="admin" class="text-center">
+                  <img src="png\trash-4x.png" v-on:click="deleteExercise(e)" />
+                  <!-- <button type="button" v-on:click="deleteExercise(e)">Delete</button> -->
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+   
+  </section>
+
 </template>
 
 <script>
@@ -109,7 +144,7 @@ export default {
   data() {
     return {
       exercises: [],
-      filterExercises : [ true, true, true, true, true, true, true ],
+      filterExercises: [true, true, true, true, true, true, true],
       filterArms: true,
       filterChest: true,
       filterBack: true,
@@ -120,44 +155,62 @@ export default {
       maxLength: 99999,
     };
   },
-<<<<<<< HEAD
+
   created() {
-=======
- created() {
->>>>>>> 0856876f12cfc608c7f2c2211653c15851134546
+
     this.getExercises();
-     //end promise
+    //end promise
   }, //end created
   methods: {
-    getExercises(){ exerciseService.listExercises().then((response) => {
-      this.exercises = response.data;
-      this.exercises.forEach((e) => {
-        switch (e.body_target_id) {
-          case 1:
-            e.body_target = "Legs";
-            break;
-          case 2:
-            e.body_target = "Back";
-            break;
-          case 3:
-            e.body_target = "Chest";
-            break;
-          case 4:
-            e.body_target = "Arms";
-            break;
-          case 5:
-            e.body_target = "Cardio";
-            break;
-          case 6:
-            e.body_target = "Full Body";
-            break;
-          default:
-            e.body_target = "Other";
-        }
+    bodyTargetIdToWord(id) {
+                switch (id) {
+            case 1:
+              return  "Legs";
+            case 2:
+              return "Back";
+            case 3:
+              return "Chest";
+            case 4:
+              return "Arms";
+            case 5:
+              return "Cardio";
+            case 6:
+              return "Full Body";
+            case 7:
+              return "Other";
+          }
+
+    },
+    getExercises() {
+      exerciseService.listExercises().then((response) => {
+        this.exercises = response.data;
+        this.exercises.forEach((e) => {
+          switch (e.body_target_id) {
+            case 1:
+              e.body_target = "Legs";
+              break;
+            case 2:
+              e.body_target = "Back";
+              break;
+            case 3:
+              e.body_target = "Chest";
+              break;
+            case 4:
+              e.body_target = "Arms";
+              break;
+            case 5:
+              e.body_target = "Cardio";
+              break;
+            case 6:
+              e.body_target = "Full Body";
+              break;
+            default:
+              e.body_target = "Other";
+          }
+        });
+        //end for
       });
-      //end for
-    });
-  },
+    },
     // saveExercise() {
     //   exerciseService
     //     .addExercise(this.exercise)
@@ -214,34 +267,42 @@ export default {
       }); //end promise
     },
     filterExerciseBodyPart(e) {
-        switch (e) {
-            case 1:
-              return this.filterLegs;
-            case 2:
-              return this.filterBack;
-            case 3:
-              return this.filterChest;
-            case 4:
-              return this.filterArms;
-            case 5:
-              return this.filterCardio;
-            case 6:
-                return this.filterFullBody;
-            default:
-              return false;
-          }
+      switch (e) {
+        case 1:
+          return this.filterLegs;
+        case 2:
+          return this.filterBack;
+        case 3:
+          return this.filterChest;
+        case 4:
+          return this.filterArms;
+        case 5:
+          return this.filterCardio;
+        case 6:
+          return this.filterFullBody;
+        default:
+          return false;
+      }
     },
     filterExerciseTime(e) {
-        console.log(e);
-        console.log(this.maxLength);
-        return e <= this.maxLength;
-    }
+      console.log(e);
+      console.log(this.maxLength);
+      return e <= this.maxLength;
+    },
   },
   computed: {
     getExercisesArray() {
       return this.exercises;
     },
-    
+    admin() {
+      if (this.$store.state.token != "") {
+        console.log(
+          this.$store.state.user.authorities[0].name === "ROLE_ADMIN"
+        );
+        return this.$store.state.user.authorities[0].name === "ROLE_ADMIN";
+      }
+      return false;
+    },
   },
 };
 </script>
@@ -313,4 +374,9 @@ input:checked + .slider:before {
 div {
   margin: 1rem;
 }
+
+.table {
+  color: white;
+}
+
 </style>

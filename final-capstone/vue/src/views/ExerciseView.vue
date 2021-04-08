@@ -1,7 +1,5 @@
 <template>
-  <div>
     <add-exercise />
-  </div>
 </template>
 
 <script>
