@@ -33,5 +33,10 @@ public class WorkoutController {
         }
         return workoutDAO.generateWorkout(trainerIds, bodyTargetIds, totalTime);
     }
+    @RequestMapping(path= "/workout/random", method = RequestMethod.GET)
+    public List<ExerciseTrainer> generatedWorkoutRandom(@RequestParam int totalTime) {
+
+        return workoutDAO.generateWorkout(new int[0], new int[0], totalTime);
+    }
 }
 

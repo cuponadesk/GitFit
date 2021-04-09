@@ -59,15 +59,21 @@ CREATE table trainer(
                 picture varchar(300));
                 
 CREATE table workout(
-                workout_id serial PRIMARY KEY unique,
-                workout_name varchar(128),
+                workout_id int ,
+                exercise_id int , 
                 trainer_id int,
-                intensity int NOT NULL,
-                body_target_id int NOT NULL,
+                workout_name varchar(128),
+                sets_completed int,
+                reps_completed int,
+                time_completed int,
+                total_time int,
+                username varchar(50),
+                date_saved DATE,
                 constraint fk_trainer_id FOREIGN KEY (trainer_id) references trainer(trainer_id),
-                constraint fk_body_target_id FOREIGN KEY (body_target_id) references body_target(body_target_id)); 
+                constraint fk_exercise_id FOREIGN KEY (exercise_id) references exercise(id),
+                PRIMARY KEY(workout_id, exercise_id));
                 
-CREATE table workout_exercise(
+/*CREATE table workout_exercise(
                 exercise_id int NOT NULL,
                 workout_id int NOT NULL,
                 Primary key (exercise_id, workout_id),
@@ -79,7 +85,7 @@ CREATE table users_workout(
                 workout_id int NOT NULL,
                 Primary key (user_id, workout_id),
                 constraint fk_user_id FOREIGN KEY (user_id) references users(user_id),
-                constraint fk_workout_id FOREIGN KEY (workout_id) references workout(workout_id));  
+                constraint fk_workout_id FOREIGN KEY (workout_id) references workout(workout_id));  */
                 
                 
                 
@@ -262,9 +268,4 @@ GRANT USAGE, SELECT
 ON ALL SEQUENCES IN SCHEMA public
 TO final_capstone_appuser;
 
-SELECT *
-FROM exercise
-INNER JOIN trainers_exercises on exercise.id = trainers_exercises.exercise_id
-INNER JOIN trainer on trainer.trainer_id = trainers_exercises.trainer_id
-WHERE trainer.trainer_id = ? AND body_target_id = ?;
 
