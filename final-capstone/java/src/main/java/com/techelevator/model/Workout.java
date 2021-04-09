@@ -1,16 +1,21 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class Workout {
 
 
     private int workoutId;
-    private String workoutName;
+    private int exerciseId;
     private int trainerId;
-    private int intesity;
+    private int setsCompleted;
+    private int repsCompleted;
+    private int timeCompleted;
+    private LocalDate dateSaved;
     private int totalTime;
-    private List<Exercise> exercises;
+    private String workoutComments;
 
     public int getWorkoutId() {
         return workoutId;
@@ -20,12 +25,12 @@ public class Workout {
         this.workoutId = workoutId;
     }
 
-    public String getWorkoutName() {
-        return workoutName;
+    public int getExerciseId() {
+        return exerciseId;
     }
 
-    public void setWorkoutName(String workoutName) {
-        this.workoutName = workoutName;
+    public void setExerciseId(int exerciseId) {
+        this.exerciseId = exerciseId;
     }
 
     public int getTrainerId() {
@@ -36,12 +41,36 @@ public class Workout {
         this.trainerId = trainerId;
     }
 
-    public int getIntesity() {
-        return intesity;
+    public int getSetsCompleted() {
+        return setsCompleted;
     }
 
-    public void setIntesity(int intesity) {
-        this.intesity = intesity;
+    public void setSetsCompleted(int setsCompleted) {
+        this.setsCompleted = setsCompleted;
+    }
+
+    public int getRepsCompleted() {
+        return repsCompleted;
+    }
+
+    public void setRepsCompleted(int repsCompleted) {
+        this.repsCompleted = repsCompleted;
+    }
+
+    public int getTimeCompleted() {
+        return timeCompleted;
+    }
+
+    public void setTimeCompleted(int timeCompleted) {
+        this.timeCompleted = timeCompleted;
+    }
+
+    public LocalDate getDateSaved() {
+        return dateSaved;
+    }
+
+    public void setDateSaved(LocalDate dateSaved) {
+        this.dateSaved = dateSaved;
     }
 
     public int getTotalTime() {
@@ -52,14 +81,11 @@ public class Workout {
         this.totalTime = totalTime;
     }
 
-    public List<Exercise> getExercises() {
-        return exercises;
+    public String getWorkoutComments() {
+        return workoutComments;
     }
 
-    public void setExercises(List<Exercise> exercises) {
-        this.exercises = exercises;
+    public void setWorkoutComments(String workoutComments) {
+        this.workoutComments = workoutComments;
     }
-
-
-
 }
