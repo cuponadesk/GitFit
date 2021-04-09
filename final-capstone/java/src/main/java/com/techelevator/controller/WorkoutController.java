@@ -25,7 +25,7 @@ public class WorkoutController {
     @RequestMapping(path= "/workout/generate", method = RequestMethod.GET)
     public Workout generatedWorkout(@RequestParam(required = false) int[] trainerIds, @RequestParam(required = false) int[] bodyTargetIds, @RequestParam int totalTime){
         if(trainerIds != null){
-            workoutDAO.filterByTrainer(trainerId);
+            workoutDAO.generateWorkout(trainerIds, bodyTargetIds, totalTime);
         }
     }
 }

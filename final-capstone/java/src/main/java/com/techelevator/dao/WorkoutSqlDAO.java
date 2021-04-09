@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -33,11 +34,29 @@ public class WorkoutSqlDAO implements WorkoutDAO {
         while (sqlRowSet.next()) {
             allExerciseTrainers.add(mapRowToExercise(sqlRowSet));
         }
+
+        //filter by trainer
         if(trainerIds.length > 0) {
             allExerciseTrainers = filterByTrainer(allExerciseTrainers, trainerIds);
         }
 
-        return allExerciseTrainers;
+        //filter by body target
+        if (bodyTargetIds.length > 0){
+            allExerciseTrainers = filterByBodyTarget(allExerciseTrainers, bodyTargetIds);
+        }
+        Collections.shuffle(allExerciseTrainers);
+        int timeCounter = 0;
+        List<ExerciseTrainer> filteredExerciseTrainers = new ArrayList<>();
+
+        //filter by time
+        for (int i = 0; i < allExerciseTrainers.size(); i++){
+            timeCounter += allExerciseTrainers.get(i).getTime();
+            filteredExerciseTrainers.add(allExerciseTrainers.get(i));
+            if (totalTime - timeCounter < 10 || totalTime - timeCounter > -10){
+                return filteredExerciseTrainers;
+            }
+        }
+        return filteredExerciseTrainers;
     }
     private List<ExerciseTrainer> filterByTrainer(List<ExerciseTrainer> allExerciseTrainers, int[] trainerIds){
         List<ExerciseTrainer> updatedExerciseTrainers = new ArrayList<>();
@@ -45,7 +64,6 @@ public class WorkoutSqlDAO implements WorkoutDAO {
             for(int j=0; j< trainerIds.length; j++){
                 if(trainerIds[j] == allExerciseTrainers.get(i).getTrainerId()){
                     updatedExerciseTrainers.add(allExerciseTrainers.get(i));
-
                 }
             }
         }
@@ -55,15 +73,13 @@ public class WorkoutSqlDAO implements WorkoutDAO {
     private List<ExerciseTrainer> filterByBodyTarget(List<ExerciseTrainer> allExerciseTrainers, int[] bodyTargetIds){
         List<ExerciseTrainer> updatedExerciseTrainers = new ArrayList<>();
         for(int i = 0; i < allExerciseTrainers.size(); i++){
-            for(int j=0; j< trainerIds.length; j++){
-                if(trainerIds[j] == allExerciseTrainers.get(i).getTrainerId()){
+            for(int j=0; j< bodyTargetIds.length; j++){
+                if(bodyTargetIds[j] == allExerciseTrainers.get(i).getTrainerId()){
                     updatedExerciseTrainers.add(allExerciseTrainers.get(i));
-
                 }
             }
         }
         return allExerciseTrainers;
-
     }
 
 
