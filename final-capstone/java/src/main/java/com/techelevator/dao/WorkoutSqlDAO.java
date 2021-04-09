@@ -8,6 +8,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -19,6 +20,15 @@ public class WorkoutSqlDAO implements WorkoutDAO {
 
     public WorkoutSqlDAO(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @Override
+    public boolean saveCompletedWorkout(List<ExerciseTrainer> exerciseTrainers, Principal principal, String comments) {
+
+        for (ExerciseTrainer exerciseTrainer : exerciseTrainers) {
+            String sql = "INSERT INTO workout(workout_id, exercise_id, trainer_id, workout_comments, sets_completed, reps_completed, time_completed, total_time, username, date_saved) "
+                        +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        }
     }
 
     @Override
@@ -81,6 +91,18 @@ public class WorkoutSqlDAO implements WorkoutDAO {
         }
         return updatedExerciseTrainers;
     }
+    private int getNewWorkoutId(){
+        String sql = "SELECT workout_id FROM workout ORDER BY workout_id DESC LIMIT 1 "; //max workout id
+        SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(sql);
+        int newWorkoutId = 1;
+        if(sqlRowSet.next()){
+            newWorkoutId+= sqlRowSet.getInt("workout_id");
+        }
+        return newWorkoutId;
+    }
+
+
+
 
 
     public ExerciseTrainer mapRowToExercise(SqlRowSet rowSet) {
