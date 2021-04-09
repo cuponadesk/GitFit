@@ -8,5 +8,10 @@ const http = axios.create({
   export default{
     listTrainers() {
         return http.get(`/workout`);
-      }
+      },
+
+    generateWorkout() {
+        return http.get(`/myworkout`);
+    }
+    
   }
