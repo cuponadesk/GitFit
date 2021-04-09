@@ -1,5 +1,8 @@
 <template>
+<div>
+  <p> hello </p>
   <generated-workout-list/>
+</div>
 </template>
 
 <script>

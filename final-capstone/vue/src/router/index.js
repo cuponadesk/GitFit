@@ -10,7 +10,7 @@ import List from '@/views/List.vue'
 import Welcome from '@/views/Welcome.vue'
 import Workout from '@/views/WorkoutView.vue'
 import Bio from '@/views/BioView.vue'
-import GeneratedWorkout from '@/views/WorkoutView.vue'
+import GeneratedWorkout from '@/views/GeneratedWorkoutView.vue'
 
 
 
