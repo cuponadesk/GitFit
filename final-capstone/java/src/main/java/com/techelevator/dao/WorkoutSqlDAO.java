@@ -80,9 +80,9 @@ public class WorkoutSqlDAO implements WorkoutDAO {
     @Override
     public List<Workout> getUserWorkouts(Principal principal){
         List<Workout> userWorkouts = new ArrayList<>();
-        String sql= "SELECT workout.workout_id, exercise.exercise_name, trainer.trainer_name, workout.sets_complete, " +
-                "workout.reps_completed, workout.weight_completed, workout.time_completed, workout.total_time, workout.date_saved " +
-                " FROM workouts " +
+        String sql= "SELECT workout.workout_id, exercise.exercise_name, trainer.trainer_name, workout.sets_completed, " +
+                "workout.reps_completed, workout.weight_completed, workout.time_completed, workout.total_time, workout.date_saved, workout.exercise_id, workout.trainer_id " +
+                " FROM workout " +
                 "INNER JOIN exercise ON exercise.id = workout.exercise_id " +
                 "INNER JOIN trainer ON trainer.trainer_id = workout.trainer_id " +
                 "WHERE username = ? ";
@@ -172,7 +172,7 @@ public class WorkoutSqlDAO implements WorkoutDAO {
         String dateAsString = rowSet.getString("date_saved");
         workout.setDateSaved(LocalDate.parse(dateAsString));
         workout.setTrainerName(rowSet.getString("trainer_name"));
-        workout.getExercise().setName(rowSet.getString("exercise_name"));
+//        workout.getExercise().setName(rowSet.getString("exercise_name"));
         return workout;
     }
 }

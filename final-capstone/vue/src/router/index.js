@@ -121,7 +121,7 @@ const router = new Router({
     {
       path:"/myworkout",
       name: "generatedWorkout",
-      component: GeneratedWorkout ,
+      component: GeneratedWorkout,
       meta: {
         requiresAuth :true
       }

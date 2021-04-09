@@ -44,5 +44,9 @@ public class WorkoutController {
         return workoutDAO.saveCompletedWorkout(exerciseTrainers, principal);
     }
 
+    @RequestMapping(path = "/workout/history", method = RequestMethod.GET)
+    public List<Workout> getWorkouts(Principal principal){
+        return workoutDAO.getUserWorkouts(principal);
+    }
 }
 
