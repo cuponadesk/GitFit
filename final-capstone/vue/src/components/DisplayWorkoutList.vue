@@ -156,7 +156,7 @@
               </tr>
             </tbody>
             <div>
-            <router-link :to="{ name: 'generatedWorkout' }"><button type="submit">Generate Workout</button></router-link></div>
+            <router-link :to="{ name: 'generatedWorkout' }" tag ='button'>Generate Workout</router-link></div>
           </table>
         </div>
       </div>

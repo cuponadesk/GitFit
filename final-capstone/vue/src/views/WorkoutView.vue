@@ -1,18 +1,19 @@
 <template>
 <div>
     <display-workout-list />
-    <generated-workout />
+    
 </div>
 </template>
 
 <script>
 import DisplayWorkoutList from "@/components/DisplayWorkoutList.vue"; 
-import GeneratedWorkout from "@/components/GeneratedWorkoutList.vue";
+
+
 
 export default {
   components: {
-    DisplayWorkoutList,
-    GeneratedWorkout
+    DisplayWorkoutList
+    
   }
 };
 </script>
