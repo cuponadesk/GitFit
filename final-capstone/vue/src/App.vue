@@ -40,12 +40,7 @@
               >
             </li>
 
-            <li class="nav-item">
-              <!-- <router-link v-bind:to="{ name: 'login' }" class="nav-link"
-                >Login <span class="sr-only">(current)</span></router-link
-              > -->
-              <a class="nav-link" href="/login">Login</a>
-            </li>
+           
             <li class="nav-item" v-if="!loggedIn">
               <a class="nav-link" href="/login">Login</a>
             </li>

@@ -171,7 +171,7 @@ export default {
     return {
       trainers: [],
       filterTrainers: [true, true, true, true, true],
-      filterZach: true,
+      filterZack: true,
       filterJaclyn: true,
       filterDom: true,
       filterJamal: true,

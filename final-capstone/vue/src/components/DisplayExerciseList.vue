@@ -141,6 +141,8 @@ export default {
             case 6:
               return "Full Body";
             case 7:
+              return "Abs";
+            default:  
               return "Other";
           }
 
@@ -168,6 +170,9 @@ export default {
             case 6:
               e.body_target = "Full Body";
               break;
+            case 7:
+              e.body_target = "Abs";
+              break;  
             default:
               e.body_target = "Other";
           }
@@ -223,6 +228,9 @@ export default {
             case 6:
               e.body_target = "Full Body";
               break;
+            case 7:
+              e.body_target = "Abs";
+              break;  
             default:
               e.body_target = "Other";
           }
@@ -244,6 +252,8 @@ export default {
           return this.filterCardio;
         case 6:
           return this.filterFullBody;
+        case 7:
+          return this.filterAbs;  
         default:
           return false;
       }
