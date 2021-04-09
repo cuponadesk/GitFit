@@ -52,7 +52,7 @@ public class WorkoutSqlDAO implements WorkoutDAO {
         for (int i = 0; i < allExerciseTrainers.size(); i++){
             timeCounter += allExerciseTrainers.get(i).getTime();
             filteredExerciseTrainers.add(allExerciseTrainers.get(i));
-            if (totalTime - timeCounter < 10 || totalTime - timeCounter > -10){
+            if (totalTime - timeCounter < 10 || totalTime - timeCounter < -10){
                 return filteredExerciseTrainers;
             }
         }
@@ -67,19 +67,19 @@ public class WorkoutSqlDAO implements WorkoutDAO {
                 }
             }
         }
-        return allExerciseTrainers;
+        return updatedExerciseTrainers;
 
     }
     private List<ExerciseTrainer> filterByBodyTarget(List<ExerciseTrainer> allExerciseTrainers, int[] bodyTargetIds){
         List<ExerciseTrainer> updatedExerciseTrainers = new ArrayList<>();
         for(int i = 0; i < allExerciseTrainers.size(); i++){
             for(int j=0; j< bodyTargetIds.length; j++){
-                if(bodyTargetIds[j] == allExerciseTrainers.get(i).getTrainerId()){
+                if(bodyTargetIds[j] == allExerciseTrainers.get(i).getBodyTargetId()){
                     updatedExerciseTrainers.add(allExerciseTrainers.get(i));
                 }
             }
         }
-        return allExerciseTrainers;
+        return updatedExerciseTrainers;
     }
 
 
