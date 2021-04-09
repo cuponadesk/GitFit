@@ -104,15 +104,18 @@ INSERT INTO Exercise(exercise_name, description, suggested_weight, exercise_reps
 VALUES('chest press', 'Lie face up on a flat bench, and grip a barbell with the hands slightly wider than shoulder-width. Press the feet into the ground and the hips into the bench while lifting the bar off the rack. Slowly lower the bar to the chest by allowing the elbows to bend out to the side. Stop when the elbows are just below the bench, and press feet into the floor to press the weight straight up to return to the starting position.',
 145, 10, 3, 10, 3);  
 
+
 INSERT INTO exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
 VALUES ('Chest Press', 45, 10, 3, 10, 3 ,'Lie face up on a flat bench, and grip a barbell with the hands slightly wider than shoulder-width. Press the feet into the ground and the hips into the bench while lifting the bar off the rack. Slowly lower the bar to the chest by allowing the elbows to bend out to the side. Stop when the elbows are just below the bench, and press feet into the floor to press the weight straight up to return to the starting position.'),
         ( 'Bottom-up Press', 25, 10, 3, 10, 3, 'Stand with the feet hip-width apart so that the right foot is slightly in front of the left and hold a kettlebell in the right hand in a ‘bottom-up’ position by holding the top of the handle so that the bottom of the kettlebell is facing up. Keep a strong grip to maintain balance of the kettlebell. Push the right foot into the ground to shift the weight of the body forward while pressing the right arm straight overhead. Pull the right elbow back down to the rib cage to lower the weight.'),
         ('Close-grip Bench Press', 25, 10, 3, 10, 3, 'Lie face up on a barbell bench, then reach up and grip the bar with the hands directly in line with the shoulders and the elbows pointed towards the feet. Unrack the bar and bring it towards the chest by bending the elbows and keeping them close to the ribs. Push the feet into the floor, and press the hips into the bench as the bar is pushed away from the chest to return to the starting position.'),
         ('Plank-ups', 0, 10, 3, 10, 3, 'Start in a push-up position with the hands under the shoulders and the legs stretched out directly behind. Squeeze the thigh and glute muscles to keep body and legs in a straight line, and lower down to the elbows one elbow at a time. From this position on the elbows, press the hands into the floor one at a time to return to the push-up position.'),
         ('Push-up with Staggered Hands', 0, 10, 3, 10, 3, 'Start in a push-up position with the hands wider than shoulder-width apart and the legs straight out directly behind the body about hip-width apart. Squeeze the thighs and glutes while moving the right hand forward a couple of inches and the left hand out a couple of inches to the left side. This will create an uneven hand position. Slowly lower the body toward the ground then back up to return to the starting position.'),
-         ('Squat Jump', 0, 3, 8, 8, 1, 'With your feet hip-width apart, squat until your thighs are parallel to the floor, and then jump as high as you can. Allow your knees to bend 45 degrees when you land, pause in deep squat position for one full second, and then jump again.'),
+         ('Squat Jump', 0, 3, 8, 8, 1, 'With your feet hip-width apart, squat until your thighs are parallel to the floor, and then jump as high as you can. Allow your knees to bend 45 degrees when you land, pause in deep squat position for one full second, and then jump again.');
  
- ('Walking Single-leg Straight-leg Deadlift Reach', 0, 3, 8, 10, 1, 'Stand with your feet hip-width apart and your arms hanging to the side of your thighs. Lift your right leg behind you. Keeping your lower back naturally arched, bend forward at your hips and lower your torso until it’s nearly parallel to the floor while you reach your opposite hand to the floor. Return to the starting position, take two steps forward, then repeat the movement with the opposite leg.'),
+
+ INSERT INTO exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description) 
+ VALUES ('Walking Single-leg Straight-leg Deadlift Reach', 0, 3, 8, 10, 1, 'Stand with your feet hip-width apart and your arms hanging to the side of your thighs. Lift your right leg behind you. Keeping your lower back naturally arched, bend forward at your hips and lower your torso until it’s nearly parallel to the floor while you reach your opposite hand to the floor. Return to the starting position, take two steps forward, then repeat the movement with the opposite leg.'),
  ('Side Lunge', 0, 3, 12, 8, 1, 'Stand with your feet about twice shoulder-width apart. Keeping your right leg straight, push your hips back and to the left. Then bend your left knee and lower your body until your left thigh is parallel to the floor. Your feet should remain flat on the floor at all times. Pause for two seconds, and then return to the starting position. Complete all reps and switch sides.'),
  ('Single-Leg Hip Raise', 5, 3, 12, 5, 1, 'Single-Leg Hip Raise (10)
 Lie faceup, arms out to your sides at 45-degree angles, left foot flat on the floor with that knee bent, and your right leg straight. Raise your right leg until it’s in line with your left thigh. Then squeeze your glutes and push your hips up—your lower back will elevate. Pause, and return to the starting position.'),
@@ -128,9 +131,7 @@ Lie faceup, arms out to your sides at 45-degree angles, left foot flat on the fl
  ('Jump Squat', 0, 4, 8, 8, 1, 'Stand with feet shoulder-width apart and squat down until your thighs are about parallel to the floor but no deeper. Jump as high as you can. Land with soft knees and begin the next rep.'),
  ('Kneeling Hip Flexor Stretch', 0, 3, 15, 5, 1, 'Kneel down in a lunge position with your right leg in front, and rest your back knee on a towel or mat, if available. Extend your left hand above your head and let your right hand hang at your side. Contract your left glute and push your hips forward until you feel a stretch in the front of your hip. Hold for 30 seconds.');
  
-  INSERT INTO trainers_exercises(exercise_id, trainer_id)
-  VALUES(1,1);
- 
+
 INSERT INTO exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
 VALUES ('Hammer Curl', 25, 12, 3, 10, 4 ,'Stand holding a pair of dumbbells at arms length by your sides with your palms facing each other. Keeping your elbows tucked, your upper arms locked in place (only your hands and forearms should move), and your palms facing inward, curl the dumbbells as close to your shoulders as you can.Pause, and then slowly lower the weights back to the starting position.'),
         ( 'Dumbbell Skull Crushers', 25, 10, 3, 10, 4, 'Lie down on a bench or the floor holding a pair of dumbbells directly above your chest with your palms facing each other. Your feet should be flat on the floor. Without moving your upper arms, bend your elbows and slowly lower the weights toward the sides of your head. Avoid flaring your elbows. Reverse the move to return to the starting position.'),
@@ -144,6 +145,8 @@ VALUES ('Hammer Curl', 25, 12, 3, 10, 4 ,'Stand holding a pair of dumbbells at a
         ('Tricep Dips', 0, 12, 3, 10, 4, 'Hoist yourself up on parallel bars with your torso perpendicular to the floor, you will maintain this posture throughout the exercise. (Leaning forward will shift emphasis to your chest and shoulders.) Bend your knees and cross your ankles. Slowly lower your body until your shoulder joints are below your elbows. Push back up until your elbows are nearly straight but not locked.'),
         ('Isolated Tricep Extension', 20, 10, 3, 10, 4, 'Sit on a bench and grab one dumbbell. Form a diamond shape with both hands to grip the top end of the weight. Raise the dumbbell over your head, keeping your elbows up and your core tight. Lower the dumbbell down the top of your back by bending at the elbow, maintaining your strong chest and keeping your shoulders still. Raise the weight by fully extending your arms, pausing for a count to squeeze at the top of the movement.');
 
+
+--back
 INSERT INTO exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
         VALUES('Bent-over Row', 45, 10, 3, 12, 2, 'Grip a barbell with palms down so that the wrists, elbows, and shoulders are in a straight line. Lift the bar from the rack, bend forward at the hips, and keep the back straight with a slight bend in the knees. Lower the bar towards the floor until the elbows are completely straight, and keep the back flat as the bar is pulled towards the belly button. Then slowly lower the bar to the starting position and repeat'),
         ('Standing Shrugs', 135, 10, 3, 12, 2, 'Hold a barbell with a palms-down grip with the hands about shoulder-width apart. Keep the knees slightly bent, the hips straight, and the back tall, and raise the shoulders directly upwards to the ears as high as possible, lowering slowly to the original starting position. (Tip: grip the bar and think about pulling the hands apart from one another and focus on only raising/lowering the shoulders - DO NOT roll the shoulders.)'),
@@ -156,12 +159,14 @@ INSERT INTO exercise(exercise_name, suggested_weight, exercise_reps, exercise_se
          ('Deadlift (Barbell)', 135, 10, 3, 12, 2, 'Holding a barbell with both hands so that it rests on the front of the thighs, keep a slight bend in both knees and a straight back. Push the hips back while lowering the weight towards the floor until feeling some tension along the back of the legs. To return to standing, push the heels into the floor and pull the knees backwards, keeping the bar very close to the body while standing.
                 ');
                 
-                INSERT INTO Exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
+--abs       
+INSERT INTO Exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
 VALUES('Arms High Partial Sit Up', 0, 12, 3, 5, 7, 'Lie on your back, knees bent at 90 degrees, and raise your arms straight overhead, keeping them pointing up throughout the exercise. Sit up halfway, then steadily return to the floor. That’s one rep.'),
        ('Forearm Plank', 0, 1, 3, 5, 7, 'Place your forearms on the floor, elbows directly underneath your shoulders, hands facing forward so that your arms are parallel. Extend your legs behind you, feet hip-width apart. Tuck your tailbone and engage your core, butt, and quads. Hold here for a set amount of time.'),
        ('Side Plank', 0, 1, 3, 6, 7, 'Lie on your right side with your right hand directly underneath your right shoulder. Extend your legs and stack your left foot on top of your right, and squeeze your abs and glutes to lift your hips off the floor. Extend your left hand straight up towards the ceiling and hold for a set amount of time. This is one rep. Be sure to alternate between left and right sides.'),
        ('Leg Lift', 0, 12, 3, 6, 7, 'Lie faceup with your legs extended and your arms on the floor by your sides. If your lower back needs some extra support, you can place your hands right underneath your butt on each side. This is the starting position. Slowly lift your legs up and toward your face, keeping them together and stopping when they are about vertical. Then, slowly lower them back down to the ground. Be sure to keep your back flat on the floor. If you are having trouble with that or feel tension in your lower back, do not lower your legs as far down.');
- 
+
+--cardio 
 INSERT INTO Exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
 VALUES ('Jumping Jacks', 0, 50, 2, 3, 5, 'Begin with the feet hip-width apart and arms down. Raise the arms out to the sides, straight in the air while jumping with the feet apart. Jump back to the starting position and land softly on the balls of your feet, bringing arms back into body. Increase intensity as needed by jumping higher or performing faster.'),
         ('Squat Jumps', 0, 20, 3, 6, 5, 'Stand with feet hip-width apart and arms at sides. Bend at the knees to squat. Jump in the air and extend hips until body is straight. Land softly on balls of the feet, rolling backwards to absorb shock in the heels. Repeat using different arm movements to adjust difficulty.'),
@@ -169,7 +174,7 @@ VALUES ('Jumping Jacks', 0, 50, 2, 3, 5, 'Begin with the feet hip-width apart an
         ('Mountain Climbers', 0, 25, 3, 4, 5, 'Start in pushup position with the right leg extended backward and the left leg near the chest with toes on the ground. Keep the hands on the ground and hips level, quickly sqitch position of legs. Continue to alternate legs, increasing speed to increase difficulty.');
 
 
-
+--abs
 INSERT INTO Exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
 VALUES('Grounded Russian Twist', 0, 30, 3, 6, 7, 'Sit on the floor with your knees bent and heels resting on the ground. Lean back so that your torso is at 45°. Keep your chest up to stop you from hunching your back. Interlock your fingers and extend your arms in front of you. Turn your torso to the left or right, bringing your hands to touch the ground on that side. Rotate back to centre and then carry on to touch the opposite side. Once you’ve mastered the movement, make it more difficult by raising your heels off the floor and/or holding a weight.'),
       ('Dumbbell Woodchop', 15, 12, 3, 6, 7, 'Stand holding a dumbbell in both hands. Squat down and move the dumbbell over to the outside of your left thigh. Stand up and raise the dumbbell with straight arms, twisting to take it across your torso to finish above your right shoulder. In the final position you should have twisted your entire torso to face the dumbbell and be up on your toes, using your core to hold the position. Twist back to return the dumbbell to the starting position. Do all the required reps on one side and then swap.'),
@@ -185,8 +190,53 @@ VALUES('Grounded Russian Twist', 0, 30, 3, 6, 7, 'Sit on the floor with your kne
               ('Pull Ups', 0, 10, 3, 6, 6, 'Start by hanging from a pull up bar with your palms facing away from you. Keeping your chest up and your shoulders back, squeeze your glutes and cross your feet, then pull yourself up so that your chin rests over the bar. Lower back down with control.'),
               ('Dips', 0, 12, 3, 5, 6, 'Stand in between a set of parallel bars. Grab the bars, straighten your arms, and hoist yourself up off the ground while slightly crossing your legs. While pulling your shoulders back and keeping your chest up, lower yourself down so that your elbows are parallel to the floor. Raise yourself back up to the starting position so that your arms are straight.'),
               ('Kettlebell Swings', 10, 15, 3, 6, 6, 'Stand with your legs hip-width apart, holding a kettlebell between them. Allow the kettlebell to swing slightly behind your legs, then propel your hips forward, bringing the kettlebell straight over your head. Keep your eyes on the kettlebell and point it straight up or slightly forward. Pull the kettlebell down from the sky and repeat.');      
+--more chest4
+INSERT INTO Exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
+VALUES ('Incline Dumbbell Flye', 25, 10, 3, 5, 3, 'Set an adjustable bench to a 30°-45° angle, and lie back on it with a dumbbell in each hand. Turn your wrists so your palms face each other. Press the weights straight over your chest, then, keeping a slight bend in your elbows, spread your arms open as if you were going for a big bear hug. Lower your arms until you feel a stretch in your pecs, then bring the weights back together over your chest.'),
+         ('Cable Crossover', 25, 8, 3, 6, 3, 'Stand between two facing cable stations with both pulleys set midway between the top and bottom of the station. Attach a D-handle to each pulley and hold one in each hand. Keep your elbows slightly bent, and step forward so there’s tension on the cables. Flex your pecs as you bring your hands together out in front of your chest. Alternate stretching and flexing after each set.'),
+         ('Low-Cable Crossover', 25, 8, 3, 6, 3, 'Stand between two facing cable stations and attach a D-handle to the low pulleys on each. With a handle in each hand and elbows slightly bent, raise your arms from waist height to out in front of your chest, flexing your pecs as you bring them together.'),
+         ('Landmine Press', 50, 10, 4, 7, 3, 'Wedge the end of the barbell into a corner of the room (to avoid damage to the walls, you may have to wrap a towel around it). Load the opposite end with weight and grasp it toward the end of the barbell sleeve with your right hand. Stagger your stance so your left leg is in front. Press the bar straight overhead.'),
+         ('Prone Flye', 0, 10, 4, 7, 3, 'Hold a dumbbell in each hand and get into pushup position on the floor with palms facing each other. Spread your arms apart as in a normal dumbbell flye and lower your body until you feel a stretch in your chest, then squeeze the dumbbells and bring your hands back to pushup position. Keep your abs and glutes braced and your back flat throughout. If you’re using plate-loaded dumbbells, you may be able to roll the weight plates on the floor during the flye. Otherwise, you can place a towel under each dumbbell to facilitate sliding. If this is too difficult, perform the exercise on your knees.');
+         
+         INSERT INTO Exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
+VALUES('Grounded Russian Twist', 0, 30, 3, 6, 7, 'Sit on the floor with your knees bent and heels resting on the ground. Lean back so that your torso is at 45°. Keep your chest up to stop you from hunching your back. Interlock your fingers and extend your arms in front of you. Turn your torso to the left or right, bringing your hands to touch the ground on that side. Rotate back to centre and then carry on to touch the opposite side. Once you’ve mastered the movement, make it more difficult by raising your heels off the floor and/or holding a weight.'),
+      ('Dumbbell Woodchop', 15, 12, 3, 6, 7, 'Stand holding a dumbbell in both hands. Squat down and move the dumbbell over to the outside of your left thigh. Stand up and raise the dumbbell with straight arms, twisting to take it across your torso to finish above your right shoulder. In the final position you should have twisted your entire torso to face the dumbbell and be up on your toes, using your core to hold the position. Twist back to return the dumbbell to the starting position. Do all the required reps on one side and then swap.'),
+      ('Medicine Ball Crunch', 13, 15, 3, 7, 7, 'Lie on your back with your knees bent and feet flat on the floor. Hold a medicine ball – 6kg to 10kg should be fine – to your chest. Raise your torso off the floor and press the medicine ball above your head with straight arms. To encourage good form, bring your head forwards between your arms and keep your chest up as your torso reaches vertical. Slowly lower under control, keeping your arms extended so the medicine ball touches the floor behind your head. Keep the movement smooth and controlled.'),
+      ('Flutter Kicks', 0, 1, 3, 6, 7, 'Sometimes known as scissor kicks, this movement will certainly feel like it’s carving out your abs. Lie on your back and raise your legs so that they’re roughly 15cm above the ground. Keeping your legs straight throughout, move your legs up and down in a kicking motion, with the movement coming from your hips. Go at a pace that’s comfortable and allows you to keep your legs off the ground for the duration, and make smooth and controlled movements. Work for between 30 and 60 seconds at a time.');
+      
+      --john's exercises first chest then others
+      INSERT INTO trainers_exercises(exercise_id, trainer_id)
+VALUES(1,2),(2,2),(3,2),(4,2),(5,2),(58,2),(59,2),(60,2),(61,2),(62,2);
 
+INSERT INTO trainers_exercises(exercise_id, trainer_id)
+VALUES(22,2),(33,2),(13,2),(45,2),(19,2),(35,2),(29,2),(28,2),(51,2);
+
+--zack's arms
+  INSERT INTO trainers_exercises(exercise_id, trainer_id)
+  VALUES(23,3), (30, 3), (25, 3), (24,3), (22,3), (32, 3), (33, 3), (39, 3), (45, 3), (47, 3), (38, 3), (40, 3), (34, 3), (49, 3), (50,3), (26,3), (31,3), (36, 3), (37, 3);
+  
+  --jamal back
+
+                  INSERT INTO trainers_exercises(exercise_id, trainer_id)
+                  VALUES(1,4), (8,4), (12,4), (10,4), (6,4), (13,4), (18,4), (22,4), (2,4), (24,4), (30,4), (11,4), (32,4), (29,4), (25,4), (43,4), (46,4), (38,4), (40,4), (23,4), (4,4);      
+                  
+                  --dom
+                  INSERT INTO trainers_exercises(exercise_id, trainer_id)
+VALUES (37,5), (38,5), (39,5), (40,5), (45,5), (46, 5), 
+        (47, 5), (48, 5), (53,5), (54,5), (55, 5), (56,5),
+        (57,5), (58,5), (41,5), (42,5), (43,5), (44,5), (7,5), (12,5);
+        
+        --jaclyn
+         INSERT INTO trainers_exercises(exercise_id, trainer_id)
+ VALUES(41, 1),(42, 1),(43, 1),(44,1), (4, 1), 
+        (5, 1), (7, 1), (9, 1), (12, 1), (15, 1),
+        (19, 1), (20, 1), (21, 1), (34, 1), (39, 1),
+        (45, 1), (48, 1), (47, 1), (57, 1);
+ 
+ 
 COMMIT;
+
+
 
 
 
@@ -211,4 +261,10 @@ TO final_capstone_appuser;
 GRANT USAGE, SELECT
 ON ALL SEQUENCES IN SCHEMA public
 TO final_capstone_appuser;
+
+SELECT *
+FROM exercise
+INNER JOIN trainers_exercises on exercise.id = trainers_exercises.exercise_id
+INNER JOIN trainer on trainer.trainer_id = trainers_exercises.trainer_id
+WHERE trainer.trainer_id = ? AND body_target_id = ?;
 
