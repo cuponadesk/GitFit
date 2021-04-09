@@ -1,10 +1,10 @@
 <template>
  <!-- <bio/> -->
-<div>
+<body>
   <div class="container">
   <div class="row">
     <div class="text">Jaclyn Spangler</div>
-    <div id="jaclyn-image" class="image">
+    <div class="image">
       <img src="images\jac-trainer.jpg" alt="Jaclyn Trainer">
     </div>
   </div>
@@ -25,7 +25,7 @@
     <div class="image">image</div>
   </div>
 </div>
-</div>
+</body>
   
 </template>
 
@@ -37,10 +37,22 @@ export default {
 </script>
 
 <style>
-div#jaclyn-image {
-  display: block;
-  max-height: auto;
-  max-width: 25px;
+body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "header header header"
+  "body body body"
+  "footer footer footer" ;
+  grid-gap: 10px;
+  align-items: center;
+  justify-items: center; 
+}
+
+
+img {
+  height: 50%;
+  width: 40%;
 }
 </style>
 
