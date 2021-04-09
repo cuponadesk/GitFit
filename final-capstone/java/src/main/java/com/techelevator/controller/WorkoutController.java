@@ -8,6 +8,7 @@ import com.techelevator.model.Exercise;
 import com.techelevator.model.ExerciseTrainer;
 import com.techelevator.model.Workout;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
+@PreAuthorize("isAuthenticated()")
 
 public class WorkoutController {
 
@@ -42,10 +44,5 @@ public class WorkoutController {
         return workoutDAO.saveCompletedWorkout(exerciseTrainers, principal);
     }
 
-//    @RequestMapping(path= "/workout/random", method = RequestMethod.GET)
-//    public List<ExerciseTrainer> generatedWorkoutRandom(@RequestParam int totalTime) {
-//
-//        return workoutDAO.generateWorkout(new int[0], new int[0], totalTime);
-//    }
 }
 
