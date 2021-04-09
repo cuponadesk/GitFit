@@ -10,12 +10,6 @@ import java.util.List;
 
 public interface WorkoutDAO {
 
-//
-//    List<Exercise> filterByTotalTime();
-//    List<Exercise> filterByTrainer();
-//    List<Exercise> filterByBodyTarget();
-//    createWorkout();
-
     List<ExerciseTrainer> generateWorkout(int[] trainerIds, int[] bodyTargetIds, int totalTime);
 }
 
