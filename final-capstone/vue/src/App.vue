@@ -32,6 +32,11 @@
                 >Workouts <span class="sr-only">(current)</span></router-link
               >
             </li>
+              <li class="nav-item">
+              <router-link v-bind:to="{ name: 'Bio' }" class="nav-link"
+                >Our Trainers <span class="sr-only">(current)</span></router-link
+              >
+            </li>
 
             <li class="nav-item" v-if="admin">
               <router-link v-bind:to="{ name: 'Exercise' }" class="nav-link"

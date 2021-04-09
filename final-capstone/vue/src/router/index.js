@@ -9,6 +9,7 @@ import Exercise from '@/views/ExerciseView.vue'
 import List from '@/views/List.vue'
 import Welcome from '@/views/Welcome.vue'
 import Workout from '@/views/WorkoutView.vue'
+import Bio from '@/views/services/BioService'
 
 
 
@@ -107,6 +108,14 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/trainerbio",
+      name: "trainerbio",
+      component: Bio,
+      meta: {
+        requiresAuth: false
+      }
+    }
   ]
 })
 
