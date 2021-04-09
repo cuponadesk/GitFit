@@ -21,3 +21,14 @@
  ('Hip Hinge', 65, 3, 10, 5, 1, 'While standing, position your feet shoulder-width apart, side-by-side, with your toes pointed forward or slightly outward. Take a light bar and place it behind your head grasping the end with one hand above your head and the other end with your opposite hand in the small of your back. Push your hips backwards towards the wall behind you and hinge forward at the hips. Gently inhale and return to upright positun contracting your glutes.'),
  ('Leg Crossover Stretch', 0, 1, 5, 5, 1, 'Lie flat on your back on the floor / mat in a bent-knee position. Gently exhale and slowly press the knee of the crossed leg away from your body, continue pushing your knee away from you until you reach the point of tension, avoid bouncing or pushing to the point of pain. Hold this position for 15 – 30 seconds then relax and return to your starting position.  Perform 2 – 4 repetitions then repeat to the opposite side.'),
  
+ 
+ SELECT * 
+ FROM exercise
+ WHERE body_target_id = 5;
+ 
+ INSERT INTO trainers_exercises(exercise_id, trainer_id)
+ VALUES(41, 1),(42, 1),(43, 1),(44,1), (4, 1), 
+        (5, 1), (7, 1), (9, 1), (12, 1), (15, 1),
+        (19, 1), (20, 1), (21, 1), (34, 1), (39, 1),
+        (45, 1), (48, 1), (47, 1), (57, 1);
+ 
