@@ -33,7 +33,7 @@
               >
             </li>
               <li class="nav-item">
-              <router-link v-bind:to="{ name: 'Bio' }" class="nav-link"
+              <router-link v-bind:to="{ name: 'trainerbio' }" class="nav-link"
                 >Our Trainers <span class="sr-only">(current)</span></router-link
               >
             </li>

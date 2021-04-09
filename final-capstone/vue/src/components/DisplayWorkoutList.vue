@@ -110,11 +110,8 @@
                 </td>
               </tr>
             </table>
-
             <div></div>
           </form>
-      
-
           <table class="table table-striped">
             <thead>
               <tr>
@@ -164,6 +161,8 @@
     </div>
   </section>
 </template>
+
+
 <script>
 import workoutService from "@/services/WorkoutService";
 export default {
@@ -171,7 +170,7 @@ export default {
     return {
       trainers: [],
       filterTrainers: [true, true, true, true, true],
-      filterZack: true,
+      filterZach: true,
       filterJaclyn: true,
       filterDom: true,
       filterJamal: true,
@@ -251,4 +250,5 @@ export default {
 </script>
 
 <style>
+
 </style>

@@ -5,4 +5,7 @@ const http = axios.create({
 });
 
 export default {
+    listBio() {
+        return http.get(`/trainerbio`);
+    }
 }

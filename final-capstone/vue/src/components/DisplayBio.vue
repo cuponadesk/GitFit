@@ -1,11 +1,11 @@
 <template>
-  <bio />
+  <bio/>
 </template>
 
 <script>
-import BioService from "@/services/BioService";
+import bioService from "@/services/BioService";
 export default {
-
+    component: bioService
 }
 </script>
 

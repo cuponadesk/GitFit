@@ -9,7 +9,8 @@ import Exercise from '@/views/ExerciseView.vue'
 import List from '@/views/List.vue'
 import Welcome from '@/views/Welcome.vue'
 import Workout from '@/views/WorkoutView.vue'
-import Bio from '@/views/services/BioService'
+import Bio from '@/views/BioView.vue'
+
 
 
 
