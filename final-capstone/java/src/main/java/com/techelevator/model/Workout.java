@@ -15,7 +15,7 @@ public class Workout {
     private int timeCompleted;
     private LocalDate dateSaved;
     private int totalTime;
-    private String workoutComments;
+
 
     public int getWorkoutId() {
         return workoutId;
@@ -79,13 +79,5 @@ public class Workout {
 
     public void setTotalTime(int totalTime) {
         this.totalTime = totalTime;
-    }
-
-    public String getWorkoutComments() {
-        return workoutComments;
-    }
-
-    public void setWorkoutComments(String workoutComments) {
-        this.workoutComments = workoutComments;
     }
 }

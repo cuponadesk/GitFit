@@ -24,14 +24,14 @@ public class WorkoutSqlDAO implements WorkoutDAO {
     }
 
     @Override
-    public boolean saveCompletedWorkout(List<ExerciseTrainer> exerciseTrainers, Principal principal, String comments) {
+    public boolean saveCompletedWorkout(List<ExerciseTrainer> exerciseTrainers, Principal principal) {
 
         int workoutUpdated= 0;
         int newWorkoutId = getNewWorkoutId();
         for (ExerciseTrainer exerciseTrainer : exerciseTrainers) {
-            String sql = "INSERT INTO workout(workout_id, exercise_id, trainer_id, workout_comments, sets_completed, reps_completed, time_completed, total_time, username, date_saved) "
-                        +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-             workoutUpdated = jdbcTemplate.update(sql, newWorkoutId, exerciseTrainer.getId(), exerciseTrainer.getTrainerId(), comments, exerciseTrainer.getSets(), exerciseTrainer.getReps(),
+            String sql = "INSERT INTO workout(workout_id, exercise_id, trainer_id, sets_completed, reps_completed, time_completed, total_time, username, date_saved) "
+                        +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+             workoutUpdated = jdbcTemplate.update(sql, newWorkoutId, exerciseTrainer.getId(), exerciseTrainer.getTrainerId(), exerciseTrainer.getSets(), exerciseTrainer.getReps(),
                     exerciseTrainer.getTime(), getTotalTime(exerciseTrainers), principal.getName(), LocalDate.now());
         }
         return (workoutUpdated== 1);

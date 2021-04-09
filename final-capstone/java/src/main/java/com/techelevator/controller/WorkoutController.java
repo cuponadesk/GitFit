@@ -7,8 +7,10 @@ import com.techelevator.dao.WorkoutDAO;
 import com.techelevator.model.Exercise;
 import com.techelevator.model.ExerciseTrainer;
 import com.techelevator.model.Workout;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -33,10 +35,17 @@ public class WorkoutController {
         }
         return workoutDAO.generateWorkout(trainerIds, bodyTargetIds, totalTime);
     }
-    @RequestMapping(path= "/workout/random", method = RequestMethod.GET)
-    public List<ExerciseTrainer> generatedWorkoutRandom(@RequestParam int totalTime) {
 
-        return workoutDAO.generateWorkout(new int[0], new int[0], totalTime);
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/workout/save", method = RequestMethod.POST)
+    public boolean addExercise(@RequestBody List<ExerciseTrainer> exerciseTrainers, Principal principal){
+        return workoutDAO.saveCompletedWorkout(exerciseTrainers, principal);
     }
+
+//    @RequestMapping(path= "/workout/random", method = RequestMethod.GET)
+//    public List<ExerciseTrainer> generatedWorkoutRandom(@RequestParam int totalTime) {
+//
+//        return workoutDAO.generateWorkout(new int[0], new int[0], totalTime);
+//    }
 }
 

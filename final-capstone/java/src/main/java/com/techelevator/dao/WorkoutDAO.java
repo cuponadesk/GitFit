@@ -12,6 +12,6 @@ import java.util.List;
 public interface WorkoutDAO {
 
     List<ExerciseTrainer> generateWorkout(int[] trainerIds, int[] bodyTargetIds, int totalTime);
-    boolean saveCompletedWorkout(List<ExerciseTrainer> exerciseTrainers, Principal principal, String comments);
+    boolean saveCompletedWorkout(List<ExerciseTrainer> exerciseTrainers, Principal principal);
 }
 
