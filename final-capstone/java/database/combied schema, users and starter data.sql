@@ -62,7 +62,6 @@ CREATE table workout(
                 workout_id int ,
                 exercise_id int , 
                 trainer_id int,
-                workout_comments varchar(128),
                 sets_completed int,
                 reps_completed int,
                 time_completed int,

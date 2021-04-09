@@ -3,6 +3,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Exercise;
 import com.techelevator.model.ExerciseTrainer;
+import com.techelevator.model.Workout;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.Principal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -24,15 +26,15 @@ public class WorkoutSqlDAO implements WorkoutDAO {
     }
 
     @Override
-    public boolean saveCompletedWorkout(List<ExerciseTrainer> exerciseTrainers, Principal principal, String comments) {
+    public boolean saveCompletedWorkout(List<ExerciseTrainer> exerciseTrainers, Principal principal) {
 
         int workoutUpdated= 0;
         int newWorkoutId = getNewWorkoutId();
         for (ExerciseTrainer exerciseTrainer : exerciseTrainers) {
-            String sql = "INSERT INTO workout(workout_id, exercise_id, trainer_id, workout_comments, sets_completed, reps_completed, time_completed, total_time, username, date_saved) "
+            String sql = "INSERT INTO workout(workout_id, exercise_id, trainer_id, sets_completed, reps_completed, weight_completed, time_completed, total_time, username, date_saved) "
                         +"VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-             workoutUpdated = jdbcTemplate.update(sql, newWorkoutId, exerciseTrainer.getId(), exerciseTrainer.getTrainerId(), comments, exerciseTrainer.getSets(), exerciseTrainer.getReps(),
-                    exerciseTrainer.getTime(), getTotalTime(exerciseTrainers), principal.getName(), LocalDate.now());
+             workoutUpdated = jdbcTemplate.update(sql, newWorkoutId, exerciseTrainer.getId(), exerciseTrainer.getTrainerId(), exerciseTrainer.getSets(), exerciseTrainer.getReps(),
+                    exerciseTrainer.getSuggestedWeight(), exerciseTrainer.getTime(), getTotalTime(exerciseTrainers), principal.getName(), LocalDate.now());
         }
         return (workoutUpdated== 1);
     }
@@ -74,6 +76,27 @@ public class WorkoutSqlDAO implements WorkoutDAO {
         }
         return filteredExerciseTrainers;
     }
+
+    @Override
+    public List<Workout> getUserWorkouts(Principal principal){
+        List<Workout> userWorkouts = new ArrayList<>();
+        String sql= "SELECT workout.workout_id, exercise.exercise_name, trainer.trainer_name, workout.sets_complete, " +
+                "workout.reps_completed, workout.weight_completed, workout.time_completed, workout.total_time, workout.date_saved " +
+                " FROM workouts " +
+                "INNER JOIN exercise ON exercise.id = workout.exercise_id " +
+                "INNER JOIN trainer ON trainer.trainer_id = workout.trainer_id " +
+                "WHERE username = ? ";
+        SqlRowSet sqlRowSet= jdbcTemplate.queryForRowSet(sql, principal.getName());
+        while(sqlRowSet.next()){
+            userWorkouts.add(mapRowToWorkout(sqlRowSet));
+        }
+        return userWorkouts;
+    }
+
+
+
+
+
     private List<ExerciseTrainer> filterByTrainer(List<ExerciseTrainer> allExerciseTrainers, int[] trainerIds){
         List<ExerciseTrainer> updatedExerciseTrainers = new ArrayList<>();
         for(int i = 0; i < allExerciseTrainers.size(); i++){
@@ -134,6 +157,23 @@ public class WorkoutSqlDAO implements WorkoutDAO {
         return exercise;
 
 
+    }
+
+    public Workout mapRowToWorkout(SqlRowSet rowSet) {
+        Workout workout = new Workout();
+        workout.setWorkoutId(rowSet.getInt("workout_id"));
+        workout.setExerciseId(rowSet.getInt("exercise_id"));
+        workout.setSetsCompleted(rowSet.getInt("sets_completed"));
+        workout.setRepsCompleted(rowSet.getInt("reps_completed"));
+        workout.setTimeCompleted(rowSet.getInt("time_completed"));
+        workout.setTrainerId(rowSet.getInt("trainer_id"));
+        workout.setWeightCompleted(rowSet.getInt("weight_completed"));
+        workout.setTotalTime(rowSet.getInt("total_time"));
+        String dateAsString = rowSet.getString("date_saved");
+        workout.setDateSaved(LocalDate.parse(dateAsString));
+        workout.setTrainerName(rowSet.getString("trainer_name"));
+        workout.getExercise().setName(rowSet.getString("exercise_name"));
+        return workout;
     }
 }
 

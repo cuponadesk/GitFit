@@ -12,10 +12,37 @@ public class Workout {
     private int trainerId;
     private int setsCompleted;
     private int repsCompleted;
+    private int weightCompleted;
     private int timeCompleted;
     private LocalDate dateSaved;
+
+    public String getTrainerName() {
+        return trainerName;
+    }
+
+    public void setTrainerName(String trainerName) {
+        this.trainerName = trainerName;
+    }
+
     private int totalTime;
-    private String workoutComments;
+    private Exercise exercise;
+    private String trainerName;
+
+    public Exercise getExercise() {
+        return exercise;
+    }
+
+    public void setExercise(Exercise exercise) {
+        this.exercise = exercise;
+    }
+
+    public int getWeightCompleted() {
+        return weightCompleted;
+    }
+
+    public void setWeightCompleted(int weightCompleted) {
+        this.weightCompleted = weightCompleted;
+    }
 
     public int getWorkoutId() {
         return workoutId;
@@ -79,13 +106,5 @@ public class Workout {
 
     public void setTotalTime(int totalTime) {
         this.totalTime = totalTime;
-    }
-
-    public String getWorkoutComments() {
-        return workoutComments;
-    }
-
-    public void setWorkoutComments(String workoutComments) {
-        this.workoutComments = workoutComments;
     }
 }
