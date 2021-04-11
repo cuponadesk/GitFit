@@ -119,6 +119,23 @@
         </div>
       </div>
     </div>
+
+    <!-- footer with social media icons -->
+    <footer>
+        <div id="social">
+            <ul>
+                <li><a target="_blank"  href="https://www.facebook.com/"> <i class="fab fa-facebook-f"></i></a></li>
+                
+                <li><a target="_blank" href="https://www.instagram.com/gittin.this.fitness/"> <i class="fab fa-instagram"></i></a></li>
+                
+                <li><a target="_blank" href="mailto:gitfittrainers@gmail.com"><i class="far fa-envelope"></i></a></li>
+                    
+                <li><a target="_blank"  href="https://twitter.com/Git_Fitness"> <i class="fab fa-twitter"></i></a></li>
+            </ul>
+        </div>
+        <p>&copy;2021 GitFit</p>
+    </footer>
+
   </div>
 </template>
 <script>
@@ -223,4 +240,44 @@ div#terminal {
   color: white;
   font: 1.3rem Inconsolata, monospace;
 }
+
+
+/* css for footer with social media icons */
+#social{
+    width:100%;
+    margin: 0px;
+    text-align: center;
+    padding-top: 2%;
+    margin-bottom: 1.2%;
+    display: inline-block; 
+    border-top: solid 1px white;
+}
+footer p{
+    color: ghostwhite;
+    padding-bottom: 0%;
+    text-align: center;  
+}
+
+#social ul{
+  padding: 0;
+}
+
+#social li{
+    list-style: none;
+    margin: 3%;
+    margin-bottom: 3% ;
+    font-size: 1.2em;
+    transition: .5s;
+    display: inline;
+}
+
+#social .fab, #social .far{
+    font-size: 1.2em;
+}
+
+#social li:hover{
+    opacity: .5;
+    cursor: pointer;
+}
+
 </style>
