@@ -102,10 +102,10 @@
               <tr style="border: none">
                 <td colspan="7" style="border: none">
                   <select v-model="maxLength" class="custom-select">
-                    <option value="3">Less than three minutes</option>
-                    <option value="6">Less than six minutes</option>
-                    <option value="10">Less than ten minutes</option>
-                    <option value="99999">All lengths of time</option>
+                    <option value="30">20-40 minutes</option>
+                    <option value="60">50-70 minutes</option>
+                    <option value="90">80-100 minutes</option>
+                    <option value="110">MAX 120 minutes</option>
                   </select>
                 </td>
               </tr>
@@ -156,7 +156,7 @@
               </tr>
             </tbody>
             <div>
-            <button type ="button" v-on:click="generatedWorkout()" >Generate Workout</button>
+            <button type ="button" v-on:click="generateFilteredWorkout()" >Generate Workout</button>
             <!-- <router-link :to="{ name: 'generatedWorkout' }" tag ='button'>Generate Workout</router-link> -->
             </div>
           </table>
@@ -195,6 +195,8 @@ export default {
   },
   methods: {
     generateFilteredWorkout(){
+      this.filterBodyTargetId=[];
+      this.trainers=[];
       if(this.filterJaclyn){
         this.trainers.push(1);
       }if(this.filterJohn){

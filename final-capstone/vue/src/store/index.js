@@ -33,6 +33,7 @@ export default new Vuex.Store({
       localStorage.setItem('user',JSON.stringify(user));
     },
     SET_WORKOUT(state, data){
+      state.workout=[];
       state.workout = data;
     },
     LOGOUT(state) {
