@@ -1,4 +1,4 @@
-<template>
+ <template>
   <section>
     <div class="container text-center">
       <div class="row justify-content-center">
@@ -156,7 +156,9 @@
               </tr>
             </tbody>
             <div>
-            <router-link :to="{ name: 'generatedWorkout' }" tag ='button'>Generate Workout</router-link></div>
+            <button type ="button" v-on:click="generatedWorkout()" >Generate Workout</button>
+            <!-- <router-link :to="{ name: 'generatedWorkout' }" tag ='button'>Generate Workout</router-link> -->
+            </div>
           </table>
         </div>
       </div>
@@ -172,18 +174,60 @@ export default {
     return {
       trainers: [],
       filterTrainers: [true, true, true, true, true],
-      filterZach: true,
+      filterZack: true,
       filterJaclyn: true,
       filterDom: true,
       filterJamal: true,
       filterJohn: true,
+      filterArms: true,
+      filterChest: true,
+      filterBack: true,
+      filterCardio: true,
+      filterFullBody: true,
+      filterLegs: true,
+      filterAbs: true,
       maxLength: 100,
+      filterBodyTargetId: []
     };
   },
   created() {
     this.getTrainers();
   },
   methods: {
+    generateFilteredWorkout(){
+      if(this.filterJaclyn){
+        this.trainers.push(1);
+      }if(this.filterJohn){
+        this.trainers.push(2);
+      }if(this.filterZack){
+        this.trainers.push(3);
+      }if(this.filterJamal){
+        this.trainers.push(4);
+      }if(this.filterDom){
+        this.trainers.push(5);
+      }if(this.filterLegs){
+        this.filterBodyTargetId.push(1);
+      }if(this.filterBack){
+        this.filterBodyTargetId.push(2);
+      }if(this.filterChest){
+        this.filterBodyTargetId.push(3);
+      }if(this.filterArms){
+        this.filterBodyTargetId.push(4);
+      }if(this.filterCardio){
+        this.filterBodyTargetId.push(5);
+      }if(this.filterFullBody){
+        this.filterBodyTargetId.push(6);
+      }if(this.filterAbs){
+        this.filterBodyTargetId.push(7);
+      }
+      workoutService.generateWorkout(this.maxLength, this.trainers, this.filterBodyTargetId)
+      .then(response =>{
+          this.$store.commit("SET_WORKOUT", response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    },
     filterTrainer(e) {
       switch (e) {
         case 1:

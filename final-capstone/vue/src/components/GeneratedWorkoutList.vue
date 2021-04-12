@@ -27,6 +27,7 @@ export default {
   props: ["workout"],
   components: GeneratedWorkout,
   methods: {
+    
     markComplete() {
       this.$store.commit("WORKOUT_STATUS", this.workout);
     }

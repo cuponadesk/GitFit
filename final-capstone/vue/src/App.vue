@@ -223,7 +223,7 @@ export default {
 }
 
 body {
-  background-color: #5e62d1;
+  background-color:  #5e62d1;
 }
 
 td {
