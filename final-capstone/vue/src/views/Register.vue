@@ -91,7 +91,5 @@ export default {
 </script>
 
 <style>
-a, a:hover {
-  color: white;
-}
+
 </style>

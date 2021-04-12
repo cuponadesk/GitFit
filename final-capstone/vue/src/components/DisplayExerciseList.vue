@@ -349,8 +349,5 @@ div {
   margin: 1rem;
 }
 
-.table {
-  color: white;
-}
 
 </style>

@@ -206,7 +206,7 @@ export default {
 label {
   font-weight: 500;
   font-size: 1.5rem;
-  color: white;
+  color: black;
   padding: 1rem 0 0 0;
 }
 
