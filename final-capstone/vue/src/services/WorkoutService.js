@@ -10,8 +10,10 @@ const http = axios.create({
         return http.get(`/workout`);
       },
 
-    generateWorkout() {
-        return http.get(`/myworkout`);
+    generateWorkout(trainerID, bodyPartID, totalTime) {
+      let query = "?totalTime=" + totalTime + "trainerID=" + trainerID +
+      "bodyPartID=" + bodyPartID;
+        return http.get(`/workout/generate` + query);
     }
     
   }

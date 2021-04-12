@@ -1,6 +1,5 @@
 <template>
 <div>
-   
     <generated-workout />
 </div>
 </template>
