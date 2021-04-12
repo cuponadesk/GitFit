@@ -2,6 +2,7 @@
 <template>
   <div id="app">
     <img id="logo" src="images\Git Logo Final.PNG" alt="Logo">
+  
     <div id="nav">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-xl">
         <!-- <a class="navbar-brand" href="#">GIT Fit</a> -->
@@ -107,12 +108,12 @@
             <p class="git-fit">
               git fit -
               <span class="git-fit" style="color: #C29b00"
-                >be your best version</span
-              >
+                >be your best version</span>
             </p>
           </div>
         </div>
       </div>
+      
     </div>
     <div class="section">
       <div class="container">
@@ -291,5 +292,7 @@ footer p{
     opacity: .5;
     cursor: pointer;
 }
+
+
 
 </style>

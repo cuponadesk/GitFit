@@ -107,9 +107,7 @@ VALUES('Jaclyn'), ('John'), ('Zack'), ('Jamal'), ('Domenic');
 INSERT INTO body_target(body_target)
 VALUES('legs'), ('back'), ('chest'), ('arms'), ('cardio'), ('full body'), ('abs');
                         
-INSERT INTO Exercise(exercise_name, description, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id)
-VALUES('chest press', 'Lie face up on a flat bench, and grip a barbell with the hands slightly wider than shoulder-width. Press the feet into the ground and the hips into the bench while lifting the bar off the rack. Slowly lower the bar to the chest by allowing the elbows to bend out to the side. Stop when the elbows are just below the bench, and press feet into the floor to press the weight straight up to return to the starting position.',
-145, 10, 3, 10, 3);  
+ 
 
 
 INSERT INTO exercise(exercise_name, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, description)
@@ -134,8 +132,7 @@ Lie faceup, arms out to your sides at 45-degree angles, left foot flat on the fl
  ('Front Squat', 60, 3, 10, 8, 1, 'Set a barbell on a power rack at about shoulder height. Grab the power with an overhand grip at shoulder width and raise your elbows until your upper arms are parallel to the floor. Take the bar out of the rack and let it rest on your fingertips. Your elbows should be all the way up throughout the movement. Step back and set your feet at shoulder width with toes turned out slightly. Squat as low as you can without losing the arch in your lower back.','/images/16-front-squat.gif'),
  ('Walking Lunge', 20, 3, 12, 10, 1, 'Stand with your feet hip width, holding a dumbbell in each hand. Step forward with one leg and lower your body until your rear knee nearly touches the floor and your front thigh is parallel to the floor. Step forward with your rear leg to perform the next rep.','/images/17-walking-lunges.jfif'),
  ('Reverse Lunge', 30, 3, 10, 5, 1, 'Stand with the dumbbells still in your hands and step back with your right foot. Lower your body until your front thigh is parallel to the floor and your rear knee nearly touches the floor. Keep your torso upright. Step forward to return to the starting position. Complete all reps on one leg, then switch legs. That’s one set.','/images/18-reverse-lunge.gif'),
- ('Kettle Bell Swing', 30, 3, 8, 5, 1, 'Stand with feet hip-width apart and the kettlebell on the floor. Grasp the weight with both hands (palms facing you) and, keeping your lower back flat, extend your hips to raise it off the floor. From there, take a deep breath and bend your hips back, allowing the weight to swing back between your legs. Explosively extend your hips and exhale—allowing the momentum to swing the weight up to shoulder level. Control the descent, but use the momentum to begin the next rep.','/images/19-kettle-bell-swing.gif'),
- ('Jump Squat', 0, 4, 8, 8, 1, 'Stand with feet shoulder-width apart and squat down until your thighs are about parallel to the floor but no deeper. Jump as high as you can. Land with soft knees and begin the next rep.','/images/7-jumping-squats.gif'),
+ 
  ('Kneeling Hip Flexor Stretch', 0, 3, 15, 5, 1, 'Kneel down in a lunge position with your right leg in front, and rest your back knee on a towel or mat, if available. Extend your left hand above your head and let your right hand hang at your side. Contract your left glute and push your hips forward until you feel a stretch in the front of your hip. Hold for 30 seconds.','/images/21-Kneeling-Hip-Flexor-Stretch.gif');
  
 
