@@ -14,6 +14,7 @@ const http = axios.create({
       let query = "?totalTime=" + totalTime + "&trainerID=" + trainerID +
       "&bodyPartID=" + bodyPartID;
         return http.get(`/workout/generate` + query);
-    }
+    },
+    
     
   }

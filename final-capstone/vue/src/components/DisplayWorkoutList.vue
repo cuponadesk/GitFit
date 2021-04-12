@@ -225,6 +225,9 @@ export default {
       workoutService.generateWorkout(this.maxLength, this.trainers, this.filterBodyTargetId)
       .then(response =>{
           this.$store.commit("SET_WORKOUT", response.data);
+          if(response.status == 200){
+            this.$router.push("/myworkout");
+          }
       })
       .catch(error => {
         console.log(error);
