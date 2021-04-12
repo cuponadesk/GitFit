@@ -93,7 +93,7 @@
                   <!-- <button type="button" v-on:click="deleteExercise(e)">Delete</button> -->
                 </td>
                 <td v-if="admin" class="text-center">
-                  <img src="png\trash-4x.png" v-on:click="deleteExercise(e)" />
+                  <img src="png/trash-4x.png" v-on:click="deleteExercise(e)" />
                   <!-- <button type="button" v-on:click="deleteExercise(e)">Delete</button> -->
                 </td>
               </tr>
