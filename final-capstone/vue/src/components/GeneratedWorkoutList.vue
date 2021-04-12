@@ -6,7 +6,7 @@
 
 <table class="table table-striped">
             <thead>
-              <tr>
+              <tr v-bind:to="{name: 'exercise-detail', params: {id: 0}}">
                 <th class="text-left col-1">Name</th>
                 <th class="text-center">Sets</th>
                 <th class="text-center">Reps</th>
