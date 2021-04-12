@@ -1,6 +1,7 @@
 <template>
-<div class="exercise-detail">
-<h1> {{exercise.name}}</h1>
+<div class="exercise-details">
+<h1>{{exercise.name}}</h1>
+<p>{{ exercise.description}}</p>
 
 
 </div>
@@ -9,8 +10,8 @@
 
 <script>
 export default {
-    name: "exercise-detail",
-    props: ['id'],
+    name: "exercise-details",
+
     data(){
         return {
             exercise: {}
@@ -19,7 +20,7 @@ export default {
     },
     created(){
         let exercises= this.$store.state.workout;
-        this.exercise = exercises.filter(exercise => exercise.id == this.id)
+        this.exercise = exercises.find(exercise => exercise.id == this.$route.params.id)
     }
 
 }

@@ -1,4 +1,5 @@
 <template>
+
 <div class="container">
 <div class= "col-12">
 
@@ -6,7 +7,7 @@
 
 <table class="table table-striped">
             <thead>
-              <tr v-bind:to="{name: 'exercise-detail', params: {id: 0}}">
+              <tr>
                 <th class="text-left col-1">Name</th>
                 <th class="text-center">Sets</th>
                 <th class="text-center">Reps</th>
@@ -14,12 +15,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-               v-for="exercise in displayAllExercises" v-bind:key="exercise.id">
-                <td class="text-left">{{ exercise.name }}</td>
+              <tr v-for="exercise in displayAllExercises" v-bind:key="exercise.id"> 
+                <td class="text-left">
+                  <router-link
+               
+               v-bind:to="{name: 'exerciseDetails', params: { id: exercise.id }}">
+                  {{ exercise.name }}  </router-link></td>
                 <td class="text-center">{{ exercise.sets }}</td>
                 <td class="text-center">{{ exercise.reps }}</td>
                 <td class="text-center">{{ exercise.time }}</td>
+              
+             
               </tr>
             </tbody>
           </table>
@@ -37,7 +43,6 @@
     </button> -->
 
   
-
 </template>
 
 <script>

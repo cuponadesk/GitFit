@@ -11,6 +11,7 @@ import Welcome from '@/views/Welcome.vue'
 import Workout from '@/views/WorkoutView.vue'
 import Bio from '@/views/BioView.vue'
 import GeneratedWorkout from '@/views/GeneratedWorkoutView.vue'
+import ExerciseDetails from '@/views/ExerciseDetails.vue'
 
 
 
@@ -126,6 +127,14 @@ const router = new Router({
         requiresAuth :true
       }
 
+    },
+    {
+      path:"/myworkout/:id",
+      name: "exerciseDetails",
+      component: ExerciseDetails,
+      meta: {
+        requiresAuth :true
+      }
     }
   ]
 })
