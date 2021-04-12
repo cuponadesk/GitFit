@@ -10,6 +10,15 @@ public class Exercise {
     private int time;
 //    private String bodyTarget;
     private int bodyTargetId;
+    private String exerciseGif;
+
+    public String getExerciseGif() {
+        return exerciseGif;
+    }
+
+    public void setExerciseGif(String exerciseGif) {
+        this.exerciseGif = exerciseGif;
+    }
 
     public String getName() {
         return name;

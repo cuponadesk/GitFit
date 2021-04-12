@@ -154,6 +154,7 @@ public class WorkoutSqlDAO implements WorkoutDAO {
         exercise.setDescription(rowSet.getString("description"));
         exercise.setTrainerId(rowSet.getInt("trainer_id"));
         exercise.setTrainerName(rowSet.getString("trainer_name"));
+        exercise.setExerciseGif(rowSet.getString("exercise_gif"));
         return exercise;
 
 

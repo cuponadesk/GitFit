@@ -20,10 +20,10 @@ public ExerciseSqlDAO(JdbcTemplate jdbcTemplate){
     @Override
     public boolean addExercise(Exercise exercise) {
         int exerciseCreated = 0;
-        String insertExercise= "INSERT INTO Exercise(exercise_name, description, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id) "
-                + "VALUES(?, ?, ?, ?, ?, ?, ?) ";
+        String insertExercise= "INSERT INTO Exercise(exercise_name, description, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, exerciseGif) "
+                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?) ";
         exerciseCreated= jdbcTemplate.update(insertExercise, exercise.getName(), exercise.getDescription(), exercise.getSuggestedWeight(),
-                exercise.getReps(), exercise.getSets(), exercise.getTime(), exercise.getBodyTargetId());
+                exercise.getReps(), exercise.getSets(), exercise.getTime(), exercise.getBodyTargetId(), exercise.getExerciseGif());
 
 
         return exerciseCreated != 0;
@@ -34,11 +34,11 @@ public ExerciseSqlDAO(JdbcTemplate jdbcTemplate){
         int exerciseUpdated = 0;
         String insertExercise= "UPDATE exercise " +
                                "SET  exercise_name = ?, description = ?, suggested_weight = ?, exercise_reps = ?, "
-                                + "exercise_sets = ?, expected_time = ?, body_target_id = ? " +
+                                + "exercise_sets = ?, expected_time = ?, body_target_id = ?, exercise_gif = ? " +
                                  "WHERE id = ?";
 
         exerciseUpdated= jdbcTemplate.update(insertExercise, exercise.getName(), exercise.getDescription(), exercise.getSuggestedWeight(),
-              exercise.getReps(), exercise.getSets(), exercise.getTime(), exercise.getBodyTargetId(), id);
+              exercise.getReps(), exercise.getSets(), exercise.getTime(), exercise.getBodyTargetId(), exercise.getExerciseGif(), id);
 
         return exerciseUpdated != 0;
     }
@@ -76,6 +76,7 @@ public ExerciseSqlDAO(JdbcTemplate jdbcTemplate){
         exercise.setBodyTargetId(rowSet.getInt("body_target_id"));
         exercise.setSuggestedWeight(rowSet.getInt("suggested_weight"));
         exercise.setDescription(rowSet.getString("description"));
+        exercise.setExerciseGif(rowSet.getString("exercise_gif"));
         return exercise;
     }
 }

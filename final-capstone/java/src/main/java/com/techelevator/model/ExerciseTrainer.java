@@ -83,6 +83,15 @@ public class ExerciseTrainer {
     private int trainerId;
     private String trainerName;
     private int bodyTargetId;
+    private String exerciseGif;
+
+    public String getExerciseGif() {
+        return exerciseGif;
+    }
+
+    public void setExerciseGif(String exerciseGif) {
+        this.exerciseGif = exerciseGif;
+    }
 
     public int getBodyTargetId() {
         return bodyTargetId;
