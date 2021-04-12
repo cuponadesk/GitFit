@@ -19,7 +19,6 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     workout: [],
-    workoutExercises: [],
     token: currentToken || '',
     user: currentUser || {}
   },
@@ -36,9 +35,6 @@ export default new Vuex.Store({
     SET_WORKOUT(state, data){
       state.workout=[];
       state.workout = data;
-    },
-    SET_WORKOUT_EXERCISES(state, data){
-      state.workoutExercises= data;
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
