@@ -23,7 +23,8 @@
       </div>
       <h3>Jamal "The Back Behemoth" Stephenson</h3>
       <div class="bio">
-        <div class="image">image</div>
+          <img src="images\jumping-girl.jfif" alt="Jamal">
+          <p>Jamal likes to work out a lot.</p>
       </div>
       <h3>Domenic "The Abs Ambassador" Ceccoli</h3>
       <div class="bio">
@@ -57,7 +58,7 @@ body {
   padding: 20px;
   margin-bottom: 20px;
   border: solid 1px #555;
-  display: flex;
+  display: flex; 
 }
 
 .bio img {
