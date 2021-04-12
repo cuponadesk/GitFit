@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 <template>
   <div id="app">
+    <img id="logo" src="images\Git Logo Final.PNG" alt="Logo">
     <div id="nav">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-xl">
-        <a class="navbar-brand" href="#">GIT Fit</a>
+        <!-- <a class="navbar-brand" href="#">GIT Fit</a> -->
+        
         <button
           class="navbar-toggler"
           type="button"
@@ -104,7 +106,7 @@
             <h5>Terminal</h5>
             <p class="git-fit">
               git fit -
-              <span class="git-fit" style="color: #f9f871"
+              <span class="git-fit" style="color: #C29b00"
                 >be your best version</span
               >
             </p>
@@ -193,7 +195,7 @@ export default {
   overflow: hidden;
   font-family: "Source Code Pro", monospace;
   font-size: 2rem;
-  color: #5fecc8;
+  color: #184d01;
 }
 
 /* Animation */
@@ -223,22 +225,32 @@ export default {
 }
 
 body {
-  background-color:  #5e62d1;
+  background-color: white;
 }
 
 td {
-  color: white;
+  color: black;
 }
 
 div#terminal {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
   height: 25%;
-  background-color: black;
+  background-color: #f8f9fa;
   height: 20vh;
-  color: white;
+  color: black;
   font: 1.3rem Inconsolata, monospace;
+}
+
+img#logo {
+  /*align-items: center;
+  justify-content: center;
+  padding-left: 500px;*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 

@@ -296,6 +296,14 @@ export default {
     getTrainersArray() {
       return this.trainers;
     },
+    //Adding total time value for workout 
+    totalTime: function() {
+      let sum = 0;
+      this.time.forEach( e => {
+        sum += e.time;
+      });
+      return sum;
+    }
   },
 };
 </script>

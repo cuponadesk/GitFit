@@ -53,7 +53,7 @@ p#welcome-slogan {
   animation: none;
   font-family: 'Times New Roman', Times, serif;
   font-size: medium;
-  font-style: italic;
+  /*font-style: italic;*/
 }
 
 h2 {
