@@ -1,10 +1,31 @@
 <template>
-<div class= "generated-workout">
-<h2> Name of Exercise</h2>
-<h2> Description</h2>
-<h2> Exercise Gifs</h2>
-<h2> Edit: (sets, reps, desired weight, time)</h2>
-<p>hello</p>
+<div class="container">
+<div class= "col-12">
+
+
+
+<table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="text-left col-1">Name</th>
+                <th class="text-center">Sets</th>
+                <th class="text-center">Reps</th>
+                <th class="text-center">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+               v-for="exercise in displayAllExercises" v-bind:key="exercise.id">
+                <td class="text-left">{{ exercise.name }}</td>
+                <td class="text-center">{{ exercise.sets }}</td>
+                <td class="text-center">{{ exercise.reps }}</td>
+                <td class="text-center">{{ exercise.time }}</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</div>
+
 
     <!-- <div class="workout-title">{{ workout.title }}</div>
     <div class="workout-trainer">{{ workout.trainer }}</div>
@@ -14,22 +35,27 @@
     <button class="mark-incomplete" v-on:click.prevent="markIncomplete" v-if="workout.complete">
       Mark Incomplete
     </button> -->
-  </div>
+
   
 
 </template>
 
 <script>
-import GeneratedWorkout from '@/views/WorkoutView.vue'
 
 export default {
   name: "generated-workout-list",
-  props: ["workout"],
-  components: GeneratedWorkout,
   methods: {
+    // viewWorkoutDetails(id){
+    //   this.$router.push(`/myworkout/${this.id}`);
+    // },
 
     markComplete() {
       this.$store.commit("WORKOUT_STATUS", this.workout);
+    }
+  },
+  computed: {
+    displayAllExercises(){
+      return this.$store.state.workout;
     }
   }
 };
