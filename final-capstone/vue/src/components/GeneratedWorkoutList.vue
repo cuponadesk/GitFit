@@ -12,6 +12,7 @@
                 <th class="text-center">Sets</th>
                 <th class="text-center">Reps</th>
                 <th class="text-center">Time</th>
+                <th>Completed</th>
               </tr>
             </thead>
             <tbody>
@@ -24,11 +25,11 @@
                 <td class="text-center">{{ exercise.sets }}</td>
                 <td class="text-center">{{ exercise.reps }}</td>
                 <td class="text-center">{{ exercise.time }}</td>
-              
-             
+                <td><input type="checkbox" class="text-center" v-on:change="addExerciseToSave(exercise)"/></td>
               </tr>
             </tbody>
           </table>
+          <button type="button" v-on:click="saveCompletedWorkout()">Save Workout</button>
 </div>
 </div>
 
@@ -46,9 +47,15 @@
 </template>
 
 <script>
+import workoutService from "@/services/WorkoutService";
 
 export default {
   name: "generated-workout-list",
+  data() {
+    return {
+      completedExercises :[]
+    }
+  },
   methods: {
     // viewWorkoutDetails(id){
     //   this.$router.push(`/myworkout/${this.id}`);
@@ -56,6 +63,31 @@ export default {
 
     markComplete() {
       this.$store.commit("WORKOUT_STATUS", this.workout);
+    },
+    addExerciseToSave(exercise) {
+      let inArrayAlready = this.completedExercises.findIndex(e => e.id == exercise.id);
+      console.log(inArrayAlready);
+      if(inArrayAlready == -1) {
+        this.completedExercises.push(exercise);
+      }
+      else {
+        this.completedExercises.splice(inArrayAlready,1);
+      }
+
+    },
+    saveCompletedWorkout() {
+      workoutService.saveCompletedWorkoutToDatabase(this.completedExercises)
+      .then(response =>{
+          if(response.status == 201){
+            alert("Your workout was saved successfully. Keep killin' it!");
+            this.$router.push('/');
+          }
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+
     }
   },
   computed: {

@@ -15,6 +15,11 @@ const http = axios.create({
       "&bodyPartID=" + bodyPartID;
         return http.get(`/workout/generate` + query);
     },
+
+    saveCompletedWorkoutToDatabase(exercises) {
+        return http.post('workout/save/',exercises);
+
+    }
     
     
   }
