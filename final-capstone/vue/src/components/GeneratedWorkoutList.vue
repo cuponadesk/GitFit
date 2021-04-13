@@ -28,6 +28,8 @@
                 <td><input type="checkbox" class="text-center" v-on:change="addExerciseToSave(exercise)"/></td>
                 
               </tr>
+              <tr>
+                <td colspan="4"><h3>Total workout time: {{totalWorkoutTime}} minutes</h3></td></tr>
             </tbody>
           </table>
           <button type="button" v-on:click="saveCompletedWorkout()">Save Workout</button>
@@ -94,6 +96,14 @@ export default {
   computed: {
     displayAllExercises(){
       return this.$store.state.workout;
+    },
+    totalWorkoutTime() {
+      let totalExercises = this.$store.state.workout;
+      let totalTime = 0;
+      for(let i = 0; i < totalExercises.length; i++) {
+        totalTime += totalExercises[i].time;
+      }
+      return totalTime;
     }
   }
 };

@@ -14,6 +14,7 @@ import GeneratedWorkout from '@/views/GeneratedWorkoutView.vue'
 import ExerciseDetails from '@/views/ExerciseDetails.vue'
 
 import HistoryView from '@/views/HistoryView.vue'
+import ViewSavedWorkoutDetailsView from '@/views/ViewSavedWorkoutDetailsView.vue'
 
 
 
@@ -147,6 +148,14 @@ const router = new Router({
       requiresAuth :true
     }
   },
+  {
+    path: "/history/:id",
+    name: "ViewSavedWorkoutDetailsView",
+    component: ViewSavedWorkoutDetailsView,
+    meta: {
+      requiresAuth: true
+    }
+  }
   // {
   //   //logged in as trainer getting full list of users
   //   path: "/history/allUsers",
