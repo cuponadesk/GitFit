@@ -1,5 +1,6 @@
 <template>
   <div>
+      You are on the workout history details page
     <table class="table table-striped">
       <thead>
         <tr>
@@ -31,12 +32,17 @@ export default {
   computed: {
     getExercisesInWorkout() {
       let exercises = [];
-      for (let i = 0; i < this.$store.state.savedUserWorkout; i++) {
-        if (this.$store.state.workout[i].workoutId == this.$route.params.id) {
+      console.log(this.$store.state.savedUserWorkout);
+      console.log("here");
+      for (let i = 0; i < this.$store.state.savedUserWorkout.length; i++) {
+          console.log("here");
+          console.log(this.$store.state.workout[i].workoutId);
+          console.log( this.$route.params.id);
+        if (this.$store.state.savedUserworkout[i].workoutId == this.$route.params.id) {
           exercises.push(this.$store.state.savedUserWorkout[i]);
+          
         }
       }
-      console.log(this.$store.state.savedUserWorkout);
 
       return exercises;
     },
