@@ -65,10 +65,7 @@ export default {
 </script>
 
 <style>
-img {
-  height: 50%;
-  width: 40%;
-}
+
 
 body {
   margin: 20px;
