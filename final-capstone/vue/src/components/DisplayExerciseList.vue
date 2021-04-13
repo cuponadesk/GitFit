@@ -85,17 +85,20 @@
                 <td class="text-center">{{ e.reps }}</td>
                 <td class="text-center">{{ e.time }}</td>
                 <td v-if="admin" class="text-center">
+                  <!-- pencil and trashcan buttons still need to be fixed -->
                   <router-link
                     v-bind:to="{ name: 'edit', params: { id: e.id } }"
                   >
                     <img src="png\pencil-4x.png" />
-                  </router-link>
+                  
                   <!-- <button type="button" v-on:click="deleteExercise(e)">Delete</button> -->
+                  </router-link>
                 </td>
                 <td v-if="admin" class="text-center">
                   <img src="png/trash-4x.png" v-on:click="deleteExercise(e)" />
-                  <!-- <button type="button" v-on:click="deleteExercise(e)">Delete</button> -->
+                  <button type="button" v-on:click="deleteExercise(e)">Delete</button>
                 </td>
+                
               </tr>
             </tbody>
           </table>
