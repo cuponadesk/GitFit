@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 
 public class WorkoutController {
 
@@ -58,6 +58,8 @@ public class WorkoutController {
     public List<Workout> getTrainerWorkouts(@PathVariable String username){
         return workoutDAO.getUserWorkouts(username);
     }
+
+
 
 
 }
