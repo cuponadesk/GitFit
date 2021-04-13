@@ -44,8 +44,9 @@
       </div>
       <h3>Jamal Stephenson</h3>
       <div class="bio">
-        <img src="images\jumping-girl.jfif" alt="Jamal" />
-        <p>Long before he was a Division 1 college basketball player at Morehead State, Jamal embodied a full-circle healthy lifestyle consisting of diet and exercise. </p>
+        <img src="\images\GOPR0168[1].JPG" alt="Jamal" />
+        <p> "Mamba Mentality, A constant quest to be the best version of yourself". As a trainer that is all I ask, yes it will be hard, no you can not take a break, and yes you will get great results. Come to the gym to see friends, hang out, and take selfies? Sorry not the trainer for you (selfies are for post workout to admire gains).
+          You can not out work a bad diet (I've tried!) when choosing myself as your trainer not only do you get the intensity of a former D1 athlete you also recieve the nutritional guidance to upgrade to you 2.0! Known around these parts as "The Back Behemoth", you'll find out why  </p>
       </div>
       <h3>Domenic Ceccoli</h3>
       <div class="bio">
