@@ -47,56 +47,13 @@
                 <span class="sr-only">(current)</span></router-link
               >
             </li>
-
-           
             <li class="nav-item" v-if="!loggedIn">
               <a class="nav-link" href="/login">Login</a>
             </li>
             <li class="nav-item" v-if="loggedIn">
               <a class="nav-link" href="/logout">Logout</a>
             </li>
-
-            <!-- <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li> -->
           </ul>
-          <!-- <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="text"
-              placeholder="Username"
-              aria-label="Username"
-            />
-            <input
-              class="form-control mr-sm-2"
-              type="text"
-              placeholder="Password"
-              aria-label="Password"
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Login
-            </button>
-
-          </form> -->
         </div>
       </nav>
     </div>
@@ -115,13 +72,9 @@
       </div>
       
     </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <router-view />
-        </div>
-      </div>
-    </div>
+
+    <router-view />
+
 
     <!-- footer with social media icons -->
     <footer>
@@ -236,7 +189,7 @@ td {
 div#terminal {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
   height: 25%;
   background-color: #f8f9fa;
   height: 20vh;
