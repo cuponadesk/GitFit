@@ -29,7 +29,7 @@
                 
               </tr>
               <tr>
-                <td colspan="4"><h3>Total workout time: {{totalWorkoutTime}} minutes</h3></td></tr>
+                <td colspan="5"><h3 class="mt-3">Total workout time: {{totalWorkoutTime}} minutes</h3></td></tr>
             </tbody>
           </table>
           <button type="button" v-on:click="saveCompletedWorkout()">Save Workout</button>

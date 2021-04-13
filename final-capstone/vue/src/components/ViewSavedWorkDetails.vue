@@ -5,7 +5,6 @@
       <thead>
         <tr>
           <th class="text-left col-1">Name</th>
-          <th class="text-center">Target</th>
           <th class="text-center">Sets</th>
           <th class="text-center">Reps</th>
           <th class="text-center">Time</th>
@@ -13,13 +12,10 @@
       </thead>
       <tbody>
         <tr v-for="exercise in getExercisesInWorkout" v-bind:key="exercise.id">
-          <td class="text-left">{{ exercise.name }}</td>
-          <td class="text-center">
-            {{ bodyTargetIdToWord(exercise.bodyTargetId) }}
-          </td>
-          <td class="text-center">{{ exercise.sets }}</td>
-          <td class="text-center">{{ exercise.reps }}</td>
-          <td class="text-center">{{ exercise.time }}</td>
+          <td class="text-left">{{ exercise.exerciseName }}</td>
+          <td class="text-center">{{ exercise.setsCompleted }}</td>
+          <td class="text-center">{{ exercise.repsCompleted }}</td>
+          <td class="text-center">{{ exercise.timeCompleted }}</td>
         </tr>
       </tbody>
     </table>
@@ -32,13 +28,8 @@ export default {
   computed: {
     getExercisesInWorkout() {
       let exercises = [];
-      console.log(this.$store.state.savedUserWorkout);
-      console.log("here");
       for (let i = 0; i < this.$store.state.savedUserWorkout.length; i++) {
-          console.log("here");
-          console.log(this.$store.state.workout[i].workoutId);
-          console.log( this.$route.params.id);
-        if (this.$store.state.savedUserworkout[i].workoutId == this.$route.params.id) {
+        if (this.$store.state.savedUserWorkout[i].workoutId == this.$route.params.id) {
           exercises.push(this.$store.state.savedUserWorkout[i]);
           
         }
