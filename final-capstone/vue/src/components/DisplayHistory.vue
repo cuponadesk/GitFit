@@ -1,0 +1,62 @@
+<template>
+  <div>
+     <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="text-left col-1">Date Completed</th>
+                <th class="text-center">Total Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="workout in singleWorkout"
+                v-bind:key="workout.id"
+              >
+                <td class="text-left">{{ workout.dateSaved }}</td>
+                <td class="text-center">{{ workout.totalTime }}</td>
+                
+              </tr>
+            </tbody>
+          </table>
+  </div>
+</template>
+
+<script>
+import workoutService from "@/services/WorkoutService.js"
+export default {
+    name: "display-history",
+    created(){
+        workoutService.getSavedUserWorkouts()
+        .then(response => {
+            this.$store.commit("SAVE_USER_WORKOUTS", response.data);
+            this.savedWorkouts= response.data;
+        })
+        .catch(error => {
+            alert("Cannot do something!"); 
+            console.log(error);
+        });
+    },
+    data() {
+        return {
+        savedWorkouts: []
+        }
+    },
+    computed: {
+        singleWorkout(){
+            let workout = [];
+            for(let i = 0; i < this.savedWorkouts.length; i++){
+                if(workout.findIndex( w => w.workoutId == this.savedWorkouts[i].workoutId ) == -1){
+                    workout.push(this.savedWorkouts[i]);
+                }
+            }
+            return workout;
+        }
+    }
+
+
+}
+</script>
+
+<style>
+
+</style>

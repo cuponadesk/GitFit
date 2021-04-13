@@ -19,6 +19,9 @@ const http = axios.create({
     saveCompletedWorkoutToDatabase(exercises) {
         return http.post('workout/save/',exercises);
 
+    },
+    getSavedUserWorkouts(){
+      return http.get('/workout/history');
     }
     
     

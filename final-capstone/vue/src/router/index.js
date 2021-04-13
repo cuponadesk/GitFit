@@ -13,6 +13,8 @@ import Bio from '@/views/BioView.vue'
 import GeneratedWorkout from '@/views/GeneratedWorkoutView.vue'
 import ExerciseDetails from '@/views/ExerciseDetails.vue'
 
+import HistoryView from '@/views/HistoryView.vue'
+
 
 
 
@@ -135,7 +137,34 @@ const router = new Router({
       meta: {
         requiresAuth :true
       }
+    },
+    {
+      // user logged in history
+    path: "/history",
+    name: "historyView",
+    component: HistoryView,
+    meta: {
+      requiresAuth :true
     }
+  },
+  // {
+  //   //logged in as trainer getting full list of users
+  //   path: "/history/allUsers",
+  //   name: "all-users",
+  //   component: AllUsers,
+  //   meta: {
+  //     requiresAuth :true
+  //   }
+  // },
+  // {
+  //   //logged in as a trainer getting user details 
+  // path: "/history/:username",
+  // name: "user-details",
+  // component: UserDetails,
+  // meta: {
+  //   requiresAuth :true
+  // }
+  // }
   ]
 })
 
