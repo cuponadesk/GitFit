@@ -15,7 +15,13 @@
     <label for="weight">Suggested Weight &#40;lbs&#41;:</label>
     <br />
     <input id="weight" type="text" v-model="exercise.suggestedWeight" /><br />
-    <button type="button" v-on:click="saveToStore">Save Exercise Details</button>
+    <div class="exercise-gif">
+      <label for="gif">Proper Form</label><br />
+      <img v-bind:src="exercise.exerciseGif"/><br />
+    </div>
+    <button type="button" v-on:click="saveToStore">
+      Save Exercise Details
+    </button>
   </div>
 </template>
 
@@ -35,13 +41,17 @@ export default {
     );
   },
   methods: {
-      saveToStore() {
-          this.$store.commit("UPDATE_EXERCISE_IN_WORKOUT", this.exercise);
-          this.$router.push('/myworkout');
-
-      }
-  }
+    saveToStore() {
+      this.$store.commit("UPDATE_EXERCISE_IN_WORKOUT", this.exercise);
+      this.$router.push("/myworkout");
+    },
+  },
 };
 </script>
 
-<style></style>
+<style>
+/* .exercise-gif {
+  display: inline-block;
+}
+*/
+</style>

@@ -26,6 +26,7 @@
                 <td class="text-center">{{ exercise.reps }}</td>
                 <td class="text-center">{{ exercise.time }}</td>
                 <td><input type="checkbox" class="text-center" v-on:change="addExerciseToSave(exercise)"/></td>
+                
               </tr>
             </tbody>
           </table>
@@ -99,5 +100,9 @@ export default {
 </script>
 
 <style>
+
+.container {
+  background-color: lightcoral;
+}
 
 </style>
