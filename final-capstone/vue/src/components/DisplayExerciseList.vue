@@ -89,13 +89,14 @@
                   <router-link
                     v-bind:to="{ name: 'edit', params: { id: e.id } }"
                   >
-                    <img src="png\pencil-4x.png" />
+                   <!-- <img src="png\pencil-4x.png" /> -->
                   
-                  <!-- <button type="button" v-on:click="deleteExercise(e)">Delete</button> -->
+                   <button type="image" src="png\pencil-4x.png" style="background:url(png\pencil-4x.png" v-on:click="deleteExercise(e)"></button> 
                   </router-link>
                 </td>
                 <td v-if="admin" class="text-center">
-                  <img src="png/trash-4x.png" v-on:click="deleteExercise(e)" />
+                  <i class="far fa-trash-alt" v-on:click="deleteExercise(e)"></i>
+
                   <button type="button" v-on:click="deleteExercise(e)">Delete</button>
                 </td>
                 
@@ -205,6 +206,7 @@ export default {
           }
         })
         .catch((error) => {
+          alert("Cannot delete exercises that are saved in workouts!");
           this.handleErrorResponse(error, "adding");
         });
       console.log("here");

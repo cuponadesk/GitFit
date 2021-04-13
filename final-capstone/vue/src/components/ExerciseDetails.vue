@@ -17,7 +17,7 @@
     <input id="weight" type="text" v-model="exercise.suggestedWeight" /><br />
     <div class="exercise-gif">
       <label for="gif">Proper Form</label><br />
-      <input id="gif" type="image" v-model="exercise.exerciseGif" /><br />
+      <img v-bind:src="exercise.exerciseGif"/><br />
     </div>
     <button type="button" v-on:click="saveToStore">
       Save Exercise Details
