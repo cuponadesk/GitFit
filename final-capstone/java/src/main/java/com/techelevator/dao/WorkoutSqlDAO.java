@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 
+import com.techelevator.model.Authority;
 import com.techelevator.model.Exercise;
 import com.techelevator.model.ExerciseTrainer;
 import com.techelevator.model.Workout;
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Component
@@ -62,6 +64,9 @@ public class WorkoutSqlDAO implements WorkoutDAO {
         if (bodyTargetIds.length > 0){
             allExerciseTrainers = filterByBodyTarget(allExerciseTrainers, bodyTargetIds);
         }
+
+        allExerciseTrainers = removeDuplicates(allExerciseTrainers);
+
         Collections.shuffle(allExerciseTrainers);
         int timeCounter = 0;
         List<ExerciseTrainer> filteredExerciseTrainers = new ArrayList<>();
@@ -78,23 +83,71 @@ public class WorkoutSqlDAO implements WorkoutDAO {
     }
 
     @Override
-    public List<Workout> getUserWorkouts(Principal principal){
+    public List<Workout> getUserWorkouts(String username){
+
         List<Workout> userWorkouts = new ArrayList<>();
         String sql= "SELECT workout.workout_id, exercise.exercise_name, trainer.trainer_name, workout.sets_completed, " +
                 "workout.reps_completed, workout.weight_completed, workout.time_completed, workout.total_time, workout.date_saved, workout.exercise_id, workout.trainer_id " +
                 " FROM workout " +
                 "INNER JOIN exercise ON exercise.id = workout.exercise_id " +
                 "INNER JOIN trainer ON trainer.trainer_id = workout.trainer_id " +
-                "WHERE username = ? ";
-        SqlRowSet sqlRowSet= jdbcTemplate.queryForRowSet(sql, principal.getName());
+                "WHERE username = ? ORDER BY workout.workout_id";
+        SqlRowSet sqlRowSet= jdbcTemplate.queryForRowSet(sql, username);
         while(sqlRowSet.next()){
             userWorkouts.add(mapRowToWorkout(sqlRowSet));
         }
         return userWorkouts;
     }
 
+//    @Override
+//    public List<Workout> getTrainerWorkouts(String username){
+//
+//        List<Workout> userWorkouts = new ArrayList<>();
+//        String sql= "SELECT workout.workout_id, exercise.exercise_name, trainer.trainer_name, workout.sets_completed, " +
+//              "workout.reps_completed, workout.weight_completed, workout.time_completed, workout.total_time, workout.date_saved, workout.exercise_id, workout.trainer_id " +
+//              " FROM workout " +
+//              "INNER JOIN exercise ON exercise.id = workout.exercise_id " +
+//              "INNER JOIN trainer ON trainer.trainer_id = workout.trainer_id " +
+//              "WHERE trainer.trainer_id = ? ORDER BY workout.workout_id";
+//        SqlRowSet sqlRowSet= jdbcTemplate.queryForRowSet(sql, username);
+//        while(sqlRowSet.next()){
+//            userWorkouts.add(mapRowToWorkout(sqlRowSet));
+//        }
+//        return userWorkouts;
+//    }
 
 
+    private List<ExerciseTrainer> removeDuplicates(List<ExerciseTrainer> exercises) {
+
+        //sort the exercises using a comparator
+        exercises.sort(Comparator.comparingInt(ExerciseTrainer::getId));
+        //sort the exercises by exercise id using a lambda
+//            if (left.getId() > right.getId()) {
+//                return 1;
+//            } else if (right.getId() > left.getId()) {
+//                return -1;
+//            }
+//            return 0;
+//        });
+
+        List<ExerciseTrainer> noDupes = new ArrayList<>();
+        //Iterate through the array looking for duplicate exercises
+        for(int i = 0; i < exercises.size(); i++) {
+            int ii = 1;
+            //find the number of exercises that share the same id. that value is ii+1
+            while(ii+i < exercises.size() && exercises.get(i).getId() == exercises.get(i+ii).getId()) {
+                ii++;
+            }
+            //remove one from ii because last duplicate exercise is exercises.get(i-ii-ONE)
+            ii--;
+            //generate a random number based on the number of duplicate exercises. IE three duplicate exercises will get a number from 0 to 2
+            int rando = (int)(Math.random()*ii);
+            //add only one of the duplicates to the array to be returned.
+            noDupes.add(exercises.get(i+rando));
+        }
+
+        return noDupes;
+    }
 
 
     private List<ExerciseTrainer> filterByTrainer(List<ExerciseTrainer> allExerciseTrainers, int[] trainerIds){
@@ -138,10 +191,6 @@ public class WorkoutSqlDAO implements WorkoutDAO {
 
     }
 
-
-
-
-
     public ExerciseTrainer mapRowToExercise(SqlRowSet rowSet) {
         ExerciseTrainer exercise = new ExerciseTrainer();
         exercise.setId(rowSet.getInt("id"));
@@ -173,7 +222,7 @@ public class WorkoutSqlDAO implements WorkoutDAO {
         String dateAsString = rowSet.getString("date_saved");
         workout.setDateSaved(LocalDate.parse(dateAsString));
         workout.setTrainerName(rowSet.getString("trainer_name"));
-//        workout.getExercise().setName(rowSet.getString("exercise_name"));
+        workout.setExerciseName(rowSet.getString("exercise_name"));
         return workout;
     }
 }

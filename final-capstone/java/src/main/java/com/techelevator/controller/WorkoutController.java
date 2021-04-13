@@ -7,6 +7,7 @@ import com.techelevator.dao.WorkoutDAO;
 import com.techelevator.model.Exercise;
 import com.techelevator.model.ExerciseTrainer;
 import com.techelevator.model.Workout;
+import org.springframework.context.annotation.Role;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -44,9 +45,20 @@ public class WorkoutController {
         return workoutDAO.saveCompletedWorkout(exerciseTrainers, principal);
     }
 
+    @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping(path = "/workout/history", method = RequestMethod.GET)
     public List<Workout> getWorkouts(Principal principal){
-        return workoutDAO.getUserWorkouts(principal);
+        String username = principal.getName();
+        return workoutDAO.getUserWorkouts(username);
     }
+
+
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @RequestMapping(path = "/workout/history/{username}", method = RequestMethod.GET)
+    public List<Workout> getTrainerWorkouts(@PathVariable String username){
+        return workoutDAO.getUserWorkouts(username);
+    }
+
+
 }
 

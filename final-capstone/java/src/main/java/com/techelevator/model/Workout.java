@@ -15,6 +15,9 @@ public class Workout {
     private int weightCompleted;
     private int timeCompleted;
     private LocalDate dateSaved;
+    private int totalTime;
+    private String exerciseName;
+    private String trainerName;
 
     public String getTrainerName() {
         return trainerName;
@@ -24,16 +27,12 @@ public class Workout {
         this.trainerName = trainerName;
     }
 
-    private int totalTime;
-    private Exercise exercise;
-    private String trainerName;
-
-    public Exercise getExercise() {
-        return exercise;
+    public String getExerciseName() {
+        return exerciseName;
     }
 
-    public void setExercise(Exercise exercise) {
-        this.exercise = exercise;
+    public void setExerciseName(String exerciseName) {
+        this.exerciseName = exerciseName;
     }
 
     public int getWeightCompleted() {

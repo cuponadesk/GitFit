@@ -14,6 +14,6 @@ public interface WorkoutDAO {
 
     List<ExerciseTrainer> generateWorkout(int[] trainerIds, int[] bodyTargetIds, int totalTime);
     boolean saveCompletedWorkout(List<ExerciseTrainer> exerciseTrainers, Principal principal);
-    List<Workout> getUserWorkouts(Principal principal);
+    List<Workout> getUserWorkouts(String username);
 }
 
