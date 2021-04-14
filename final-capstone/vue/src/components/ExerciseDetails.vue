@@ -6,7 +6,7 @@
     <p>{{ exercise.description }}</p>
      <div class="exercise-gif">
       <label for="gif">Proper Form</label><br />
-      <img v-bind:src="exercise.exerciseGif"/><br />
+      <img v-bind:src="exercise.exerciseGif" width="100%"/><br />
     </div>
     <label for="sets">Sets:</label>
     <br />

@@ -59,10 +59,10 @@ export default {
       completedExercises :[]
     }
   },
+  created() {
+      console.log("created");
+  },
   methods: {
-    // viewWorkoutDetails(id){
-    //   this.$router.push(`/myworkout/${this.id}`);
-    // },
 
     markComplete() {
       this.$store.commit("WORKOUT_STATUS", this.workout);
@@ -95,6 +95,12 @@ export default {
   },
   computed: {
     displayAllExercises(){
+      let tempWorkouts = this.$store.state.workout;
+      for(let i =0; i < tempWorkouts.length; i++) {
+        tempWorkouts.completed = false;
+      }
+      this.$store.commit("SET_WORKOUT", tempWorkouts);
+      console.log(tempWorkouts);
       return this.$store.state.workout;
     },
     totalWorkoutTime() {
