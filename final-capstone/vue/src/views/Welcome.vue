@@ -157,7 +157,7 @@ h2 {
   display: flex;
 }
 .photo {
-  flex: 100%;
+  flex: 20%;
   padding: 2px;
   
 }

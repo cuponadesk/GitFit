@@ -20,7 +20,7 @@ public ExerciseSqlDAO(JdbcTemplate jdbcTemplate){
     @Override
     public boolean addExercise(Exercise exercise) {
         int exerciseCreated = 0;
-        String insertExercise= "INSERT INTO Exercise(exercise_name, description, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, exerciseGif) "
+        String insertExercise= "INSERT INTO Exercise(exercise_name, description, suggested_weight, exercise_reps, exercise_sets, expected_time, body_target_id, exercise_gif) "
                 + "VALUES(?, ?, ?, ?, ?, ?, ?, ?) ";
         exerciseCreated= jdbcTemplate.update(insertExercise, exercise.getName(), exercise.getDescription(), exercise.getSuggestedWeight(),
                 exercise.getReps(), exercise.getSets(), exercise.getTime(), exercise.getBodyTargetId(), exercise.getExerciseGif());

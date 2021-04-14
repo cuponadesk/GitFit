@@ -355,5 +355,12 @@ div {
   margin: 1rem;
 }
 
+.fas {
+  color: black;
+}
+
+.fas:hover {
+  cursor: pointer;
+}
 
 </style>
