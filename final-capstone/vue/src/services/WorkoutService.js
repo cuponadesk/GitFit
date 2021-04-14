@@ -22,6 +22,9 @@ const http = axios.create({
     },
     getSavedUserWorkouts(){
       return http.get('/workout/history');
+    },
+    getAllUsers(){
+      return http.get('/allUsers')
     }
     
     

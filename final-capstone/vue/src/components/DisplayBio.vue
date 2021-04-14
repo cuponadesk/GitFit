@@ -14,7 +14,7 @@
       </div>
       <h3>John Baringhaus</h3>
       <div class="bio">
-        <img src="images\jac-trainer1.jpg" alt="John Trainer" />
+        <img src="images/john-2.jpg" alt="John Trainer" />
         <p>
           John "The Chest Crusader" is a Certified Strength and Condition
           Specialist (CSCS) with the National
@@ -31,7 +31,7 @@
       </div>
       <h3>Zack Sempsrott</h3>
       <div class="bio">
-        <img src="images\jac-trainer2.jpg" alt="Zack Trainer" />
+        <img src="images/Image from iOS.jpg" alt="Zack Trainer" />
         <p>
           Zack believes in working out with an intense "no pain,
           no gain" mindset. Though he stands behind the importance of
@@ -76,7 +76,8 @@ body {
 .bio {
   padding: 20px;
   margin-bottom: 20px;
-  border: solid 1px #555;
+  border-radius: 25px;
+  border: 2px solid #5e62d1;
   display: flex;
 }
 

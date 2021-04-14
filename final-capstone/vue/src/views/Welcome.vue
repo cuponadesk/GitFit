@@ -43,31 +43,31 @@
   
       <div class="trainer-photos">
         <div class="photo">
-        <img class="trainer-image" src="images/Image from iOS.jpg" width="100%" height="100%" />
+        <img class="trainer-image" src="/images/trainer/zack.jpg" width="100%" height="100%" />
         <div class="overlay">
         <div class="zack_description"> Trainer Zack </div> 
         </div>
         </div>
         <div class="photo">
-        <img class="trainer-image" src="images/IMG_1966.jpg" width="100%" height="100%" />
+        <img class="trainer-image" src="images/trainer/dom.jpg" width="100%" height="100%" />
          <div class="overlay">
         <div class="zack_description"> Trainer Dom </div> 
         </div>
          </div>
         <div class="photo">
-        <img class="trainer-photo" src="images/john-2.jpg" width="100%" height="100%" />
+        <img class="trainer-photo" src="images/trainer/john.jpg" width="100%" height="100%" />
         <div class="overlay">
         <div class="zack_description"> Trainer John </div> 
         </div>
         </div>
         <div class="photo">
-        <img class="trainer-photo" src="images/jac-trainer.jpg" width="100%" height="100%" />
+        <img class="trainer-photo" src="images/trainer/jaclyn.jpg" width="100%" height="100%" />
          <div class="overlay">
         <div class="zack_description"> Trainer Jac <br> Cardio Queen <br> </div> 
         </div>
         </div>
         <div class="photo">
-        <img class="trainer-photo" src="images\GOPR0168[1].JPG" width="100%" height="100%" />
+        <img class="trainer-photo" src="images/trainer/jamal.jpg" width="100%" height="100%" />
          <div class="overlay">
         <div class="zack_description"> Trainer Jamal </div> 
         </div>
@@ -157,7 +157,7 @@ h2 {
   display: flex;
 }
 .photo {
-  flex: 100%;
+  flex: 20%;
   padding: 2px;
   
 }
