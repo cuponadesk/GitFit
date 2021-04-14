@@ -51,7 +51,7 @@
       <h3>Domenic Ceccoli</h3>
       <div class="bio">
         <img src="images\IMG_1976.jpg" alt="Dom Trainer" />
-        <p>Domenic has been a lifetime advocate of core strength, and his ab workout routines have taken him all over the world, earning him the nickname "The Abs Ambassador". Domenic believes that core strength is the baseline of physical fitness, and full body fitness stems from a solid core.</p>
+        <p>Domenic has been a lifetime advocate of core strength, and his ab workout routines have taken him all over the world, earning him the nickname "The Abs Ambassador". Domenic believes that core strength is the baseline of physical fitness, and full body fitness stems from a solid core. Are you looking to get ripped, 6 pack abs for Hot Boy (or Girl) Summer? If so, Dom just might be the perfect trainer for you! Come see why numerous Hollywood actors and actresses have come to Dom before in preparation for their blockbuster films!</p>
       </div>
     </div>
   </body>
