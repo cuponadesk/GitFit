@@ -53,6 +53,11 @@
             <li class="nav-item" v-if="loggedIn">
               <a class="nav-link" href="/logout">Logout</a>
             </li>
+             <li class="nav-item">
+              <router-link v-bind:to="{ name: 'historyView' }" class="nav-link"
+                >Workout History <span class="sr-only">(current)</span></router-link
+              >
+            </li>
           </ul>
         </div>
       </nav>

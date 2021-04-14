@@ -1,4 +1,5 @@
 <template>
+
   <div class="exercise-details">
     <h1>{{ exercise.name }}</h1>
     <p>{{ exercise.description }}</p>
