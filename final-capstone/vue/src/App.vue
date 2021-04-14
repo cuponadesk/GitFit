@@ -292,4 +292,14 @@ footer p {
   opacity: 0.5;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  p.git-fit,
+  #terminal p {
+    font-size: 1.25rem;
+  }
+
+}
+
+
 </style>

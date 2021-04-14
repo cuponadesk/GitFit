@@ -51,7 +51,13 @@
       </div>
 
       <hr>
+      <div class="row">
+        <div class="col-12 mx-4 mb-2">
+          <h2>Our trainers</h2>
+        </div>
+      </div>
       <div class="trainer-photos">
+        
         <div class="photo mx-3">
           <router-link :to="{ path: '/trainerbio', hash: '#zack'}">
           <img
