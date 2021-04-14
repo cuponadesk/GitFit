@@ -46,7 +46,6 @@
       <button type="button" v-on:click="saveCompletedWorkout()">
         Save Workout
       </button>
-      
     </div>
   </div>
 
@@ -74,6 +73,47 @@ export default {
     console.log("created");
   },
   methods: {
+    start() {
+      this.$confetti.start({
+        particles: [
+          {
+            type: "image",
+            url: "https://image.flaticon.com/icons/png/512/38/38464.png",
+          },
+          {
+            type: "image",
+            url:
+              "https://cdn0.iconfinder.com/data/icons/hotel-and-travel-4-1/52/195-512.png",
+          },
+          //   {
+          // type: 'image',
+          // url: 'https://www.flaticon.com/svg/vstatic/svg/2983/2983413.svg?token=exp=1618434830~hmac=d7fcc22e84624e6d81288f7663f38532',
+          //   },
+        ],
+      });
+    },
+
+    stop() {
+      this.$confetti.stop();
+    },
+
+    love() {
+      this.$confetti.update({
+        particles: [
+          {
+            type: "image",
+            src: "/images/dumbell.png",
+          },
+          {
+            type: "heart",
+          },
+          {
+            type: "circle",
+          },
+        ],
+        defaultColors: ["red", "pink", "purple", "#5e62d1", "#ba0000"],
+      });
+    },
     markComplete() {
       this.$store.commit("WORKOUT_STATUS", this.workout);
     },
@@ -89,6 +129,7 @@ export default {
       }
     },
     saveCompletedWorkout() {
+      this.start();
       workoutService
         .saveCompletedWorkoutToDatabase(this.completedExercises)
         .then((response) => {

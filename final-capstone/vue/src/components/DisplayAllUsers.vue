@@ -40,9 +40,19 @@ export default {
       .getAllUsers()
       .then((response) => {
         this.users = response.data;
+        console.log(this.users);
       })
       .catch((error) => {
         console.log(error);
+        workoutService
+          .getAllUsers()
+          .then((response) => {
+            this.users = response.data;
+            console.log(this.users);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       });
   },
   methods: {

@@ -143,6 +143,11 @@
 <script>
 import authService from "./services/AuthService";
 
+import Vue from 'vue'
+import VueConfetti from 'vue-confetti'
+
+Vue.use(VueConfetti)
+
 export default {
   components: {},
   data() {
@@ -154,7 +159,56 @@ export default {
       invalidCredentials: false,
     };
   },
+  created() {
+      setTimeout(this.$confetti.stop(), 2000);
+  },
   methods: {
+        start() {
+        this.$confetti.start(
+          {particles: [
+            {
+            type: 'image',
+            url: 'https://image.flaticon.com/icons/png/512/38/38464.png',
+              },
+              {
+            type: 'image',
+            url: 'https://cdn0.iconfinder.com/data/icons/hotel-and-travel-4-1/52/195-512.png',
+              },
+            //   {
+            // type: 'image',
+            // url: 'https://www.flaticon.com/svg/vstatic/svg/2983/2983413.svg?token=exp=1618434830~hmac=d7fcc22e84624e6d81288f7663f38532',
+            //   },
+          ]},
+        );
+      },
+
+      stop() {
+        this.$confetti.stop();
+      },
+
+      love() {
+        this.$confetti.update({
+          particles: [
+            {
+            type: 'image',
+          src: '/images/dumbell.png',
+              },
+            {
+              type: 'heart',
+            },
+            {
+              type: 'circle',
+            },
+          ],
+          defaultColors: [
+            'red',
+            'pink',
+            'purple',
+            '#5e62d1',
+            '#ba0000'
+          ],
+        });
+      },
     login() {
       authService
         .login(this.user)

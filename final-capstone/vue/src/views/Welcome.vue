@@ -155,6 +155,9 @@ import VueConfetti from 'vue-confetti'
 Vue.use(VueConfetti)
 export default {
   name: "welcome",
+  created() {
+     setTimeout(stop(), 2000);
+  },
   methods: {
       start() {
         this.$confetti.start(
@@ -167,10 +170,10 @@ export default {
             type: 'image',
             url: 'https://cdn0.iconfinder.com/data/icons/hotel-and-travel-4-1/52/195-512.png',
               },
-              {
-            type: 'image',
-            url: 'https://www.flaticon.com/svg/vstatic/svg/2983/2983413.svg?token=exp=1618434830~hmac=d7fcc22e84624e6d81288f7663f38532',
-              },
+            //   {
+            // type: 'image',
+            // url: 'https://www.flaticon.com/svg/vstatic/svg/2983/2983413.svg?token=exp=1618434830~hmac=d7fcc22e84624e6d81288f7663f38532',
+            //   },
           ]},
         );
       },
