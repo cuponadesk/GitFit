@@ -33,12 +33,10 @@ public class UserController {
 		List<String> usernames = new ArrayList<>();
 		for(User user : users) {
 			Object e = user.getAuthorities();
-			if (user.getAuthorities().contains()) {
+			if (!user.getAuthorities().toString().contains("ROLE_ADMIN")) {
 				usernames.add(user.getUsername());
-
+			}
 		}
 		return usernames;
 	}
-
-
-}
+	}

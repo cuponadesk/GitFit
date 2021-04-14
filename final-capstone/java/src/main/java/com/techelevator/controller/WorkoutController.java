@@ -45,7 +45,7 @@ public class WorkoutController {
         return workoutDAO.saveCompletedWorkout(exerciseTrainers, principal);
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
+//    @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping(path = "/workout/history", method = RequestMethod.GET)
     public List<Workout> getWorkouts(Principal principal){
         String username = principal.getName();
