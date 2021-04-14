@@ -1,5 +1,5 @@
 <template>
- <div class="container">
+<div class="container">
 <div class= "col-12">
   <!-- <div class="exercise-details"> -->
     <h1>{{ exercise.name }}</h1>

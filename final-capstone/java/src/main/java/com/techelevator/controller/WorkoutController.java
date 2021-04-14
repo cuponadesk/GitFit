@@ -53,7 +53,7 @@ public class WorkoutController {
     }
 
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(path = "/workout/history/{username}", method = RequestMethod.GET)
     public List<Workout> getTrainerWorkouts(@PathVariable String username){
         return workoutDAO.getUserWorkouts(username);
