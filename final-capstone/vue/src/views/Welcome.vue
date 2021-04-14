@@ -4,17 +4,14 @@
       <div class="row">
         <div class="col-8">
           <!-- <img src="images/steps.jpeg" /> -->
-          <h1>Push your body, you'll pull the rewards!</h1>
-          <p>
-            "Self-care is, fundamentally, about bringing balance back to a life
-            that has grown imbalanced from too many commitments or
-            responsibilities." -Dr. Robyn L. Gobin
-          </p>
+          <h1>Push your body-- <br>
+             You'll pull the rewards!</h1>
+         
         </div>
         <div class="col-3"><img src="images/steps.jpeg" width="100%" height="100%" /></div>
       </div>
       <div class="row">
-        <div class="col-6">
+        <div class="col-6"  style="border:3px; border-style:solid; border-color:#5e62d1; padding: 1em;">
           <h2>Our Story</h2>
           <p id="welcome-slogan">
             While there is nothing better than spending hours creating original
@@ -30,7 +27,7 @@
             lifestyle.
           </p>
         </div>
-        <div class="col-5">
+        <div class="col-5" style="border:3px; border-style:solid; border-color:#5e62d1; padding: 1em;">
           <h2 class="welcome-header">Why Git?</h2>
           <p class="content" id="welcome-slogan">
             GIT, an open source software for tracking and coordinating changes,
