@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 <template>
   <div id="app">
-    <img id="logo" src="images\Git Logo Final.PNG" alt="Logo">
-  
+    <div class="container">
+      <div class="col-12">
+        <img id="logo" src="images\Git Logo Final.PNG" alt="Logo" style="width: 100%"/>
+      </div>
+    </div>
     <div id="nav">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-xl">
         <!-- <a class="navbar-brand" href="#">GIT Fit</a> -->
-        
+
         <button
           class="navbar-toggler"
           type="button"
@@ -31,13 +34,26 @@
               >
             </li>
             <li class="nav-item">
-              <router-link v-bind:to="{ name: 'workout' }" class="nav-link"
+              <router-link v-bind:to="{ name: 'trainerbio' }" class="nav-link"
+                >Our Trainers
+                <span class="sr-only">(current)</span></router-link
+              >
+            </li>
+            <li class="nav-item">
+              <router-link
+                v-bind:to="{ name: 'workout' }"
+                class="nav-link"
+                v-show="loggedIn"
                 >Workouts <span class="sr-only">(current)</span></router-link
               >
             </li>
-              <li class="nav-item">
-              <router-link v-bind:to="{ name: 'trainerbio' }" class="nav-link"
-                >Our Trainers <span class="sr-only">(current)</span></router-link
+            <li class="nav-item">
+              <router-link
+                v-bind:to="{ name: 'historyView' }"
+                class="nav-link"
+                v-show="loggedIn"
+                >Workout History
+                <span class="sr-only">(current)</span></router-link
               >
             </li>
 
@@ -53,11 +69,6 @@
             <li class="nav-item" v-if="loggedIn">
               <a class="nav-link" href="/logout">Logout</a>
             </li>
-             <li class="nav-item">
-              <router-link v-bind:to="{ name: 'historyView' }" class="nav-link"
-                >Workout History <span class="sr-only">(current)</span></router-link
-              >
-            </li>
           </ul>
         </div>
       </nav>
@@ -70,33 +81,50 @@
             <p class="git-fit">
               git fit -
               <span class="git-fit" style="color: #C29b00"
-                >be your best version</span>
+                >be your best version</span
+              >
             </p>
           </div>
         </div>
       </div>
-      
     </div>
 
     <router-view />
 
-
     <!-- footer with social media icons -->
     <footer>
-        <div id="social">
-            <ul>
-                <li><a target="_blank"  href="https://www.facebook.com/"> <i class="fab fa-facebook-f"></i></a></li>
-                
-                <li><a target="_blank" href="https://www.instagram.com/gittin.this.fitness/"> <i class="fab fa-instagram"></i></a></li>
-                
-                <li><a target="_blank" href="mailto:gitfittrainers@gmail.com"><i class="far fa-envelope"></i></a></li>
-                    
-                <li><a target="_blank"  href="https://twitter.com/Git_Fitness"> <i class="fab fa-twitter"></i></a></li>
-            </ul>
-        </div>
-        <p>&copy;2021 GitFit</p>
-    </footer>
+      <div id="social">
+        <ul>
+          <li>
+            <a target="_blank" href="https://www.facebook.com/">
+              <i class="fab fa-facebook-f"></i
+            ></a>
+          </li>
 
+          <li>
+            <a
+              target="_blank"
+              href="https://www.instagram.com/gittin.this.fitness/"
+            >
+              <i class="fab fa-instagram"></i
+            ></a>
+          </li>
+
+          <li>
+            <a target="_blank" href="mailto:gitfittrainers@gmail.com"
+              ><i class="far fa-envelope"></i
+            ></a>
+          </li>
+
+          <li>
+            <a target="_blank" href="https://twitter.com/Git_Fitness">
+              <i class="fab fa-twitter"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+      <p>&copy;2021 GitFit</p>
+    </footer>
   </div>
 </template>
 <script>
@@ -139,9 +167,10 @@ export default {
       return this.$store.state.token != "";
     },
     admin() {
-      // console.log(this.$store.state.user.authorities.includes( 'ROLE_ADMIN'));
-      // return this.$store.state.user.authorities.includes("ROLE_ADMIN");
-      return true;
+      if (this.$store.state.user.authorities == null) {
+        return false;
+      }
+      return this.$store.state.user.authorities[0].name == "ROLE_ADMIN";
     },
   },
 };
@@ -212,45 +241,42 @@ img#logo {
   width: 50%;
 }
 
-
 /* css for footer with social media icons */
-#social{
-    width:100%;
-    margin: 0px;
-    text-align: center;
-    padding-top: 2%;
-    margin-bottom: 1.2%;
-    display: inline-block; 
-    border-top: solid 1px white;
+#social {
+  width: 100%;
+  margin: 0px;
+  text-align: center;
+  padding-top: 2%;
+  margin-bottom: 1.2%;
+  display: inline-block;
+  border-top: solid 1px white;
 }
-footer p{
-    color: ghostwhite;
-    padding-bottom: 0%;
-    text-align: center;  
+footer p {
+  color: ghostwhite;
+  padding-bottom: 0%;
+  text-align: center;
 }
 
-#social ul{
+#social ul {
   padding: 0;
 }
 
-#social li{
-    list-style: none;
-    margin: 3%;
-    margin-bottom: 3% ;
-    font-size: 1.2em;
-    transition: .5s;
-    display: inline;
+#social li {
+  list-style: none;
+  margin: 3%;
+  margin-bottom: 3%;
+  font-size: 1.2em;
+  transition: 0.5s;
+  display: inline;
 }
 
-#social .fab, #social .far{
-    font-size: 1.2em;
+#social .fab,
+#social .far {
+  font-size: 1.2em;
 }
 
-#social li:hover{
-    opacity: .5;
-    cursor: pointer;
+#social li:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
-
-
-
 </style>
