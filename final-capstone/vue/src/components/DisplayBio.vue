@@ -3,7 +3,7 @@
   <body>
     <div class="container">
       <h3>Jaclyn Spangler</h3>
-      <div class="bio">
+      <div class="bio" id= "jac">
         <img src="images\jac-trainer.jpg" alt="Jaclyn Trainer" />
         <p>
           Jaclyn, aka<span style="color: #5e62d1; font-weight: bold"> "Cardio Queen"</span>
@@ -13,7 +13,7 @@
         </p>
       </div>
       <h3>John Baringhaus</h3>
-      <div class="bio">
+      <div class="bio" id= "john">
         <img src="images/john-2.jpg" alt="John Trainer" />
         <p>
           John <span style="color: #5e62d1; font-weight: bold">"The Chest Crusader" </span> a Certified Strength and Condition
@@ -43,13 +43,13 @@
         </p>
       </div>
       <h3>Jamal Stephenson</h3>
-      <div class="bio">
+      <div class="bio" id= "jam">
         <img src="\images\GOPR0168[1].JPG" alt="Jamal" />
         <p> "Mamba Mentality, A constant quest to be the best version of yourself". As a trainer that is all I ask, yes it will be hard, no you can not take a break, and yes you will get great results. Come to the gym to see friends, hang out, and take selfies? Sorry not the trainer for you (selfies are for post workout to admire gains).
           You can not out work a bad diet (I've tried!) when choosing myself as your trainer not only do you get the intensity of a former D1 athlete you also recieve the nutritional guidance to upgrade to you 2.0! Known around these parts as <span style="color: #5e62d1; font-weight: bold">"The Back Behemoth"</span>, you'll find out why  </p>
       </div>
       <h3>Domenic Ceccoli</h3>
-      <div class="bio">
+      <div class="bio" id= "dom">
         <img src="images\IMG_1976.jpg" alt="Dom Trainer" />
         <p>Domenic has been a lifetime advocate of core strength, and his ab workout routines have taken him all over the world, earning him the nickname <span style="color: #5e62d1; font-weight: bold">"The Ab Ambassador"</span>. Domenic believes that core strength is the baseline of physical fitness, and full body fitness stems from a solid core. Are you looking to get ripped, 6 pack abs for Hot Boy (or Girl) Summer? If so, Dom just might be the perfect trainer for you! Come see why numerous Hollywood actors and actresses have come to Dom before in preparation for their blockbuster films!</p>
       </div>

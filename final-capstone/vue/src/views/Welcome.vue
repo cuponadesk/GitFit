@@ -69,6 +69,7 @@
           </router-link>
         </div>
         <div class="photo mx-3">
+          <router-link v-bind:to="{ path: '/trainerbio', hash: '#dom'}">
           <img
             class="trainer-image"
             src="images/trainer/dom.jpg"
@@ -81,8 +82,10 @@
               Ab Ambassador
               </div>
           </div>
+          </router-link>
         </div>
         <div class="photo mx-3">
+          <router-link v-bind:to="{ path: '/trainerbio', hash: '#john'}">
           <img
             class="trainer-photo"
             src="images/trainer/john.jpg"
@@ -95,8 +98,10 @@
               Chest Crusader
               </div>
           </div>
+           </router-link>
         </div>
         <div class="photo mx-3">
+          <router-link v-bind:to="{ path: '/trainerbio', hash: '#jac'}">
           <img
             class="trainer-photo"
             src="images/trainer/jaclyn.jpg"
@@ -109,8 +114,10 @@
               Cardio Queen <br />
             </div>
           </div>
+           </router-link>
         </div>
         <div class="photo mx-3">
+          <router-link v-bind:to="{ path: '/trainerbio', hash: '#jac'}">
           <img
             class="trainer-photo"
             src="images/trainer/jamal.jpg"
@@ -123,6 +130,7 @@
               Back Behemoth
               </div>
           </div>
+           </router-link>
         </div>
       </div>
     </div>
