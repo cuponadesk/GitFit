@@ -3,7 +3,7 @@
     <div class="container text-center">
       <div class="row justify-content-center">
         <div class="col-12">
-          <form>
+          <form class="generate-workout-form">
             <p>Please select a Trainer(s):</p>
             <table class="table" style="border: none; color: white">
               <tr style="border: none">
@@ -269,4 +269,11 @@ export default {
 p {
   color: black;
 }
+
+.generate-workout-form .table{
+  display: inline;
+}
+
+
+
 </style>
