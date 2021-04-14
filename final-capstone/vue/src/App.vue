@@ -22,7 +22,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav mx-auto">
             <li class="nav-item active">
               <router-link v-bind:to="{ name: 'welcome' }" class="nav-link"
                 >Home <span class="sr-only">(current)</span></router-link
