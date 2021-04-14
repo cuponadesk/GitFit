@@ -1,21 +1,27 @@
 <template>
   <section>
     <div class="container">
+    </div>
+    <div class="container">
       <div class="row mt-4">
-        <div class="col-6" style="border: none;">
+        <div class="col-lg-12 col-xs-12" style="background-image: url('images/steps.jpeg'); background-size: cover;">
           <!-- <img src="images/steps.jpeg" /> -->
-          <h1>
+          <h1 class="text-center" style="color: #FFFFFF;">
             Push your body-- <br />
             You'll pull the rewards!
+            <br>
+            <br>
+            <br>
+            <br>
           </h1>
         </div>
-        <div class="col-4">
-          <img src="images/steps.jpeg" width="auto"/>
+        <div class="col-lg-4 col-xs-12" style="background-image: url('images/steps.jpeg')">
+          <!-- <img src="images/steps.jpeg" width="auto"/> -->
         </div>
       </div>
       <hr>
       <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6 col-xs-12">
           <h2>Our Story</h2>
           <p id="welcome-slogan">
             While there is nothing better than spending hours creating original
@@ -31,7 +37,7 @@
             lifestyle.
           </p>
         </div>
-        <div class="col-6">
+        <div class="col-lg-6 col-xs-12">
           <h2 class="welcome-header">Why Git?</h2>
           <p class="content" id="welcome-slogan">
             GIT, an open source software for tracking and coordinating changes,

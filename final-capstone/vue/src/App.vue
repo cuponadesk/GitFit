@@ -71,7 +71,7 @@
             <li class="nav-item active" v-if="!loggedIn">
               <a class="nav-link" href="/login">Login</a>
             </li>
-            <li class="nav-item" v-if="loggedIn">
+            <li class="nav-item active" v-if="loggedIn">
               <a class="nav-link" href="/logout">Logout</a>
             </li>
           </ul>
