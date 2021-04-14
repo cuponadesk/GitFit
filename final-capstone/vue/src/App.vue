@@ -61,6 +61,12 @@
                 <span class="sr-only">(current)</span></router-link
               >
             </li>
+             <li class="nav-item active" v-if="admin">
+              <router-link v-bind:to="{ name: 'all-users' }" class="nav-link"
+                >View Users
+                <span class="sr-only">(current)</span></router-link
+              >
+            </li>
 
             <li class="nav-item active" v-if="admin">
               <router-link v-bind:to="{ name: 'Exercise' }" class="nav-link"

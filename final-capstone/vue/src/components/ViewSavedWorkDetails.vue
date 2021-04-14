@@ -1,6 +1,6 @@
 <template>
-  <div>
-      You are on the workout history details page
+ <div class="container">
+<div class= "col-12">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -20,6 +20,7 @@
       </tbody>
     </table>
   </div>
+ </div>
 </template>
 
 <script>

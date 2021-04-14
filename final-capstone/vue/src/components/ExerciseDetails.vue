@@ -1,8 +1,13 @@
 <template>
-
-  <div class="exercise-details">
+<div class="container">
+<div class= "col-12">
+  <!-- <div class="exercise-details"> -->
     <h1>{{ exercise.name }}</h1>
     <p>{{ exercise.description }}</p>
+     <div class="exercise-gif">
+      <label for="gif">Proper Form</label><br />
+      <img v-bind:src="exercise.exerciseGif"/><br />
+    </div>
     <label for="sets">Sets:</label>
     <br />
     <input id="sets" type="text" v-model="exercise.sets" />
@@ -16,14 +21,12 @@
     <label for="weight">Suggested Weight &#40;lbs&#41;:</label>
     <br />
     <input id="weight" type="text" v-model="exercise.suggestedWeight" /><br />
-    <div class="exercise-gif">
-      <label for="gif">Proper Form</label><br />
-      <img v-bind:src="exercise.exerciseGif"/><br />
-    </div>
+   
     <button type="button" v-on:click="saveToStore">
       Save Exercise Details
     </button>
   </div>
+</div>
 </template>
 
 <script>
