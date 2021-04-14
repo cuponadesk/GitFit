@@ -54,6 +54,7 @@
       <hr>
       <div class="trainer-photos">
         <div class="photo mx-3">
+          <router-link v-bind:to="{ path: '/trainerbio', hash: '#zack'}">
           <img
             class="trainer-image"
             src="/images/trainer/zack.jpg"
@@ -61,8 +62,12 @@
             height="100%"
           />
           <div class="overlay">
-            <div class="zack_description">Trainer Zack</div>
+            <div class="zack_description">
+              Trainer Zack <br>
+              Arm Assassin
+              </div>
           </div>
+          </router-link>
         </div>
         <div class="photo mx-3">
           <img
@@ -72,7 +77,10 @@
             height="100%"
           />
           <div class="overlay">
-            <div class="zack_description">Trainer Dom</div>
+            <div class="zack_description">
+              Trainer Dom <br>
+              Ab Ambassador
+              </div>
           </div>
         </div>
         <div class="photo mx-3">
@@ -83,7 +91,10 @@
             height="100%"
           />
           <div class="overlay">
-            <div class="zack_description">Trainer John</div>
+            <div class="zack_description">
+              Trainer John <br>
+              Chest Crusader
+              </div>
           </div>
         </div>
         <div class="photo mx-3">
@@ -108,7 +119,10 @@
             height="100%"
           />
           <div class="overlay">
-            <div class="zack_description">Trainer Jamal</div>
+            <div class="zack_description">
+              Trainer Jamal <br>
+              Back Behemoth
+              </div>
           </div>
         </div>
       </div>

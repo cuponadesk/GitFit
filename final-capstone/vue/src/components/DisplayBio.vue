@@ -30,7 +30,7 @@
         </p>
       </div>
       <h3>Zack Sempsrott</h3>
-      <div class="bio">
+      <div class="bio" id ="zack">
         <img src="images/Image from iOS.jpg" alt="Zack Trainer" />
         <p>
           Zack believes in working out with an intense "no pain,
