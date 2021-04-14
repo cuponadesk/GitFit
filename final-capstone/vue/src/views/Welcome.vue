@@ -40,24 +40,42 @@
           </p>
         </div>
       </div>
-      
+  
       <div class="trainer-photos">
         <div class="photo">
-        <img id="zack" src="images/Image from iOS.jpg" width="100%" height="100%" /> 
-        </div>
-        <div class="photo">
-        <img id="dom" src="images/IMG_1966.jpg" width="100%" height="100%" />
-         </div>
-        <div class="photo">
-        <img id="john" src="images/john-2.jpg" width="100%" height="100%" />
-         </div>
-        <div class="photo">
-        <img id="jac" src="images/jac-trainer.jpg" width="100%" height="100%" />
-         </div>
-        <div class="photo">
-        <img id="jamal" src="images/GOPRO168[1].JPG" width="100%" height="100%" />
+        <img class="trainer-image" src="images/Image from iOS.jpg" width="100%" height="100%" />
+        <div class="overlay">
+        <div class="zack_description"> Trainer Zack </div> 
         </div>
         </div>
+        <div class="photo">
+        <img class="trainer-image" src="images/IMG_1966.jpg" width="100%" height="100%" />
+         <div class="overlay">
+        <div class="zack_description"> Trainer Dom </div> 
+        </div>
+         </div>
+        <div class="photo">
+        <img class="trainer-photo" src="images/john-2.jpg" width="100%" height="100%" />
+        <div class="overlay">
+        <div class="zack_description"> Trainer John </div> 
+        </div>
+        </div>
+        <div class="photo">
+        <img class="trainer-photo" src="images/jac-trainer.jpg" width="100%" height="100%" />
+         <div class="overlay">
+        <div class="zack_description"> Trainer Jac </div> 
+        </div>
+        </div>
+        <div class="photo">
+        <img class="trainer-photo" src="images/GOPRO168[1].JPG" width="100%" height="100%" />
+         <div class="overlay">
+        <div class="zack_description"> Trainer Jamal </div> 
+        </div>
+        </div>
+        </div>
+
+
+     
     </div>
   </section>
 
@@ -143,11 +161,60 @@ h2 {
   padding: 2px;
   
 }
+.photo,
+.photo * {
+	box-sizing: border-box;
+}
+.photo {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	max-width: 100%;
+	height: auto;
+}
+.photo img {
+	max-width: 100%;
+}
+.photo .trainer-photo {
+	display: block;
+}
+.photo .overlay {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	color: #fff;
+	padding: 15px;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-ms-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+.photo:hover .overlay,
+.photo.active .overlay {
+	opacity: 1;
+}
+.photo .trainer-photo {
+	text-align: center;
+	font-size: 18px;
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
 
-/* .col-3 img{
-  height: 500px;
-  width: 500px;
-} */
+
+
+
 
 /*h2.welcome-header {
   align-items: left;
