@@ -1,25 +1,31 @@
 <template>
-  <div>
-    
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th class="text-left col-1">Date Completed</th>
-          <th class="text-center">Total Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="workout in singleWorkout" v-bind:key="workout.id">
-          <td class="text-left">
-            <router-link v-bind:to="{ name: 'ViewSavedWorkoutDetailsView' , params: { id: workout.workoutId }}" >
-              {{ workout.dateSaved }}</router-link
-            >
-          </td>
-          <td class="text-center">{{ workout.totalTime }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <section class="container">
+    <div class="col-12 mx-0 px-0 ">
+      <table class="table table-striped px-0 mx-0">
+        <thead>
+          <tr>
+            <th class="text-left">Date Completed</th>
+            <th class="text-center">Total Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="workout in singleWorkout" v-bind:key="workout.id">
+            <td class="text-left">
+              <router-link
+                v-bind:to="{
+                  name: 'ViewSavedWorkoutDetailsView',
+                  params: { id: workout.workoutId },
+                }"
+              >
+                {{ workout.dateSaved }}</router-link
+              >
+            </td>
+            <td class="text-center">{{ workout.totalTime }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 </template>
 
 <script>

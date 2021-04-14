@@ -21,17 +21,18 @@ import java.util.List;
 public class UserController {
 
 	private UserDAO userDAO;
-	public UserController(UserDAO userDAO){
-		this.userDAO= userDAO;
+
+	public UserController(UserDAO userDAO) {
+		this.userDAO = userDAO;
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(path = "/allUsers", method = RequestMethod.GET)
 	public List<String> getAllUsers() {
-		List<User> users =  userDAO.findAll();
+		List<User> users = userDAO.findAll();
 
 		List<String> usernames = new ArrayList<>();
-		for(User user : users) {
+		for (User user : users) {
 			Object e = user.getAuthorities();
 			if (!user.getAuthorities().toString().contains("ROLE_ADMIN")) {
 				usernames.add(user.getUsername());
@@ -39,4 +40,4 @@ public class UserController {
 		}
 		return usernames;
 	}
-	}
+}
