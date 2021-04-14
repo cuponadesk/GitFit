@@ -4,6 +4,7 @@
 
 <script>
 import DisplayAllUsers from "@/components/DisplayAllUsers.vue";
+
 export default {
     components: {
     DisplayAllUsers

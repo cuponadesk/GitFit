@@ -158,7 +158,7 @@ const router = new Router({
   },
   {
     //logged in as trainer getting full list of users
-    path: "/history/allUsers",
+    path: "/allUsers",
     name: "all-users",
     component: AllUsers,
     meta: {
