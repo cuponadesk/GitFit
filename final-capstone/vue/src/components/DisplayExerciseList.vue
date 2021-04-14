@@ -90,13 +90,13 @@
                     v-bind:to="{ name: 'edit', params: { id: e.id } }"
                   >
                     <!-- <img src="png\pencil-4x.png" /> --> 
-                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-edit" alt="edit"></i>
                   
                    <!-- <button type="image" src="png\pencil-4x.png" style="background:url(png\pencil-4x.png" v-on:click="deleteExercise(e)"></button> -->
                   </router-link>
                 </td>
                 <td v-if="admin" class="text-center">
-                  <i class="far fa-trash-alt" v-on:click="deleteExercise(e)"></i>
+                  <i class="fas fa-trash-alt" alt="delete" v-on:click="deleteExercise(e)"></i>
 
                   <!-- <button type="button" v-on:click="deleteExercise(e)">Delete</button> -->
                 </td>
@@ -361,6 +361,7 @@ div {
 
 .fas:hover {
   cursor: pointer;
+  color: blue;
 }
 
 </style>
