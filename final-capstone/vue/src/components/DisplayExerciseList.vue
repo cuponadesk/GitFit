@@ -79,10 +79,7 @@
                   filterExerciseTime(e.time)
                 "
               >
-                <td class="text-left"><router-link
-               
-               v-bind:to="{name: 'exerciseDetails', params: { id: exercise.id }}">
-                  {{ exercise.name }}  </router-link></td>
+                <td class="text-left">{{e.name}}</td>
                 <td class="text-center">{{ bodyTargetIdToWord(e.bodyTargetId) }}</td>
                 <td class="text-center">{{ e.sets }}</td>
                 <td class="text-center">{{ e.reps }}</td>
