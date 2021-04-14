@@ -67,7 +67,7 @@
         </div>
         </div>
         <div class="photo">
-        <img class="trainer-photo" src="images/GOPRO168[1].JPG" width="100%" height="100%" />
+        <img class="trainer-photo" src="images\GOPR0168[1].JPG" width="100%" height="100%" />
          <div class="overlay">
         <div class="zack_description"> Trainer Jamal </div> 
         </div>
