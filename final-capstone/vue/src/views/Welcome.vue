@@ -54,6 +54,7 @@
       <hr>
       <div class="trainer-photos">
         <div class="photo mx-3">
+          <router-link v-bind:to="{ path: '/trainerbio', hash: '#zack'}">
           <img
             class="trainer-image"
             src="/images/trainer/zack.jpg"
@@ -66,6 +67,7 @@
               Arm Assassin
               </div>
           </div>
+          </router-link>
         </div>
         <div class="photo mx-3">
           <img

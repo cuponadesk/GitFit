@@ -12,7 +12,9 @@
       </div>
     </div>
     <div id="nav mb-0">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-xl">
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-dark container-xs container-xl container-lg container-md container-sm"
+      >
         <!-- <a class="navbar-brand" href="#">GIT Fit</a> -->
 
         <button
@@ -61,12 +63,6 @@
                 <span class="sr-only">(current)</span></router-link
               >
             </li>
-             <li class="nav-item active" v-if="admin">
-              <router-link v-bind:to="{ name: 'all-users' }" class="nav-link"
-                >View Users
-                <span class="sr-only">(current)</span></router-link
-              >
-            </li>
 
             <li class="nav-item active" v-if="admin">
               <router-link v-bind:to="{ name: 'Exercise' }" class="nav-link"
@@ -84,7 +80,7 @@
         </div>
       </nav>
     </div>
-    <div class="section mt-0">
+     <div class="section mt-0">
       <div class="container p-0 my-0">
         <div id="terminal">
           <h5>Terminal</h5>
@@ -101,39 +97,41 @@
     <router-view />
 
     <!-- footer with social media icons -->
-    <footer>
-      <div id="social">
-        <ul>
-          <li>
-            <a target="_blank" href="https://www.facebook.com/">
-              <i class="fab fa-facebook-f"></i
-            ></a>
-          </li>
+      <div class="container mx-auto mt-4 pt-4" style="background-color: var(--light)">
+        <div class="col-12 mx-auto">
+          <div id="social">
+            <ul>
+              <li>
+                <a target="_blank" href="https://www.facebook.com/">
+                  <i class="fab fa-facebook-f"></i
+                ></a>
+              </li>
 
-          <li>
-            <a
-              target="_blank"
-              href="https://www.instagram.com/gittin.this.fitness/"
-            >
-              <i class="fab fa-instagram"></i
-            ></a>
-          </li>
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/gittin.this.fitness/"
+                >
+                  <i class="fab fa-instagram"></i
+                ></a>
+              </li>
 
-          <li>
-            <a target="_blank" href="mailto:gitfittrainers@gmail.com"
-              ><i class="far fa-envelope"></i
-            ></a>
-          </li>
+              <li>
+                <a target="_blank" href="mailto:gitfittrainers@gmail.com"
+                  ><i class="far fa-envelope"></i
+                ></a>
+              </li>
 
-          <li>
-            <a target="_blank" href="https://twitter.com/Git_Fitness">
-              <i class="fab fa-twitter"></i
-            ></a>
-          </li>
-        </ul>
+              <li>
+                <a target="_blank" href="https://twitter.com/Git_Fitness">
+                  <i class="fab fa-twitter"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <p class="text-center">&copy;2021 GitFit</p>
+        </div>
       </div>
-      <p>&copy;2021 GitFit</p>
-    </footer>
   </div>
 </template>
 <script>
@@ -230,7 +228,6 @@ td {
 }
 
 div#terminal {
-
   width: 100%;
   height: 25%;
   background-color: black;
@@ -238,6 +235,7 @@ div#terminal {
   color: white;
   font: 1.3rem Inconsolata, monospace;
   margin: 0px;
+  padding: 2rem 0 0 1rem;
 }
 
 img#logo {
