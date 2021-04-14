@@ -3,10 +3,15 @@
   <div id="app">
     <div class="container">
       <div class="col-12">
-        <img id="logo" src="images\Git Logo Final.PNG" alt="Logo" style="width: 100%"/>
+        <img
+          id="logo"
+          src="images\Git Logo Final.PNG"
+          alt="Logo"
+          style="width: 100%"
+        />
       </div>
     </div>
-    <div id="nav">
+    <div id="nav mb-0">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark container-xl">
         <!-- <a class="navbar-brand" href="#">GIT Fit</a> -->
 
@@ -21,25 +26,25 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse my-0" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item active">
               <router-link v-bind:to="{ name: 'welcome' }" class="nav-link"
                 >Home <span class="sr-only">(current)</span></router-link
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <router-link v-bind:to="{ name: 'List' }" class="nav-link"
                 >Exercises <span class="sr-only">(current)</span></router-link
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <router-link v-bind:to="{ name: 'trainerbio' }" class="nav-link"
                 >Our Trainers
                 <span class="sr-only">(current)</span></router-link
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <router-link
                 v-bind:to="{ name: 'workout' }"
                 class="nav-link"
@@ -47,7 +52,7 @@
                 >Workouts <span class="sr-only">(current)</span></router-link
               >
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <router-link
                 v-bind:to="{ name: 'historyView' }"
                 class="nav-link"
@@ -57,13 +62,13 @@
               >
             </li>
 
-            <li class="nav-item" v-if="admin">
+            <li class="nav-item active" v-if="admin">
               <router-link v-bind:to="{ name: 'Exercise' }" class="nav-link"
                 >Add Exercise
                 <span class="sr-only">(current)</span></router-link
               >
             </li>
-            <li class="nav-item" v-if="!loggedIn">
+            <li class="nav-item active" v-if="!loggedIn">
               <a class="nav-link" href="/login">Login</a>
             </li>
             <li class="nav-item" v-if="loggedIn">
@@ -73,18 +78,16 @@
         </div>
       </nav>
     </div>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div id="terminal">
-            <h5>Terminal</h5>
-            <p class="git-fit">
-              git fit -
-              <span class="git-fit" style="color: #C29b00"
-                >be your best version</span
-              >
-            </p>
-          </div>
+    <div class="section mt-0">
+      <div class="container p-0 my-0">
+        <div id="terminal">
+          <h5>Terminal</h5>
+          <p class="git-fit">
+            git fit -
+            <span class="git-fit" style="color: #C29b00"
+              >be your best version</span
+            >
+          </p>
         </div>
       </div>
     </div>
@@ -183,7 +186,7 @@ export default {
   overflow: hidden;
   font-family: "Source Code Pro", monospace;
   font-size: 2rem;
-  color: #5FEcc8;
+  color: #5fecc8;
 }
 
 /* Animation */
@@ -221,14 +224,14 @@ td {
 }
 
 div#terminal {
-  display: flex;
-  flex-direction: column;
+
   width: 100%;
   height: 25%;
   background-color: black;
   height: 20vh;
   color: white;
   font: 1.3rem Inconsolata, monospace;
+  margin: 0px;
 }
 
 img#logo {

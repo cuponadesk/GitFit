@@ -351,10 +351,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-div {
-  margin: 1rem;
-}
-
 .fas {
   color: black;
 }

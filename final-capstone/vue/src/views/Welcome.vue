@@ -1,15 +1,19 @@
 <template>
   <section>
-    <div class="container welcome">
-      <div class="row">
-        <div class="col-8">
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-6" style="border: none;">
           <!-- <img src="images/steps.jpeg" /> -->
-          <h1>Push your body-- <br>
-             You'll pull the rewards!</h1>
-         
+          <h1>
+            Push your body-- <br />
+            You'll pull the rewards!
+          </h1>
         </div>
-        <div class="col-3"><img src="images/steps.jpeg" width="100%" height="100%" /></div>
+        <div class="col-4">
+          <img src="images/steps.jpeg" width="auto"/>
+        </div>
       </div>
+      <hr>
       <div class="row">
         <div class="col-6">
           <h2>Our Story</h2>
@@ -27,7 +31,7 @@
             lifestyle.
           </p>
         </div>
-        <div class="col-5">
+        <div class="col-6">
           <h2 class="welcome-header">Why Git?</h2>
           <p class="content" id="welcome-slogan">
             GIT, an open source software for tracking and coordinating changes,
@@ -40,42 +44,68 @@
           </p>
         </div>
       </div>
-  
+
+      <hr>
       <div class="trainer-photos">
-        <div class="photo">
-        <img class="trainer-image" src="/images/trainer/zack.jpg" width="100%" height="100%" />
-        <div class="overlay">
-        <div class="zack_description"> Trainer Zack </div> 
+        <div class="photo mx-3">
+          <img
+            class="trainer-image"
+            src="/images/trainer/zack.jpg"
+            width="100%"
+            height="100%"
+          />
+          <div class="overlay">
+            <div class="zack_description">Trainer Zack</div>
+          </div>
         </div>
+        <div class="photo mx-3">
+          <img
+            class="trainer-image"
+            src="images/trainer/dom.jpg"
+            width="100%"
+            height="100%"
+          />
+          <div class="overlay">
+            <div class="zack_description">Trainer Dom</div>
+          </div>
         </div>
-        <div class="photo">
-        <img class="trainer-image" src="images/trainer/dom.jpg" width="100%" height="100%" />
-         <div class="overlay">
-        <div class="zack_description"> Trainer Dom </div> 
+        <div class="photo mx-3">
+          <img
+            class="trainer-photo"
+            src="images/trainer/john.jpg"
+            width="100%"
+            height="100%"
+          />
+          <div class="overlay">
+            <div class="zack_description">Trainer John</div>
+          </div>
         </div>
-         </div>
-        <div class="photo">
-        <img class="trainer-photo" src="images/trainer/john.jpg" width="100%" height="100%" />
-        <div class="overlay">
-        <div class="zack_description"> Trainer John </div> 
+        <div class="photo mx-3">
+          <img
+            class="trainer-photo"
+            src="images/trainer/jaclyn.jpg"
+            width="100%"
+            height="100%"
+          />
+          <div class="overlay">
+            <div class="zack_description">
+              Trainer Jac <br />
+              Cardio Queen <br />
+            </div>
+          </div>
         </div>
+        <div class="photo mx-3">
+          <img
+            class="trainer-photo"
+            src="images/trainer/jamal.jpg"
+            width="100%"
+            height="100%"
+          />
+          <div class="overlay">
+            <div class="zack_description">Trainer Jamal</div>
+          </div>
         </div>
-        <div class="photo">
-        <img class="trainer-photo" src="images/trainer/jaclyn.jpg" width="100%" height="100%" />
-         <div class="overlay">
-        <div class="zack_description"> Trainer Jac <br> Cardio Queen <br> </div> 
-        </div>
-        </div>
-        <div class="photo">
-        <img class="trainer-photo" src="images/trainer/jamal.jpg" width="100%" height="100%" />
-         <div class="overlay">
-        <div class="zack_description"> Trainer Jamal </div> 
-        </div>
-        </div>
-        </div>
-
-
-     
+      </div>
     </div>
   </section>
 
@@ -147,74 +177,70 @@ h2 {
 .content {
   align-content: left;
 }
-.col-6, .col-5 {
+.col-6,
+.col-5 {
   background-color: #f8f9fa;
   border-radius: 25px;
   border: 2px solid #5e62d1;
   padding: 20px;
 }
-.trainer-photos{
+.trainer-photos {
   display: flex;
 }
 .photo {
   flex: 20%;
   padding: 2px;
-  
 }
 .photo,
 .photo * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 .photo {
-	position: relative;
-	display: inline-block;
-	overflow: hidden;
-	max-width: 100%;
-	height: auto;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  max-width: auto;
+  height: auto;
 }
 .photo img {
-	max-width: 100%;
+  max-width: 100%;
 }
 .photo .trainer-photo {
-	display: block;
+  display: block;
 }
 .photo .overlay {
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.6);
-	color: #fff;
-	padding: 15px;
-	-moz-transition: all 0.4s ease-in-out 0s;
-	-webkit-transition: all 0.4s ease-in-out 0s;
-	-ms-transition: all 0.4s ease-in-out 0s;
-	transition: all 0.4s ease-in-out 0s;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 15px;
+  -moz-transition: all 0.4s ease-in-out 0s;
+  -webkit-transition: all 0.4s ease-in-out 0s;
+  -ms-transition: all 0.4s ease-in-out 0s;
+  transition: all 0.4s ease-in-out 0s;
 }
 .photo:hover .overlay,
 .photo.active .overlay {
-	opacity: 1;
+  opacity: 1;
 }
 .photo .trainer-photo {
-	text-align: center;
-	font-size: 18px;
-	display: inline-block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	-moz-transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 18px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
-
-
-
-
 
 /*h2.welcome-header {
   align-items: left;
