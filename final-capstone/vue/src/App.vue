@@ -191,9 +191,9 @@ div#terminal {
   flex-direction: column;
   width: 100%;
   height: 25%;
-  background-color: #f8f9fa;
+  background-color: black;
   height: 20vh;
-  color: black;
+  color: white;
   font: 1.3rem Inconsolata, monospace;
 }
 
