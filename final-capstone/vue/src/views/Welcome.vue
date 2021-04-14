@@ -11,7 +11,7 @@
         <div class="col-3"><img src="images/steps.jpeg" width="100%" height="100%" /></div>
       </div>
       <div class="row">
-        <div class="col-6"  style="border:3px; border-style:solid; border-color:#5e62d1; padding: 1em;">
+        <div class="col-6">
           <h2>Our Story</h2>
           <p id="welcome-slogan">
             While there is nothing better than spending hours creating original
@@ -27,7 +27,7 @@
             lifestyle.
           </p>
         </div>
-        <div class="col-5" style="border:3px; border-style:solid; border-color:#5e62d1; padding: 1em;">
+        <div class="col-5">
           <h2 class="welcome-header">Why Git?</h2>
           <p class="content" id="welcome-slogan">
             GIT, an open source software for tracking and coordinating changes,
@@ -40,6 +40,24 @@
           </p>
         </div>
       </div>
+      
+      <div class="trainer-photos">
+        <div class="photo">
+        <img id="zack" src="images/Image from iOS.jpg" width="100%" height="100%" /> 
+        </div>
+        <div class="photo">
+        <img id="dom" src="images/IMG_1966.jpg" width="100%" height="100%" />
+         </div>
+        <div class="photo">
+        <img id="john" src="images/john-2.jpg" width="100%" height="100%" />
+         </div>
+        <div class="photo">
+        <img id="jac" src="images/jac-trainer.jpg" width="100%" height="100%" />
+         </div>
+        <div class="photo">
+        <img id="jamal" src="images/GOPRO168[1].JPG" width="100%" height="100%" />
+        </div>
+        </div>
     </div>
   </section>
 
@@ -111,6 +129,25 @@ h2 {
 .content {
   align-content: left;
 }
+.col-6, .col-5 {
+  background-color: #f8f9fa;
+  border-radius: 25px;
+  border: 2px solid #5e62d1;
+  padding: 20px;
+}
+.trainer-photos{
+  display: flex;
+}
+.photo {
+  flex: 100%;
+  padding: 2px;
+  
+}
+
+/* .col-3 img{
+  height: 500px;
+  width: 500px;
+} */
 
 /*h2.welcome-header {
   align-items: left;
