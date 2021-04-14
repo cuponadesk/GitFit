@@ -111,8 +111,8 @@ export default {
 
 <style>
 
-.container {
+/* .container {
   background-color: lightcoral;
-}
+} */
 
 </style>
