@@ -25,14 +25,14 @@
           <h2>Our Story</h2>
           <p id="welcome-slogan">
             While there is nothing better than spending hours creating original
-            code and watching it take shape over time, this is often paired with
+            code and watching it take shape over time, this profession is often paired with
             hours of sitting and minimal movement. <br />
             Founded by five passionate and talented software developers based in
-            Cincinnati, OH. We understand the need and importance of a balanced
+            Cincinnati, OH, we understand the need and importance of a balanced
             lifestyle through physical exercise. <br />
-            Whether you are starting from day 1 or just wanting to tone up that
-            pandemic poundage we will be as attentive to your needs as we are
-            with our own code!<br />We specialize in a variety of physical
+            Whether you are starting from day 1, or just wanting to shed or tone up that
+            pandemic poundage, we will be as attentive to your needs as we are
+            to our own code!<br />We specialize in a variety of physical
             fitness styles tailored to your needs, goals, and individual
             lifestyle.
           </p>
@@ -40,13 +40,12 @@
         <div class="col-lg-6 col-xs-12">
           <h2 class="welcome-header">Why Git?</h2>
           <p class="content" id="welcome-slogan">
-            GIT, an open source software for tracking and coordinating changes,
-            often used by developers. No better name describes our mentality
+            GIT is an open source software for tracking and coordinating changes,
+            often used by programmers and software developers. No better name describes our mentality
             towards your fitness goals.<br />
-            We will be will Add our unique and experienced perspective as we
-            tracj your development. We are Commited to tackling all your
-            physical fitness goals.<br />
-            We will Push you to be the best version of yourself.
+            We will add our unique and experienced perspective as we
+            track your development and chart your progress. We are Commited to tackling all your
+            physical fitness goals, and we will Push you to be the best Version of yourself.
           </p>
         </div>
       </div>
@@ -54,7 +53,7 @@
       <hr>
       <div class="trainer-photos">
         <div class="photo mx-3">
-          <router-link v-bind:to="{ path: '/trainerbio', hash: '#zack'}">
+          <router-link :to="{ path: '/trainerbio', hash: '#zack'}">
           <img
             class="trainer-image"
             src="/images/trainer/zack.jpg"
@@ -70,6 +69,7 @@
           </router-link>
         </div>
         <div class="photo mx-3">
+          <router-link v-bind:to="{ path: '/trainerbio', hash: '#dom'}">
           <img
             class="trainer-image"
             src="images/trainer/dom.jpg"
@@ -82,8 +82,10 @@
               Ab Ambassador
               </div>
           </div>
+          </router-link>
         </div>
         <div class="photo mx-3">
+          <router-link v-bind:to="{ path: '/trainerbio', hash: '#john'}">
           <img
             class="trainer-photo"
             src="images/trainer/john.jpg"
@@ -96,8 +98,10 @@
               Chest Crusader
               </div>
           </div>
+           </router-link>
         </div>
         <div class="photo mx-3">
+          <router-link v-bind:to="{ path: '/trainerbio', hash: '#jac'}">
           <img
             class="trainer-photo"
             src="images/trainer/jaclyn.jpg"
@@ -110,8 +114,10 @@
               Cardio Queen <br />
             </div>
           </div>
+           </router-link>
         </div>
         <div class="photo mx-3">
+          <router-link v-bind:to="{ path: '/trainerbio', hash: '#jac'}">
           <img
             class="trainer-photo"
             src="images/trainer/jamal.jpg"
@@ -124,6 +130,7 @@
               Back Behemoth
               </div>
           </div>
+           </router-link>
         </div>
       </div>
     </div>

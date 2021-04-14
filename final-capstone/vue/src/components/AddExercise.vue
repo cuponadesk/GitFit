@@ -4,38 +4,38 @@
       <div class="row justify-content-center">
         <div class="col-12">
           <h1>{{ Title }}</h1>
-          <form>
-            <div class="add-workout-form">
+          <form id="add-exercise-form">
+            <div class="add-workout-form" id="name-div">
               <label for="name">Name:</label>
               <br />
               <input id="name" type="text" v-model="exercise.name" />
             </div>
-            <div class="add-workout-form">
+            <div class="add-workout-form" id="description-div">
               <label for="description">Description:</label>
               <br />
               <textarea id="description" rows="10" cols="50" v-model="exercise.description" />
             </div>
-            <div class="add-workout-form">
+            <div class="add-workout-form" id="weight-div">
               <label for="weight">Suggested Weight &#40;lbs&#41;:</label>
               <br />
               <input id="weight" type="text" v-model="exercise.suggestedWeight" />
             </div>
-            <div class="add-workout-form">
+            <div class="add-workout-form" id="sets-div">
               <label for="sets">Sets:</label>
               <br />
               <input id="sets" type="text" v-model="exercise.sets" />
             </div>
-            <div class="add-workout-form">
+            <div class="add-workout-form" id="reps-div">
               <label for="reps">Reps:</label>
               <br />
               <input id="reps" type="text" v-model="exercise.reps" />
             </div>
-            <div class="add-workout-form">
+            <div class="add-workout-form" id="time-div">
               <label for="time">Amount of Time &#40;min&#41;:</label>
               <br />
               <input id="time" type="text" v-model="exercise.time" />
             </div>
-            <div class="add-workout-form">
+            <div class="add-workout-form" id="bodypart-div">
               <label for="bodyTargetId">Body Part Target</label>
               <br />
               <select id="bodyTargetId" v-model="exercise.bodyTargetId">
@@ -47,7 +47,7 @@
                 <option value="6">Full Body</option>
               </select>
             </div>
-            <div class="actions">
+            <div class="actions" id="exercise-submit">
               <button type="submit" v-on:click.prevent="saveExercise()">Save Exercise</button>
             </div>
           </form>
@@ -214,4 +214,12 @@ input,
 textarea {
   width: 50%;
 }
+
+#exercise-submit{
+  margin-top: 2em;
+}
+#bodyTargetId:hover{
+  cursor: pointer;
+}
+
 </style>
