@@ -76,7 +76,8 @@ body {
 .bio {
   padding: 20px;
   margin-bottom: 20px;
-  border: solid 1px #555;
+  border-radius: 25px;
+  border: 2px solid #5e62d1;
   display: flex;
 }
 
