@@ -16,6 +16,7 @@ import ExerciseDetails from '@/views/ExerciseDetails.vue'
 import HistoryView from '@/views/HistoryView.vue'
 import ViewSavedWorkoutDetailsView from '@/views/ViewSavedWorkoutDetailsView.vue'
 import AllUsers from '@/views/AllUsers.vue'
+import UserDetails from '@/views/UserDetails.vue'
 
 
 
@@ -165,15 +166,15 @@ const router = new Router({
       requiresAuth :true
     }
   },
-  // {
-  //   //logged in as a trainer getting user details 
-  // path: "/history/:username",
-  // name: "user-details",
-  // component: UserDetails,
-  // meta: {
-  //   requiresAuth :true
-  // }
-  // }
+  {
+    //logged in as a trainer getting user details 
+  path: "/allUsers/:username",
+  name: "user-details",
+  component: UserDetails,
+  meta: {
+    requiresAuth :true
+  }
+  }
   ]
 })
 
