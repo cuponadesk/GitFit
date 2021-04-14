@@ -4,8 +4,12 @@ package com.techelevator.controller;
 import com.techelevator.dao.ExerciseDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.User;
+import com.techelevator.model.UserWithId;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,22 +29,19 @@ public class UserController {
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(path = "/allUsers", method = RequestMethod.GET)
-	public List<String> getAllUsers() {
+	public List<UserWithId> getAllUsers() {
 		List<User> users = userDAO.findAll();
 
-		List<String> usernames = new ArrayList<>();
+		List<UserWithId> usernames = new ArrayList<>();
 		for (User user : users) {
 			Object e = user.getAuthorities();
 			if (!user.getAuthorities().toString().contains("ROLE_ADMIN")) {
-				usernames.add(user.getUsername());
+				UserWithId u = new UserWithId();
+				u.setUsername(user.getUsername());
+				u.setId(user.getId());
+				usernames.add(u);
 			}
 		}
 		return usernames;
 	}
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@RequestMapping(path = "/user/{username}", method = RequestMethod.GET)
-	public int getIdFromUsername(@PathVariable String username){
-		return userDAO.findIdByUsername(username);
-	}
-
 }

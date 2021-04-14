@@ -1,6 +1,6 @@
 <template>
-   <div class="container">
-<!-- <div class= "col-12">
+  <div class="container">
+    <div class= "col-12">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -19,20 +19,29 @@
         </tr>
       </tbody>
     </table>
-  </div> -->
- </div>
+  </div>
+  </div>
 </template>
 
 <script>
+import workoutService from "@/services/WorkoutService.js";
 export default {
-    name: "display-user-details",
-    computed: {
-     
-
-}
-}
+  name: "display-user-details",
+  created() {
+    workoutService
+      .getWorkoutFromUser(this.$route.params.username)
+      .then((response) => {
+        this.$store.commit("SAVE_USER_WORKOUTS", response.data);
+      })
+      .catch((error) => {
+        alert(
+          "Sorry we're unable to locate your workout history. Please log your workouts to access this page"
+        );
+        console.log(error);
+      });
+  },
+  computed: {},
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

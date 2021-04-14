@@ -28,6 +28,9 @@ const http = axios.create({
     },
     getIdFromUsername(username){
       return http.get('/user/' + username);
+    },
+    getWorkoutsFromUser(username) {
+      return http.get('/workout/history/' + username);
     }
     
   }
