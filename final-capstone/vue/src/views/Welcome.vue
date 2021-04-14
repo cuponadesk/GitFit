@@ -61,7 +61,10 @@
             height="100%"
           />
           <div class="overlay">
-            <div class="zack_description">Trainer Zack</div>
+            <div class="zack_description">
+              Trainer Zack <br>
+              Arm Assassin
+              </div>
           </div>
         </div>
         <div class="photo mx-3">
@@ -72,7 +75,10 @@
             height="100%"
           />
           <div class="overlay">
-            <div class="zack_description">Trainer Dom</div>
+            <div class="zack_description">
+              Trainer Dom <br>
+              Ab Ambassador
+              </div>
           </div>
         </div>
         <div class="photo mx-3">
@@ -83,7 +89,10 @@
             height="100%"
           />
           <div class="overlay">
-            <div class="zack_description">Trainer John</div>
+            <div class="zack_description">
+              Trainer John <br>
+              Chest Crusader
+              </div>
           </div>
         </div>
         <div class="photo mx-3">
@@ -108,7 +117,10 @@
             height="100%"
           />
           <div class="overlay">
-            <div class="zack_description">Trainer Jamal</div>
+            <div class="zack_description">
+              Trainer Jamal <br>
+              Back Behemoth
+              </div>
           </div>
         </div>
       </div>
