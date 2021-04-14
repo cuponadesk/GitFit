@@ -5,10 +5,7 @@ import com.techelevator.dao.ExerciseDAO;
 import com.techelevator.dao.UserDAO;
 import com.techelevator.model.User;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,4 +37,10 @@ public class UserController {
 		}
 		return usernames;
 	}
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@RequestMapping(path = "/user/{username}", method = RequestMethod.GET)
+	public int getIdFromUsername(@PathVariable String username){
+		return userDAO.findIdByUsername(username);
+	}
+
 }

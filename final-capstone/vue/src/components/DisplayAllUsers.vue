@@ -15,7 +15,7 @@
                 <td class="text-left">
                   <router-link
                
-               v-bind:to="{name: 'user-details', params: { id: user }}">
+               v-bind:to="{name: 'ViewSavedWorkoutDetailsView', params: { id: getUserId(user) }}">
                   {{ user}}  </router-link></td>
                 <td class="text-center">{{ user }}</td>
                 
@@ -39,10 +39,25 @@ export default {
       workoutService.getAllUsers()
       .then(response => {
         this.users = response.data;
+
       })
       .catch(error => {
         console.log(error);
       })
+    },
+    methods: {
+      getUserId(username){
+        console.log(username)
+        let userId = 0;
+        workoutService.getIdFromUsername(username)
+        .then(response => {
+          userId= response.data;
+        })
+        .catch(error => {
+        console.log(error);
+        }); 
+        return userId;
+    }
     }
 
 }
