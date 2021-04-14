@@ -25,7 +25,7 @@ public class UserController {
 		this.userDAO= userDAO;
 	}
 
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(path = "/allUsers", method = RequestMethod.GET)
 	public List<String> getAllUsers() {
 		List<User> users =  userDAO.findAll();
@@ -33,7 +33,9 @@ public class UserController {
 		List<String> usernames = new ArrayList<>();
 		for(User user : users) {
 			Object e = user.getAuthorities();
-			usernames.add(user.getUsername());
+			if (user.getAuthorities().contains()) {
+				usernames.add(user.getUsername());
+
 		}
 		return usernames;
 	}
