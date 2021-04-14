@@ -139,57 +139,70 @@
            </router-link>
         </div>
       </div>
+
+
+    <button @click="start">Start</button>
+    <button @click="stop">Stop</button>
+
     </div>
   </section>
-
-  <!-- <h1>Our Story</h1>
-          <p id="welcome-slogan">
-            While there is nothing better than spending hours creating original
-            code and watching it take shape over time, this is often paired with
-            hours of sitting and minimal movement. <br />
-            Founded by five passionate and talented software developers based in
-            Cincinnati, OH. We understand the need and importance of a balanced
-            lifestyle through physical exercise. <br />
-            Whether you are starting from day 1 or just wanting to tone up that
-            pandemic poundage we will be as attentive to your needs as we are
-            with our own code!<br />We specialize in a variety of physical
-            fitness styles tailored to your needs, goals, and individual
-            lifestyle.
-          </p>
-
-          <div class="d-flex justify-content-space-between">
-            <h2 class="welcome-header">Why Git?</h2>
-            <p class="content" id="welcome-slogan">
-              GIT, an open source software for tracking and coordinating
-              changes, often used by developers. No better name describes our
-              mentality towards your fitness goals.<br />
-              We will be will Add our unique and experienced perspective as we
-              tracj your development. We are Commited to tackling all your
-              physical fitness goals.<br />
-              We will Push you to be the best version of yourself.
-            </p>
-
-            <h2>Our Trainers</h2>
-            <p id="welcome-slogan">
-              Jaclyn Spangler<br />
-              John Baringhaus<br />
-              Domenic Ceccoli <br />
-              Zack Sempsrott <br />
-              Jamal Stephenson
-            </p>
-     
-            <h2>Success Stories</h2>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 </template>
 
 <script>
+import Vue from 'vue'
+import VueConfetti from 'vue-confetti'
+
+Vue.use(VueConfetti)
 export default {
   name: "welcome",
+  methods: {
+      start() {
+        this.$confetti.start(
+          {particles: [
+            {
+            type: 'image',
+            url: 'https://image.flaticon.com/icons/png/512/38/38464.png',
+              },
+              {
+            type: 'image',
+            url: 'https://cdn0.iconfinder.com/data/icons/hotel-and-travel-4-1/52/195-512.png',
+              },
+              {
+            type: 'image',
+            url: 'https://www.flaticon.com/svg/vstatic/svg/2983/2983413.svg?token=exp=1618434830~hmac=d7fcc22e84624e6d81288f7663f38532',
+              },
+          ]},
+        );
+      },
+
+      stop() {
+        this.$confetti.stop();
+      },
+
+      love() {
+        this.$confetti.update({
+          particles: [
+            {
+            type: 'image',
+          src: '/images/dumbell.png',
+              },
+            {
+              type: 'heart',
+            },
+            {
+              type: 'circle',
+            },
+          ],
+          defaultColors: [
+            'red',
+            'pink',
+            'purple',
+            '#5e62d1',
+            '#ba0000'
+          ],
+        });
+      }
+    }
 };
 </script>
 

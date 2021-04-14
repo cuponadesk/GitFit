@@ -46,6 +46,7 @@
       <button type="button" v-on:click="saveCompletedWorkout()">
         Save Workout
       </button>
+      
     </div>
   </div>
 
