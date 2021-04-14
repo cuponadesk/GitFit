@@ -154,7 +154,7 @@ export default {
   overflow: hidden;
   font-family: "Source Code Pro", monospace;
   font-size: 2rem;
-  color: #184d01;
+  color: #5FEcc8;
 }
 
 /* Animation */
