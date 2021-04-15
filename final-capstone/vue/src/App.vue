@@ -105,8 +105,11 @@
     <!-- footer with social media icons -->
       <div class="container mx-auto mt-4 pt-4" style="background-color: var(--light)">
         <div class="col-12 mx-auto">
-          <div id="social">
+           <div id="social">
             <ul>
+              <!-- <li>
+                <a target="_blank" @click="stop"><span><img src="https://www.flaticon.com/svg/vstatic/svg/3761/3761633.svg?token=exp=1618490051~hmac=ae99fcc03004614bc0f50310bce85370" /> </span> click</a>
+              </li> -->
               <li>
                 <a target="_blank" href="https://www.facebook.com/">
                   <i class="fab fa-facebook-f"></i
@@ -346,6 +349,25 @@ footer p {
   opacity: 0.5;
   cursor: pointer;
 }
+
+/* a.button4{
+display:inline-block;
+padding:0.3em 1.2em;
+margin:0 0.3em 0.3em 0;
+border-radius:2em;
+box-sizing: border-box;
+text-decoration:none;
+font-family:'Roboto',sans-serif;
+font-weight:300;
+color:#FFFFFF;
+background-color:#5e62d1;
+text-align:center;
+transition: all 0.2s;
+}
+a.button4:hover{
+background-color:#5e62d1;
+} */
+
 
 @media (max-width: 768px) {
   p.git-fit,

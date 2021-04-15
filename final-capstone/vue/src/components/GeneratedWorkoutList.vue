@@ -135,6 +135,7 @@ export default {
         .then((response) => {
           if (response.status == 201) {
             alert("Your workout was saved successfully. Keep killin' it!");
+            this.start;
             this.$router.push("/");
           }
         })
