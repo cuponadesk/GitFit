@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-//@PreAuthorize("isAuthenticated()")
+@PreAuthorize("isAuthenticated()")
 
 public class WorkoutController {
 
@@ -45,7 +45,7 @@ public class WorkoutController {
         return workoutDAO.saveCompletedWorkout(exerciseTrainers, principal);
     }
 
-//    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_USER')")
     @RequestMapping(path = "/workout/history", method = RequestMethod.GET)
     public List<Workout> getWorkouts(Principal principal){
         String username = principal.getName();
@@ -53,7 +53,7 @@ public class WorkoutController {
     }
 
 
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(path = "/workout/history/{username}", method = RequestMethod.GET)
     public List<Workout> getTrainerWorkouts(@PathVariable String username){
         return workoutDAO.getUserWorkouts(username);

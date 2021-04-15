@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @CrossOrigin
-//@PreAuthorize("isAuthenticated()")
 
 
 public class UserController {
@@ -26,10 +26,10 @@ public class UserController {
 	public UserController(UserDAO userDAO) {
 		this.userDAO = userDAO;
 	}
-
+//
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@RequestMapping(path = "/allUsers", method = RequestMethod.GET)
-	public List<UserWithId> getAllUsers() {
+	public List<UserWithId> getAllUsers(Principal principal) {
 		List<User> users = userDAO.findAll();
 
 		List<UserWithId> usernames = new ArrayList<>();

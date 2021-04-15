@@ -1,23 +1,21 @@
 import axios from 'axios';
 
 
-const http = axios.create({
-    baseURL: "http://localhost:8080"
-  });
+
 
   export default{
 
     addExercise(exercise){
-        return http.post('/exercise/add', exercise);
+        return axios.post('/exercise/add', exercise);
     },
 
     editExercise(exercise) {
-      return http.put(`/exercise/${exercise.id}`, exercise)
+      return axios.put(`/exercise/${exercise.id}`, exercise)
     },
     listExercises() {
-      return http.get(`/exercises`);
+      return axios.get(`/exercises`);
     },
     deleteExercise(exercise){
-      return http.delete(`/exercise/${exercise.id}`);
+      return axios.delete(`/exercise/${exercise.id}`);
     }
   }

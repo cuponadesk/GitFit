@@ -1,11 +1,9 @@
 import axios from 'axios';
 
-const http = axios.create({
-    baseURL: "http://localhost:8080"
-});
+
 
 export default {
     listBio() {
-        return http.get(`/trainerbio`);
+        return axios.get(`/trainerbio`);
     }
 }

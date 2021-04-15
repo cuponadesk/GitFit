@@ -18,10 +18,11 @@ if(currentToken != null) {
 
 export default new Vuex.Store({
   state: {
+    token: currentToken || '',
+    user: currentUser || {},
     workout: [],
     savedUserWorkout: [],
-    token: currentToken || '',
-    user: currentUser || {}
+
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
