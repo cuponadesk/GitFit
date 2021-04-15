@@ -260,6 +260,16 @@ INSERT INTO workout (workout_id, exercise_id, trainer_id, sets_completed, reps_c
 INSERT INTO workout (workout_id, exercise_id, trainer_id, sets_completed, reps_completed, weight_completed, time_completed, total_time, username, date_saved) VALUES (6, 45, 2, 3, 30, 0, 6, 32, 'user', '2021-04-11');
 INSERT INTO workout (workout_id, exercise_id, trainer_id, sets_completed, reps_completed, weight_completed, time_completed, total_time, username, date_saved) VALUES (6, 44, 1, 3, 25, 0, 4, 32, 'user', '2021-04-11');
 
+
+
+DELETE FROM workout
+WHERE exercise_id = 1 OR exercise_id = 42 OR exercise_id = 20;
+
+DELETE FROM trainers_exercises
+WHERE exercise_id = 1 OR exercise_id = 42 OR exercise_id = 20;
+
+DELETE FROM exercise
+WHERE id = 1 OR id = 42 OR id = 20;
  
  
 COMMIT;
