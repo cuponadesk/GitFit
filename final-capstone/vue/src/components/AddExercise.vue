@@ -2,8 +2,8 @@
   <section>
     <div class="container text-center">
       <div class="row justify-content-center">
-        <div class="col-12">
-          <h1>{{ Title }}</h1>
+        <div class="col-xs-12 col-lg-6">
+          <h1 class="mt-4">{{ Title }}</h1>
           <form id="add-exercise-form">
             <div class="add-workout-form my-3" id="name-div">
               <!-- <label for="name">Name:</label> -->
@@ -31,7 +31,7 @@
             <div class="add-workout-form my-3" id="weight-div">
               <label for="weight" class="sr-only">Weight</label>
               <input
-                type="weight"
+                type="number"
                 id="weight"
                 class="form-control"
                 placeholder="Weight"
@@ -42,7 +42,7 @@
             <div class="add-workout-form my-3" id="sets-div">
               <label for="sets" class="sr-only">Sets</label>
               <input
-                type="sets"
+                type="number"
                 id="sets"
                 class="form-control"
                 placeholder="How Many Sets?"
@@ -53,7 +53,7 @@
              <div class="add-workout-form my-3" id="reps-div">
               <label for="reps" class="sr-only">Reps</label>
               <input
-                type="reps"
+                type="number"
                 id="reps"
                 class="form-control"
                 placeholder="How Many Reps?"
@@ -61,19 +61,18 @@
               />
             </div>
               <div class="add-workout-form my-3" id="time-div">
-              <label for="ti" class="sr-only">Amount of Time for Exercise?</label>
+              <label for="time" class="sr-only"></label>
               <input
-                type="ti"
-                id="ti"
+                type="number"
+                id="time"
                 class="form-control"
-                placeholder="Amount of Time for Exercise?"
+                placeholder="Amount of Time for Exercise in minutes?"
                 v-model="exercise.time"
               />
             </div>
             <div class="add-workout-form" id="bodypart-div">
-              <label for="bodyTargetId">Body Part Target</label>
-              <br />
-              <select id="bodyTargetId" v-model="exercise.bodyTargetId">
+              <label for="bodyTargetId" class="sr-only">Body Part Target</label>
+              <select id="bodyTargetId" class="form-control" v-model="exercise.bodyTargetId">
                 <option value="" disabled selected>Select the primary target</option>
                 <option value="1">Legs</option>
                 <option value="2">Back</option>
@@ -85,9 +84,8 @@
               </select>
             </div>
             <div class="actions" id="exercise-submit">
-              <button type="submit" v-on:click.prevent="saveExercise()">
-                Save Exercise
-              </button>
+         <button type="submit" v-on:click.prevent="saveExercise()" class="btn btn-lg btn-primary btn-block my-2">Save Exercise</button>
+
             </div>
           </form>
         </div>
