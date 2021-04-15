@@ -51,7 +51,7 @@
       <button
         type="button"
         v-on:click="saveCompletedWorkout()"
-        class="col-12 py-4"
+        class="btn btn-lg btn-primary btn-block my-2"
       >
         Save Workout
       </button>
@@ -174,7 +174,7 @@ export default {
       let totalExercises = this.$store.state.workout;
       let totalTime = 0;
       for (let i = 0; i < totalExercises.length; i++) {
-        totalTime += totalExercises[i].time;
+        totalTime += parseInt(totalExercises[i].time);
       }
       return totalTime;
     },

@@ -2,7 +2,7 @@
 <div class="container">
 <div class= "col-12">
   <!-- <div class="exercise-details"> -->
-    <h1>{{ exercise.name }}</h1>
+    <h1 class="mt-4">{{ exercise.name }}</h1>
     <p>{{ exercise.description }}</p>
      <div class="exercise-gif">
       <label for="gif">Proper Form</label><br />
@@ -10,19 +10,19 @@
     </div>
     <label for="sets">Sets:</label>
     <br />
-    <input id="sets" type="text" v-model="exercise.sets" />
+    <input id="sets" type="number" v-model="exercise.sets" class="form-control" />
     <br />
     <label for="reps">Reps:</label>
     <br />
-    <input id="reps" type="text" v-model="exercise.reps" /><br />
+    <input id="reps" type="number" v-model="exercise.reps"  class="form-control" /><br />
     <label for="time">Amount of Time &#40;min&#41;:</label>
     <br />
-    <input id="time" type="text" v-model="exercise.time" /><br />
+    <input id="time" type="number" v-model="exercise.time"  class="form-control"  /><br />
     <label for="weight">Suggested Weight &#40;lbs&#41;:</label>
     <br />
-    <input id="weight" type="text" v-model="exercise.suggestedWeight" /><br />
+    <input id="weight" type="number" v-model="exercise.suggestedWeight"  class="form-control" /><br />
    
-    <button type="button" v-on:click="saveToStore">
+    <button type="button" v-on:click="saveToStore" class="btn btn-lg btn-primary btn-block my-2">
       Save Exercise Details
     </button>
   </div>

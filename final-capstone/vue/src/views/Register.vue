@@ -1,4 +1,5 @@
 <template>
+ <div class="col-md-6 xs-10 mx-auto">
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -9,7 +10,7 @@
       <input
         type="text"
         id="username"
-        class="form-control"
+        class="form-control mt-2"
         placeholder="Username"
         v-model="user.username"
         required
@@ -19,7 +20,7 @@
       <input
         type="password"
         id="password"
-        class="form-control"
+        class="form-control mt-2"
         placeholder="Password"
         v-model="user.password"
         required
@@ -27,16 +28,17 @@
       <input
         type="password"
         id="confirmPassword"
-        class="form-control"
+        class="form-control mt-2"
         placeholder="Confirm Password"
         v-model="user.confirmPassword"
         required
       />
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button class="btn btn-lg btn-primary btn-block mt-2" type="submit">
         Create Account
       </button>
     </form>
+  </div>
   </div>
 </template>
 

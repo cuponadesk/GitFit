@@ -1,10 +1,9 @@
 <template>
   <section>
-    <div class="container text-center">
-      <div class="row justify-content-center">
-        <div class="col-6">
-          <form class="form-signin" @submit.prevent="login">
-            <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+    <div id="register" class="text-center row justify-content-center mt-4 mx-4">
+      <div class="col-md-6 xs-10 mx-auto">
+        <form class="form-register" @submit.prevent="login">
+          <h1 class="h3 mb-3 font-weight-normal">Login</h1>
             <div
               class="alert alert-danger"
               role="alert"
@@ -22,7 +21,7 @@
             <input
               type="text"
               id="username"
-              class="m-1"
+              class="form-control my-2"
               placeholder="Username"
               v-model="user.username"
               required
@@ -32,20 +31,29 @@
             <input
               type="password"
               id="password"
-              class="m-1"
+              class="form-control my-2"
               placeholder="Password"
               v-model="user.password"
               required
             />
 
-            <div class="mt-2"><button type="submit">Sign in</button></div>
             <div class="mt-2">
-              <router-link :to="{ name: 'register' }"
+              <button
+                class="btn btn-lg btn-primary btn-block my-2"
+                type="submit"
+              >
+                Sign in
+              </button>
+            </div>
+            <div class="mt-2">
+              <router-link
+                :to="{ name: 'register' }"
+                tag="button"
+                class="btn btn-lg btn-primary btn-block my-2"
                 >Need an account?</router-link
               >
             </div>
           </form>
-        </div>
       </div>
     </div>
   </section>
