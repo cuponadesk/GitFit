@@ -1,46 +1,54 @@
 <template>
-    <section>
-  <div class="container text-center">
-    <div class="row justify-content-center">
-      <div class="col-6">
-    <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
-      <div
-        class="alert alert-danger"
-        role="alert"
-        v-if="invalidCredentials"
-      >Invalid username and password!</div>
-      <div
-        class="alert alert-success"
-        role="alert"
-        v-if="this.$route.query.registration"
-      >Thank you for registering, please sign in.</div>
-      <input
-        type="text"
-        id="username"
-        class="m-1"
-        placeholder="Username"
-        v-model="user.username"
-        required
-        autofocus
-      />
-      <label for="password" class="sr-only">Password</label>
-      <input
-        type="password"
-        id="password"
-        class="m-1"
-        placeholder="Password"
-        v-model="user.password"
-        required
-      />
+  <section>
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-6">
+          <form class="form-signin" @submit.prevent="login">
+            <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+            <div
+              class="alert alert-danger"
+              role="alert"
+              v-if="invalidCredentials"
+            >
+              Invalid username and password!
+            </div>
+            <div
+              class="alert alert-success"
+              role="alert"
+              v-if="this.$route.query.registration"
+            >
+              Thank you for registering, please sign in.
+            </div>
+            <input
+              type="text"
+              id="username"
+              class="m-1"
+              placeholder="Username"
+              v-model="user.username"
+              required
+              autofocus
+            />
+            <label for="password" class="sr-only">Password</label>
+            <input
+              type="password"
+              id="password"
+              class="m-1"
+              placeholder="Password"
+              v-model="user.password"
+              required
+            />
 
-      <div><button type="submit">Sign in</button></div>
-            <div><router-link :to="{ name: 'register' }">Need an account?</router-link></div>
-    </form>
+            <div class="mt-2"><button type="submit">Sign in</button></div>
+            <div class="mt-2">
+              <router-link :to="{ name: 'register' }"
+                >Need an account?</router-link
+              >
+            </div>
+          </form>
         </div>
-  </div>
-  </div>
-</section>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -53,34 +61,31 @@ export default {
     return {
       user: {
         username: "",
-        password: ""
+        password: "",
       },
-      invalidCredentials: false
+      invalidCredentials: false,
     };
   },
   methods: {
     login() {
       authService
         .login(this.user)
-        .then(response => {
+        .then((response) => {
           if (response.status == 200) {
             this.$store.commit("SET_AUTH_TOKEN", response.data.token);
             this.$store.commit("SET_USER", response.data.user);
             this.$router.push("/");
           }
         })
-        .catch(error => {
+        .catch((error) => {
           const response = error.response;
 
           if (response.status === 401) {
             this.invalidCredentials = true;
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
-<style scoped>
-
-
-</style>
+<style scoped></style>
