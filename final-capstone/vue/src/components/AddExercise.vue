@@ -5,35 +5,70 @@
         <div class="col-12">
           <h1>{{ Title }}</h1>
           <form id="add-exercise-form">
-            <div class="add-workout-form" id="name-div">
-              <label for="name">Name:</label>
-              <br />
-              <input id="name" type="text" v-model="exercise.name" />
+            <div class="add-workout-form my-3" id="name-div">
+              <!-- <label for="name">Name:</label> -->
+              <label for="name" class="sr-only">Name</label>
+              <input
+                type="name"
+                id="name"
+                class="form-control"
+                placeholder="Name"
+                v-model="exercise.name"
+              />
+              <!-- <input id="name" type="text"  /> -->
             </div>
-            <div class="add-workout-form" id="description-div">
-              <label for="description">Description:</label>
-              <br />
-              <textarea id="description" rows="10" cols="50" v-model="exercise.description" />
+            <div class="add-workout-form my-3" id="description-div">
+              <label for="description" class="sr-only">Description</label>
+              <input
+                type="description"
+                id="description"
+                class="form-control"
+                placeholder="Description of Exercises"
+                v-model="exercise.description"
+              />
             </div>
-            <div class="add-workout-form" id="weight-div">
-              <label for="weight">Suggested Weight &#40;lbs&#41;:</label>
-              <br />
-              <input id="weight" type="text" v-model="exercise.suggestedWeight" />
+
+            <div class="add-workout-form my-3" id="weight-div">
+              <label for="weight" class="sr-only">Weight</label>
+              <input
+                type="weight"
+                id="weight"
+                class="form-control"
+                placeholder="Weight"
+                v-model="exercise.suggestedWeight"
+              />
             </div>
-            <div class="add-workout-form" id="sets-div">
-              <label for="sets">Sets:</label>
-              <br />
-              <input id="sets" type="text" v-model="exercise.sets" />
+
+            <div class="add-workout-form my-3" id="sets-div">
+              <label for="sets" class="sr-only">Sets</label>
+              <input
+                type="sets"
+                id="sets"
+                class="form-control"
+                placeholder="How Many Sets?"
+                v-model="exercise.sets"
+              />
             </div>
-            <div class="add-workout-form" id="reps-div">
-              <label for="reps">Reps:</label>
-              <br />
-              <input id="reps" type="text" v-model="exercise.reps" />
+
+             <div class="add-workout-form my-3" id="reps-div">
+              <label for="reps" class="sr-only">Reps</label>
+              <input
+                type="reps"
+                id="reps"
+                class="form-control"
+                placeholder="How Many Reps?"
+                v-model="exercise.reps"
+              />
             </div>
-            <div class="add-workout-form" id="time-div">
-              <label for="time">Amount of Time &#40;min&#41;:</label>
-              <br />
-              <input id="time" type="text" v-model="exercise.time" />
+              <div class="add-workout-form my-3" id="time-div">
+              <label for="ti" class="sr-only">Amount of Time for Exercise?</label>
+              <input
+                type="ti"
+                id="ti"
+                class="form-control"
+                placeholder="Amount of Time for Exercise?"
+                v-model="exercise.time"
+              />
             </div>
             <div class="add-workout-form" id="bodypart-div">
               <label for="bodyTargetId">Body Part Target</label>
@@ -48,7 +83,9 @@
               </select>
             </div>
             <div class="actions" id="exercise-submit">
-              <button type="submit" v-on:click.prevent="saveExercise()">Save Exercise</button>
+              <button type="submit" v-on:click.prevent="saveExercise()">
+                Save Exercise
+              </button>
             </div>
           </form>
         </div>
@@ -72,14 +109,14 @@ export default {
         sets: "",
         time: "",
         bodyTargetId: "",
-        id: 0
-      }
+        id: 0,
+      },
     };
   },
   mounted() {
     this.exercise.id = this.$route.params.id;
-    ExerciseService.listExercises().then(response => {
-      response.data.filter(e => {
+    ExerciseService.listExercises().then((response) => {
+      response.data.filter((e) => {
         if (e.id === this.$route.params.id) {
           this.exercise = e;
         }
@@ -98,8 +135,8 @@ export default {
   },
   created() {
     this.exercise.id = this.$route.params.id;
-    ExerciseService.listExercises().then(response => {
-      response.data.filter(e => {
+    ExerciseService.listExercises().then((response) => {
+      response.data.filter((e) => {
         if (e.id === this.$route.params.id) {
           this.exercise = e;
         }
@@ -122,23 +159,23 @@ export default {
       if (this.exercise.id === 0) {
         //add Exercise
         ExerciseService.addExercise(this.exercise)
-          .then(response => {
+          .then((response) => {
             if (response.status === 201) {
               this.$router.push("/exercises");
             }
           })
-          .catch(error => {
+          .catch((error) => {
             this.handleErrorResponse(error, "adding");
           });
         //Edit Exercise(update)
       } else {
         ExerciseService.editExercise(this.exercise)
-          .then(response => {
+          .then((response) => {
             if (response.status === 200) {
               this.$router.push(`/exercises`);
             }
           })
-          .catch(error => {
+          .catch((error) => {
             console.log(error);
             this.handleErrorResponse(error, "editing");
           });
@@ -152,13 +189,13 @@ export default {
         )
       ) {
         ExerciseService.deleteExercise(this.exercise.id)
-          .then(response => {
+          .then((response) => {
             if (response.status === 200) {
               alert("Exercise successfully deleted (Remember to stay healthy)");
               this.$router.push("/exercises");
             }
           }) //if error occurs deleting exercise on server or request
-          .catch(error => {
+          .catch((error) => {
             if (error.response) {
               this.errorMsg =
                 "Error deleting your exercise . Response received was '" +
@@ -190,15 +227,15 @@ export default {
         this.errorMsg =
           "Error " + verb + " exercise. Request could not be created.";
       }
-    }
+    },
   },
   computed: {
     Title() {
       return this.$route.path == "/exercise/add"
         ? "Add an exercise"
         : "Edit an exercise";
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -215,11 +252,10 @@ textarea {
   width: 50%;
 }
 
-#exercise-submit{
+#exercise-submit {
   margin-top: 2em;
 }
-#bodyTargetId:hover{
+#bodyTargetId:hover {
   cursor: pointer;
 }
-
 </style>
