@@ -74,12 +74,14 @@
               <label for="bodyTargetId">Body Part Target</label>
               <br />
               <select id="bodyTargetId" v-model="exercise.bodyTargetId">
+                <option value="" disabled selected>Select the primary target</option>
                 <option value="1">Legs</option>
                 <option value="2">Back</option>
                 <option value="3">Chest</option>
                 <option value="4">Arms</option>
                 <option value="5">Cardio</option>
                 <option value="6">Full Body</option>
+                 <option value="7">Abs</option>
               </select>
             </div>
             <div class="actions" id="exercise-submit">
