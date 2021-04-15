@@ -145,10 +145,13 @@
 </template>
 
 <script>
+
+
 export default {
   name: "welcome",
   created() {
-     setTimeout(stop(), 2000);
+  },
+  methods: {
     }
 }
 </script>
@@ -159,7 +162,8 @@ p#welcome-slogan {
   size: 10rem;
   animation: none;
   font-family: "Times New Roman", Times, serif;
-  font-size: medium;
+  line-height: 1.5rem;
+  font-size: 110%;
   /*font-style: italic;*/
 }
 

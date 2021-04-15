@@ -8,7 +8,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="user in users" v-bind:key="user">
+          <tr v-for="user in loadUserNames" v-bind:key="user.username">
             <td class="text-left">
               <router-link
                 v-bind:to="{
@@ -54,6 +54,12 @@ export default {
             console.log(error);
           });
       });
+  },
+  computed: {
+    loadUserNames() {
+      this.getUserId;
+      return this.users;
+    }
   },
   methods: {
     getUserId(username) {

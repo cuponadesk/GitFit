@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <div class="col-12 mx-0 px-0 ">
+      <h1 class="my-3 py-3 text-center">{{this.$route.params.username}}</h1>
       <table class="table table-striped px-0 mx-0">
         <thead>
           <tr>

@@ -1,6 +1,8 @@
 <template>
  <div class="container">
+     <h1 class="my-3 py-3 text-center">{{getExercisesInWorkout[0].dateSaved}}</h1>
 <div class= "col-12">
+
     <table class="table table-striped">
       <thead>
         <tr>
