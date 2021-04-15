@@ -15,8 +15,6 @@
       <nav
         class="navbar navbar-expand-lg navbar-dark bg-dark container-xs container-xl container-lg container-md container-sm"
       >
-        <!-- <a class="navbar-brand" href="#">GIT Fit</a> -->
-
         <button
           class="navbar-toggler"
           type="button"
@@ -46,7 +44,7 @@
                 <span class="sr-only">(current)</span></router-link
               >
             </li>
-            <li class="nav-item active">
+            <li class="nav-item active" v-if="!admin">
               <router-link
                 v-bind:to="{ name: 'workout' }"
                 class="nav-link"
@@ -54,7 +52,7 @@
                 >Workouts <span class="sr-only">(current)</span></router-link
               >
             </li>
-            <li class="nav-item active">
+            <li class="nav-item active" v-if="!admin">
               <router-link
                 v-bind:to="{ name: 'historyView' }"
                 class="nav-link"
@@ -72,8 +70,7 @@
             </li>
             <li class="nav-item active" v-if="admin">
               <router-link v-bind:to="{ name: 'all-users' }" class="nav-link"
-                >See Users
-                <span class="sr-only">(current)</span></router-link
+                >See Users <span class="sr-only">(current)</span></router-link
               >
             </li>
             <li class="nav-item active" v-if="!loggedIn">
@@ -86,7 +83,7 @@
         </div>
       </nav>
     </div>
-     <div class="section mt-0">
+    <div class="section mt-0">
       <div class="container p-0 my-0">
         <div id="terminal">
           <h5>Terminal</h5>
@@ -103,9 +100,20 @@
     <router-view />
 
     <!-- footer with social media icons -->
-      <div class="container mx-auto mt-4 pt-4" style="background-color: var(--light)">
+    <div
+      class="container mx-auto mt-4 pt-4"
+      style="background-color: var(--light)"
+    >
+      <div class="row">
+        <div class="ool-12 mx-auto">
+          <p class="text-center font-weight-bolder">
+            Check us out on social media
+          </p>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-12 mx-auto">
-           <div id="social">
+          <div id="social" class="my-0">
             <ul>
               <!-- <li>
                 <a target="_blank" @click="stop"><span><img src="https://www.flaticon.com/svg/vstatic/svg/3761/3761633.svg?token=exp=1618490051~hmac=ae99fcc03004614bc0f50310bce85370" /> </span> click</a>
@@ -141,15 +149,16 @@
           <p class="text-center">&copy;2021 GitFit</p>
         </div>
       </div>
+    </div>
   </div>
 </template>
 <script>
 import authService from "./services/AuthService";
 
-import Vue from 'vue'
-import VueConfetti from 'vue-confetti'
+import Vue from "vue";
+import VueConfetti from "vue-confetti";
 
-Vue.use(VueConfetti)
+Vue.use(VueConfetti);
 
 export default {
   components: {},
@@ -162,56 +171,8 @@ export default {
       invalidCredentials: false,
     };
   },
-  created() {
-      setTimeout(this.$confetti.stop(), 2000);
-  },
+  created() {},
   methods: {
-        start() {
-        this.$confetti.start(
-          {particles: [
-            {
-            type: 'image',
-            url: 'https://image.flaticon.com/icons/png/512/38/38464.png',
-              },
-              {
-            type: 'image',
-            url: 'https://cdn0.iconfinder.com/data/icons/hotel-and-travel-4-1/52/195-512.png',
-              },
-            //   {
-            // type: 'image',
-            // url: 'https://www.flaticon.com/svg/vstatic/svg/2983/2983413.svg?token=exp=1618434830~hmac=d7fcc22e84624e6d81288f7663f38532',
-            //   },
-          ]},
-        );
-      },
-
-      stop() {
-        this.$confetti.stop();
-      },
-
-      love() {
-        this.$confetti.update({
-          particles: [
-            {
-            type: 'image',
-          src: '/images/dumbell.png',
-              },
-            {
-              type: 'heart',
-            },
-            {
-              type: 'circle',
-            },
-          ],
-          defaultColors: [
-            'red',
-            'pink',
-            'purple',
-            '#5e62d1',
-            '#ba0000'
-          ],
-        });
-      },
     login() {
       authService
         .login(this.user)
@@ -292,9 +253,8 @@ td {
 
 div#terminal {
   width: 100%;
-  height: 25%;
+  height: 150px;
   background-color: black;
-  height: 20vh;
   color: white;
   font: 1.3rem Inconsolata, monospace;
   margin: 0px;
@@ -374,8 +334,9 @@ background-color:#5e62d1;
   #terminal p {
     font-size: 1.25rem;
   }
+  div#terminal {
+    height: 125px;
+  }
 
 }
-
-
 </style>

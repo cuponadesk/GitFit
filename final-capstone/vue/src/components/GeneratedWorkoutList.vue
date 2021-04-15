@@ -1,5 +1,10 @@
 <template>
   <div class="container px-0">
+    <div class="row mx-0 mt-2 text-center py-3 alert-success" v-if="saved">
+      <div class="col-12 alert-success py-3 px-3 mx-auto">
+        <h1>Workout Saved!</h1>
+      </div>
+    </div>
     <div class="col-12 px-0">
       <table class="table table-striped">
         <thead>
@@ -43,7 +48,11 @@
           </tr>
         </tbody>
       </table>
-      <button type="button" v-on:click="saveCompletedWorkout()">
+      <button
+        type="button"
+        v-on:click="saveCompletedWorkout()"
+        class="col-12 py-4"
+      >
         Save Workout
       </button>
     </div>
@@ -67,10 +76,10 @@ export default {
   data() {
     return {
       completedExercises: [],
+      saved: false,
     };
   },
   created() {
-    console.log("created");
   },
   methods: {
     start() {
@@ -121,7 +130,6 @@ export default {
       let inArrayAlready = this.completedExercises.findIndex(
         (e) => e.id == exercise.id
       );
-      console.log(inArrayAlready);
       if (inArrayAlready == -1) {
         this.completedExercises.push(exercise);
       } else {
@@ -129,14 +137,23 @@ export default {
       }
     },
     saveCompletedWorkout() {
+      if (this.completedExercises.length == 0) {
+        alert("No exercises were completed");
+        return;
+      }
       this.start();
       workoutService
         .saveCompletedWorkoutToDatabase(this.completedExercises)
         .then((response) => {
           if (response.status == 201) {
-            alert("Your workout was saved successfully. Keep killin' it!");
-            this.start;
-            this.$router.push("/");
+            this.saved = true;
+            var v = this;
+            setTimeout(function() {
+              v.stop();
+              v.$router.push("/");
+              alert("Your workout was saved successfully. Keep killin' it!");
+            }, 5000);
+            
           }
         })
         .catch((error) => {
@@ -151,7 +168,6 @@ export default {
         tempWorkouts.completed = false;
       }
       this.$store.commit("SET_WORKOUT", tempWorkouts);
-      console.log(tempWorkouts);
       return this.$store.state.workout;
     },
     totalWorkoutTime() {

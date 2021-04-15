@@ -120,15 +120,15 @@ public class WorkoutSqlDAO implements WorkoutDAO {
     private List<ExerciseTrainer> removeDuplicates(List<ExerciseTrainer> exercises) {
 
         //sort the exercises using a comparator
-        exercises.sort(Comparator.comparingInt(ExerciseTrainer::getId));
+        exercises.sort( (left, right) -> {
         //sort the exercises by exercise id using a lambda
-//            if (left.getId() > right.getId()) {
-//                return 1;
-//            } else if (right.getId() > left.getId()) {
-//                return -1;
-//            }
-//            return 0;
-//        });
+            if (left.getId() > right.getId()) {
+                return 1;
+            } else if (right.getId() > left.getId()) {
+                return -1;
+            }
+            return 0;
+        });
 
         List<ExerciseTrainer> noDupes = new ArrayList<>();
         //Iterate through the array looking for duplicate exercises
@@ -144,6 +144,7 @@ public class WorkoutSqlDAO implements WorkoutDAO {
             int rando = (int)(Math.random()*ii);
             //add only one of the duplicates to the array to be returned.
             noDupes.add(exercises.get(i+rando));
+            i+=ii;
         }
 
         return noDupes;
