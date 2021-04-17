@@ -40,19 +40,6 @@ export default {
       .getAllUsers()
       .then((response) => {
         this.users = response.data;
-        console.log(this.users);
-      })
-      .catch((error) => {
-        console.log(error);
-        workoutService
-          .getAllUsers()
-          .then((response) => {
-            this.users = response.data;
-            console.log(this.users);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
       });
   },
   computed: {
@@ -63,15 +50,14 @@ export default {
   },
   methods: {
     getUserId(username) {
-      console.log(username);
       let userId = 0;
       workoutService
         .getIdFromUsername(username)
         .then((response) => {
           userId = response.data;
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+
         });
       return userId;
     },

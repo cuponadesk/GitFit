@@ -38,18 +38,16 @@ export default {
   },
   name: "display-user-details",
   created() {
-    console.log("Trying to get user workout stuff");
     workoutService
       .getWorkoutsFromUser(this.$route.params.username)
       .then((response) => {
         this.$store.commit("SAVE_USER_WORKOUTS", response.data);
         this.savedWorkouts = response.data;
       })
-      .catch((error) => {
+      .catch(() => {
         alert(
           "Sorry we're unable to locate your workout history. Please log your workouts to access this page"
         );
-        console.log(error);
       });
   },
   computed: {

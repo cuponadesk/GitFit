@@ -278,9 +278,6 @@ export default {
           if (response.status == 200) {
             this.$router.push("/myworkout");
           }
-        })
-        .catch((error) => {
-          console.log(error);
         });
     },
     filterTrainer(e) {

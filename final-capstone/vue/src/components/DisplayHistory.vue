@@ -39,9 +39,9 @@ export default {
         this.$store.commit("SAVE_USER_WORKOUTS", response.data);
         this.savedWorkouts = response.data;
       })
-      .catch((error) => {
+      .catch(() => {
         alert("Sorry we're unable to locate your workout history. Please log your workouts to access this page");
-        console.log(error);
+
       });
   },
   data() {

@@ -194,7 +194,6 @@ export default {
   },
   computed: {
     loggedIn() {
-      console.log(this.$store.state.token);
       return this.$store.state.token != "";
     },
     admin() {
