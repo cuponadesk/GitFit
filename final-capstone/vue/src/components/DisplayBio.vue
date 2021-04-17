@@ -14,7 +14,7 @@
       </div>
       <h3>John Baringhaus</h3>
       <div class="bio">
-        <img src="images/john-2.jpg" alt="John Trainer" />
+        <img src="images/john-2.jpg"  style="width: 20%;" alt="John Trainer" />
         <p>
           John <span style="color: #5e62d1; font-weight: bold">"The Chest Crusader" </span> a Certified Strength and Condition
           Specialist (CSCS) with the National
