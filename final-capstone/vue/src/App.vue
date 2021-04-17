@@ -242,9 +242,7 @@ export default {
   }
 }
 
-body {
-  background-color: white;
-}
+
 
 td {
   color: black;
