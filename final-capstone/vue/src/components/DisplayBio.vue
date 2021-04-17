@@ -77,7 +77,7 @@
               >
               when he started working his biceps in the fourth grade. If you
               need a trainer who will hold you accountable and push you to your
-              limits, Zack would be a great choice.
+              limits, Zack's your guy.
             </p>
           </div>
           <div class="col-xs-12 col-lg-6 align-self-center">
@@ -106,7 +106,7 @@
               athlete, you'll also recieve nutritional guidance. Known as
               <span style="color: #5e62d1; font-weight: bold">
                 "The Back Behemoth"</span
-              >, you'll find out why
+              >, you'll find out why.
             </p>
           </div>
           <div class="col-xs-12 col-lg-6 align-self-center">
@@ -128,17 +128,14 @@
 
           <div class="col-xs-12 col-lg-6 mt-4 my-auto text-left">
             <p>
-              Domenic has been a lifetime advocate of core strength, and his ab
-              workout routines have taken him all over the world, earning him
+              Domenic has been a lifetime advocate of core strength earning him
               the nickname
               <span style="color: #5e62d1; font-weight: bold">
                 "The Abs Ambassador"</span
               >. Domenic believes that core strength is the baseline of physical
           fitness, and full body fitness stems from a solid core. Are you
-          looking to get ripped, 6 pack abs for Hot Boy (or Girl) Summer? If so,
-          Dom just might be the perfect trainer for you! Come see why numerous
-          Hollywood actors and actresses have come to Dom before in preparation
-          for their blockbuster films!
+          looking to get ripped?
+          Dom is the perfect trainer for you! 
             </p>
           </div>
           <div class="col-xs-12 col-lg-6 align-self-center">
