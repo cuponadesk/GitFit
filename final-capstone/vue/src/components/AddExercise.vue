@@ -19,12 +19,14 @@
             </div>
             <div class="add-workout-form my-3" id="description-div">
               <label for="description" class="sr-only">Description</label>
-              <input
-                type="description"
+              <textarea
+                type="textarea"
                 id="description"
                 class="form-control"
                 placeholder="Description of Exercises"
                 v-model="exercise.description"
+                rows="10"
+                cols="50"
               />
             </div>
 

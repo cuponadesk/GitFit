@@ -151,13 +151,9 @@ export default {
             setTimeout(function() {
               v.stop();
               v.$router.push("/");
-              alert("Your workout was saved successfully. Keep killin' it!");
             }, 5000);
             
           }
-        })
-        .catch((error) => {
-          console.log(error);
         });
     },
   },
